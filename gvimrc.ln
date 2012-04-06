@@ -10,7 +10,7 @@ set lines=25 columns=100          " Window dimensions.
 set guioptions=aAce		  " Don't show scrollbar
 
 " default colorscheme
-colorscheme twilight
+colorscheme zenburn
 
 if has("gui_macvim")
   " Fullscreen takes up entire screen

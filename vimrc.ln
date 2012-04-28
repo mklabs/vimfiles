@@ -124,9 +124,10 @@ set modelines=10
 " Default color scheme
 color desert
 
-" Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
+" No Backup! Yeah. COMMIT EVERYTHING
+set nobackup
+set noswapfile
+
 
 " Turn off jslint errors by default
 let g:JSLintHighlightErrorLine = 1

@@ -11,6 +11,18 @@ set number
 set ruler
 syntax on
 
+" Use modeline overrides
+set modeline
+set modelines=10
+
+" default colorscheme
+color molokai
+
+
+" No Backup! Yeah. COMMIT EVERYTHING
+set nobackup
+set noswapfile
+
 " Set encoding
 set encoding=utf-8
 
@@ -56,13 +68,13 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-function s:setupWrapping()
+function! s:setupWrapping()
   set wrap
   set wrapmargin=2
   set textwidth=72
 endfunction
 
-function s:setupMarkup()
+function! s:setupMarkup()
   call s:setupWrapping()
   map <buffer> <Leader>p :Hammer<CR>
 endfunction
@@ -116,18 +128,6 @@ elseif has("unix")
 endif
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
-
-" Use modeline overrides
-set modeline
-set modelines=10
-
-" Default color scheme
-color desert
-
-" No Backup! Yeah. COMMIT EVERYTHING
-set nobackup
-set noswapfile
-
 
 " Turn off jslint errors by default
 let g:JSLintHighlightErrorLine = 1

@@ -1,1 +1,8 @@
 let g:gist_private = 1
+
+
+" Custom mappings
+" Command-/ to toggle comments
+
+noremap tt :TComment<CR>
+

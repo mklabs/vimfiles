@@ -18,6 +18,9 @@ set modelines=10
 " default colorscheme
 color molokai
 
+" no fold by default
+set nofoldenable
+
 
 " No Backup! Yeah. COMMIT EVERYTHING
 set nobackup

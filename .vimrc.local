@@ -2,7 +2,30 @@ let g:gist_private = 1
 
 
 " Custom mappings
-" Command-/ to toggle comments
+" tt to toggle comments
 
 noremap tt :TComment<CR>
+
+
+" Configure templates
+" http://vim.runpaint.org/typing/using-templates/
+"
+" Mustache like template placeholdr: eg. {{ title }}
+"
+
+
+function! LoadTemplate()
+  silent! 0r ~/.vim/templates/skel.%:e
+  " Highlight %VAR% placeholders with the Error colour group
+  " TO MAKE IT SUPER OBVIOUS!
+  syn match Error "{{\s*\l\+\s*}}" containedIn=ALL
+endfunction
+
+autocmd! BufNewFile * call LoadTemplate()
+
+" Jump between {{ var }} placeholders in Normal mode with <Ctrl-p>
+nnoremap <c-p> /{{\s*\l.\{-1,}\s*}}<cr>c/{{\s*\l*\s*}}/e<cr>
+
+"Jump between {{ var }} placeholders in Insert mode with <Ctrl-p>
+inoremap <c-p> <ESC>/{{\s*\l.\{-1,}\s*}}<cr>c/{{\s*\l*\s*}}/e<cr>
 

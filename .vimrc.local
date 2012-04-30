@@ -6,6 +6,14 @@ let g:gist_private = 1
 
 noremap tt :TComment<CR>
 
+" set filtetype to js for files with node shebang thing
+if did_filetype()
+  finish
+endif
+if getline(1) =~# '^#!.*/bin/env\s\+node\>'
+  setfiletype javascript
+endif
+
 
 " Configure templates
 " http://vim.runpaint.org/typing/using-templates/
@@ -20,6 +28,7 @@ function! LoadTemplate()
   " TO MAKE IT SUPER OBVIOUS!
   syn match Error "{{\s*\l\+\s*}}" containedIn=ALL
 endfunction
+
 
 autocmd! BufNewFile * call LoadTemplate()
 

@@ -8,6 +8,9 @@ silent! call pathogen#infect()
 silent! call pathogen#infect("~/src/vim/vendor")
 silent! call pathogen#infect("~/src/vim/bundle")
 
+" auto-generate doc for each plugin in pathogen runtime path
+silent! call pathogen#helptags()
+
 set number
 set ruler
 syntax on

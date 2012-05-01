@@ -4,8 +4,9 @@
 set nocompatible                  " Must come first because it changes other options.
 
 runtime! autoload/pathogen.vim
-silent! call pathogen#helptags()
-silent! call pathogen#runtime_append_all_bundles()
+silent! call pathogen#infect()
+silent! call pathogen#infect("~/src/vim/vendor")
+silent! call pathogen#infect("~/src/vim/bundle")
 
 set number
 set ruler
@@ -20,7 +21,6 @@ color molokai
 
 " no fold by default
 set nofoldenable
-
 
 " No Backup! Yeah. COMMIT EVERYTHING
 set nobackup

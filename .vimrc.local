@@ -1,6 +1,5 @@
 let g:gist_private = 1
 
-
 " Custom mappings
 " tt to toggle comments
 

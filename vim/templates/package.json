@@ -1,0 +1,14 @@
+{
+  "author": "{{ author }}",
+  "name": "{{ name }}",
+  "description": "{{ description }}",
+  "version": "0.1.0",
+  "repository": {
+    "url": "{{ repo }}"
+  },
+  "engines": {
+    "node": "~0.6.x"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -6,13 +6,15 @@ let g:gist_private = 1
 
 noremap tt :TComment<CR>
 
-" set filtetype to js for files with node shebang thing
-if did_filetype()
-  finish
-endif
-if getline(1) =~# '^#!.*/bin/env\s\+node\>'
-  setfiletype javascript
-endif
+function! s:NodeAndTheBang()
+  " set filtetype to js for files with node shebang thing
+  if getline(1) =~# '#!/usr/bin/env node'
+    echo "yay"
+    set ft=javascript
+  endif
+endfunction
+
+autocmd! BufRead,BufNewFile * call s:NodeAndTheBang()
 
 
 " Configure templates

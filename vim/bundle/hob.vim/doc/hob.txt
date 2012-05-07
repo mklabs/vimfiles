@@ -1,0 +1,37 @@
+*hob.txt*
+
+It's like Hub, but with a "o"~
+
+
+|hob-intro|	              Introduction
+|hob-Installation|	      Installation
+|hob-commands|	              Commands
+
+
+Introduction	                                    *hob* *hob-intro*
+
+Blah, Blah, Blah.
+
+Installation	                                   *hob-installation*
+
+If you don't have a preferred installation method, I recommend
+installing [pathogen.vim](https://github.com/tpope/vim-pathogen), and
+then simply copy and paste:
+
+>
+	cd ~/.vim/bundle
+	git clone git://github.com/mklabs/vim-hob.git
+<
+
+Once help tags have been generated, you can view the manual with `:help hob`.
+
+
+Commands	                                            *hob-commands*
+
+Blah, Blah, Blah.
+
+
+
+
+vim:tw=78:ts=8:ft=help:norl:
+

@@ -8,46 +8,103 @@ Plugins are managed via
 [Pathogen](https://github.com/tpope/vim-pathogen). installation / update
 script is based on [@brianleroux's quick-vim](https://github.com/brianleroux/quick-vim).
 
-Some ot the below plugins are custom-made, eg. these are mine as I'm
-trying to learn how to build my own Vim plugins: node.snipmate,
-snipmate-css3-please and vim-backbone.
+The vim directory here is copied to `~/.vim/` when `./quick-vim install` or
+`./quick-vim upgrade` is run.
 
-### Linter
+**bundle.txt**
 
-* [Tabular](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/) Align declarations, equals signs, etc.
-* [Syntastic](https://github.com/scrooloose/syntastic) Syntax checking hacks for vim
+```
+git://github.com/scrooloose/nerdtree.git
+git://github.com/scrooloose/syntastic.git
+git://github.com/tpope/vim-surround.git
+git://github.com/tpope/vim-markdown.git
+git://github.com/mattn/zencoding-vim.git
+git://github.com/mattn/gist-vim.git
+git://github.com/pangloss/vim-javascript.git
+git://github.com/kchmck/vim-coffee-script.git
+git://github.com/altercation/vim-colors-solarized.git
+git://github.com/vim-scripts/Color-Sampler-Pack.git
+git://github.com/godlygeek/tabular.git
+git://github.com/tomtom/tcomment_vim.git
+git://github.com/msanders/snipmate.vim.git
+git://github.com/tpope/vim-cucumber.git
+git://github.com/nono/vim-handlebars.git
+git://github.com/tpope/vim-fugitive.git
+git://github.com/tpope/vim-eunuch.git
+```
 
-### Syntax
+---
 
-* [JavaScript](https://github.com/pangloss/vim-javascript)
-* [CoffeeScript](https://github.com/kchmck/vim-coffee-script)
-* [Markdown](https://github.com/tpope/vim-markdown)
+The pathogen config is as follows:
 
-### Editing
+```vim
+runtime! autoload/pathogen.vim
+silent! call pathogen#infect()
+silent! call pathogen#infect("~/src/vim/bundle")
 
-* [surround](http://www.vim.org/scripts/script.php?script_id=1697)
-* [tComment](http://www.vim.org/scripts/script.php?script_id=1173) auto comment
+" auto-generate doc for each plugin in pathogen runtime path
+call pathogen#helptags()
+```
 
-### Snippets
+`'runtimepath'` include `~/src/vim/bundle` too. This is where I store
+custom-made plugins, eg. these are mine as I'm trying to learn how to build my
+own Vim plugins.
 
-* [SnipMate](http://www.vim.org/scripts/script.php?script_id=2540) Text-Mate like snippets
-* [node.snipmate](https://github.com/mklabs/node.snipmate) node specific
-  snippet for SnipMate, generated from http://nodejs.org/api
-* [snipmate-css3-please](https://github.com/mklabs/node.snipmate)
-  collection of css snippets, borrowed to http://css3please.com/
+Also documentation for plugins is generated, `pathogen#helptags()` is called
+directly from there.
 
-#### Browsing
+### Some notes
 
-* [NERD_Tree](http://www.vim.org/scripts/script.php?script_id=1658) Tree filesystem browser
+* `vim/bundle` may include growing custom made package. These are vim plugins
+  that have not their own github repo.
 
-#### Colorschemes
+* `vim/plugin` may include tiny vim script or plugin. These are just non
+  pathogen-bundled, vim scripts put there.
 
-* [ColorSamplePack] (http://www.vim.org/scripts/script.php?script_id=625)
-* [Solarized](https://github.com/altercation/vim-colors-solarized)
+---
 
-#### Miscellaneous
+`plugin/t.vim` is a minimalist vim template plugin thing. Heavily based on
+https://github.com/tpope/tpope/blob/master/.vim/plugin/ztemplate.vim.
 
-* [Zencoding](http://www.vim.org/scripts/script.php?script_id=2981) Generate html structures from CSS-like syntax
-* [gist-vim](http://www.vim.org/scripts/script.php?script_id=2981) Easily create gists from current buffer(s)
-* [vim-backbone](https://github.com/mklabs/vim-backbone) A plugin to work with Backbone applications
+```vim
+" Custom templates
+" http://vim.runpaint.org/typing/using-templates/
+"
+" Mustache like template placeholdr: eg. {{ title }}
+"
+" Some functions borrowed to:
+"
+" > https://github.com/tpope/tpope/blob/master/.vim/plugin/ztemplate.vim
+" > (amazsing tiny template plugin)
+"
+" When editing a new file (not created yet, eg. BufNewFile is triggered), the "
+" plugin will try to load a template from ~/vim/templates with the exact same
+" name, " or try to fallback to `skel.{ext}`
+"
+```
+
+Right now, there are templates for:
+
+* package.json:
+a basic npm package.json file.
+
+* gherkin feature:
+same here, every time a new `*.feature` file is created,
+this template is loaded in the current buffer.
+
+* `*.html` files:
+always based on HTML5 Boilerplate index.html file (unstripped, might switch to
+the unstriped version)
+
+* `*.vim` files: a basic boilerplate for vim script files.
+
+Each template has some placeholder in it. `<C-P>` (ctrl+p) or `<D-Space>`
+(cmd+space, mac only) may be used to jump to next `{{ thing }}`.
+
+---
+
+The `boilerplate` directory here includes a basic starting point for creating new plugin.
+
+I might add a bash or node script (maybe a grunt init task) to replace these
+`{{ mustache-like }}` things, and rename files appropriately.
 

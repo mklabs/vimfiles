@@ -5,7 +5,6 @@ set nocompatible                  " Must come first because it changes other opt
 
 runtime! autoload/pathogen.vim
 silent! call pathogen#infect()
-silent! call pathogen#infect("~/src/vim/vendor")
 silent! call pathogen#infect("~/src/vim/bundle")
 
 " auto-generate doc for each plugin in pathogen runtime path

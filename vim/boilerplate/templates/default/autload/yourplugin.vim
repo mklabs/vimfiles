@@ -1,5 +1,5 @@
-" {{ filename }} -      {{ title }}
-" Maintainer:       {{ author }}
+" {{ filename }} - {{ description }}
+" Maintainer:      {{ author }}
 
 if exists("g:loaded_{{ filename }}") || v:version < 700 || &cp
   finish

@@ -1,0 +1,12 @@
+{
+  "author": "{{ author }}",
+  "name": "{{ name }}",
+  "description": "{{ description }}",
+  "version": "0.1.0",
+  "repository": {
+    "url": "git://github.com/{{ user }}/vim-{{ name }}.git"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
+

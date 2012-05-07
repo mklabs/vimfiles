@@ -8,10 +8,10 @@ Reads some good documentation on how to write your plugin.
 
 - http://stevelosh.com/blog/2011/09/writing-vim-plugins/
 - http://learnvimscriptthehardway.stevelosh.com/
-- Use your Github buddy, reading though other people source is a really
+- Use your Github buddy, reading through other people source is a really
   effective way to lear vim scripts (and pretty much any thing else)
 
-Also, probably your bets source of documentation may very well remains
+Also, probably your best source of documentation may very well remain
 the vim documentation itself. See:
 
 - `:h plugin`
@@ -51,7 +51,6 @@ License & Acknowledgement
 
 Add credits here
 
-License: Same as the three plugins mentioned above, same as Vim. See
-`:help license`.
+License: Same as Vim. See `:help license`.
 
 

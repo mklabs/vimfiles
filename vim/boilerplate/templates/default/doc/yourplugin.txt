@@ -20,7 +20,7 @@ then simply copy and paste:
 
 >
 	cd ~/.vim/bundle
-	git clone {{ repo }}
+        git clone git://github.com/{{ user }}/vim-{{ name }}.git
 <
 
 Once help tags have been generated, you can view the manual with `:help {{ name }}`.

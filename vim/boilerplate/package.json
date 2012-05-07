@@ -1,12 +1,18 @@
 {
-  "author": "{{ author }}",
-  "name": "{{ name }}",
-  "description": "{{ description }}",
+  "author": "mklabs",
+  "name": "vim-boilerplate",
+  "description": "A simple script to generate a new vim plugin structure",
   "version": "0.1.0",
-  "repository": {
-    "url": "{{ repo }}"
+  "engines": {
+    "node": "~0.6.x"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "hogan": "~1.0.5-dev",
+    "nopt": "~1.0.10",
+    "read": "0.0.2",
+    "glob": "~3.1.9",
+    "fstream": "~0.1.18"
+  },
+  "devDependencies": {},
+  "bin": "./bin/generate"
 }
-

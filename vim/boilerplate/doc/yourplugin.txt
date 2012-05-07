@@ -1,0 +1,37 @@
+*{{ name }}.txt*
+
+{{ description }}
+
+
+|{{ name }}-intro|	              Introduction
+|{{ name }}-Installation|	        Installation
+|{{ name }}-commands|	            Commands
+
+
+Introduction	                                      *{{name}}-intro*
+
+Blah, Blah, Blah.
+
+Installation	                                   *{{ name }}-installation*
+
+If you don't have a preferred installation method, I recommend
+installing [pathogen.vim](https://github.com/tpope/vim-pathogen), and
+then simply copy and paste:
+
+>
+	cd ~/.vim/bundle
+	git clone {{ repo }}
+<
+
+Once help tags have been generated, you can view the manual with `:help {{ name }}`.
+
+
+Commands	                                            *{{ name }}-commands*
+
+Blah, Blah, Blah.
+
+
+
+
+vim:tw=78:ts=8:ft=help:norl:
+

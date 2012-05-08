@@ -14,12 +14,15 @@ set number
 set ruler
 syntax on
 
+" coloooooooooooors, your terminal should support 256 colors
+set t_Co=256
+
+" default colorscheme
+color zenburn
+
 " Use modeline overrides
 set modeline
 set modelines=10
-
-" default colorscheme
-color molokai
 
 " no fold by default
 set nofoldenable

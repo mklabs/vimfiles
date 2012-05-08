@@ -25,3 +25,10 @@ endif
 
 " colors
 colorscheme zenburn
+
+
+" Plugin settings
+
+let g:cowsay_cowfile = 'ghostbusters.cow'
+
+

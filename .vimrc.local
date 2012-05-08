@@ -16,3 +16,12 @@ autocmd! BufRead,BufNewFile * call s:NodeAndTheBang()
 
 " remove any trailing whitespace on file save
 au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
+if has('gui_running')
+  set background=light
+else
+  set background=dark
+endif
+
+" colors
+colorscheme zenburn

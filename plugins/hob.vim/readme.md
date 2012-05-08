@@ -40,22 +40,56 @@ And then, I wanted to type less characters.
 Commands
 --------
 
+### HobGet
+
 `:HobGet <user/repo> <file>`
 
 is a simple command to fetch and insert below the cursor or the specified line
 a filename from a Github repository.
 
-`:HobGet` is pretty dumb right now, but I might get clever with some amount of
+`:HobGet` is pretty dumb right now, but It might get clever with some amount of
 completion on user/repo and filenames (via github api, will need some sort of
 caching system)
 
+Predefined URLs may be defined and added with the `hob#define(id, url)`
+function.
 
----
+```
+:call hob#define('blah', 'http://example.com/path/to/blah.blah')
+```
+
+When defined this way, URLs may point to anything (not necessarily
+within a github repo) and `:HobGet blah` becomes a valid command.
+
+Otherwise, information about github user, repository and filepath in the
+form of `:HobGet user/repo path/to/filename.ext` must be used.
+
+### HobHelp
 
 `:HobHelp`
 
-is similar to `:h hob`
+Nothing fancy, is similar to `:h hob`
 
+Configuration
+-------------
+
+`:HobGet foo` is a valid command assuming `foo` identifier was defined
+through `g:hob_urls` in your `.vimrc` (or via `hob#define` at runtime)
+
+```vim
+"
+" Hob config
+"
+" A dictionnary with key / value pairs where key is the id, and value is the
+" remote url
+
+let g:hob_urls = {}
+let g:hob_urls['h5bp-css'] = 'https://raw.github.com/h5bp/html5-boilerplate/master/css/style.css'
+let g:hob_urls['h5bp'] = 'https://raw.github.com/h5bp/html5-boilerplate/master/index.html'
+```
+
+Limited amount of completion is supported, which is only on predefined URLs
+right now.
 
 Install
 -------
@@ -76,16 +110,6 @@ then simply copy and paste:
 Once help tags have been generated, you can view the manual with
 `:help hob`
 
-Commands
---------
-
-If your plugin defines some command. Add a brief description here, for
-each of these.
-
-Configuration
--------------
-
-If your plugin has some kind of configuration. Detail this here.
 
 
 License & Acknowledgement

@@ -56,7 +56,7 @@ function! s:url_mapping(id)
   return has_key(s:urls, a:id) ? s:urls[a:id] : ''
 endfunction
 
-function! s:define(id, url)
+function! hob#define(id, url)
   " add to our url mappings
   let s:urls[a:id] = a:url
 endfunction

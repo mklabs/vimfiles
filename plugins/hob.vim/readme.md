@@ -40,12 +40,21 @@ And then, I wanted to type less characters.
 Commands
 --------
 
-`:HobGet <repo> <file>`
+`:HobGet <user/repo> <file>`
 
-is a simple command to fetch and insert below the cursor or the specified line a filename from a Github repository.
+is a simple command to fetch and insert below the cursor or the specified line
+a filename from a Github repository.
 
 `:HobGet` is pretty dumb right now, but I might get clever with some amount of
-completion on user/repo and filenames (via github api, will need some sort of caching system)
+completion on user/repo and filenames (via github api, will need some sort of
+caching system)
+
+
+---
+
+`:HobHelp`
+
+is similar to `:h hob`
 
 
 Install

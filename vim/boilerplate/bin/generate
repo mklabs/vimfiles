@@ -18,7 +18,8 @@ var opts = nopt({
   template: ['default']
 }, {
   h: ['--help'],
-  v: ['--version']
+  v: ['--version'],
+  d: ['--debug']
 });
 
 // some help? maybe
@@ -81,6 +82,7 @@ function template(data, cb) {
         bname = path.basename(file).replace(ext, ''),
         dname = path.dirname(file);
 
+      data.name = data.name.replace(/\.vim/, '');
       var filename = bname == 'yourplugin' ? path.join(dname, data.name + ext) : file;
 
       var source = path.join(tmpldir, file);
@@ -99,6 +101,7 @@ function template(data, cb) {
             fs.readFile(filename, 'utf8', function(e, body) {
               if(e) return cb(e);
               data.filename = path.basename(filename);
+              data.basename = data.filename.replace(path.extname(data.filename), '');
               fs.writeFile(filename, hogan.compile(body).render(data), next);
             });
           });
@@ -137,11 +140,11 @@ function prompt(data, cb) {
   })(prompts.shift());
 }
 
-
 function error(err) {
   if(!err) return;
   console.error('... Oh snap! ...');
-  console.error(err.stack || err.message);
+  console.error(err.message);
+  if(opts.debug) console.error(err.stack);
   process.exit(err.code || 1);
 }
 

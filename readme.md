@@ -55,8 +55,9 @@ directly from there.
 
 ### Some notes
 
-* `vim/bundle` may include growing custom made package. These are vim plugins
-  that have not their own github repo.
+* `plugins` may include growing custom made package. These are vim plugins that
+  have not their own github repo. If there is, they're symlinked to my
+  `~/src/vim/bundle/<pluginname>` directory.
 
 * `vim/plugin` may include tiny vim script or plugin. These are just non
   pathogen-bundled, vim scripts put there.

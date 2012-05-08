@@ -1,9 +1,9 @@
 " hob.vim -         It's like Hub. But from Vim.
 " Maintainer:       mklabs
 
-if exists("g:loaded_hob") || v:version < 700 || &cp
-  finish
-endif
+" if exists("g:loaded_hob") || v:version < 700 || &cp
+"   finish
+" endif
 let g:loaded_hob = 1
 
 "
@@ -20,8 +20,7 @@ endfunction
 function! s:request(url)
   " always make a head request before the real one
   " abort if we got 404 response
-  let head = system('curl -s -I'. a:url)
-
+  let head = system('curl -s -k -I '. a:url)
   if matchstr(head, '404 Not Found') != ''
     return s:error('... 404 Not Found: ' . a:url . ' ...')
   endif

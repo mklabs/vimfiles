@@ -1,34 +1,75 @@
+
+"
+" I'm more and more tempted to split the whole vim configuration into tiny
+" sourced scripts, organized per topic thing. Or just stick with the single big
+" one.
+"
+
+"
+" Plugin settings
+" ===============
+
+"
+" gist-vim
+" --------
+"
+
+" goes private by default
 let g:gist_private = 1
 
-" Custom mappings
-" tt to toggle comments
+"
+" TComment
+" --------
+"
 
+" `tt` in normal mode to toggle comments
 noremap tt :TComment<CR>
 
+"  ________
+" < Cowsay >
+"  --------
+"     \
+"      \
+"                                    .::!!!!!!!:.
+"   .!!!!!:.                        .:!!!!!!!!!!!!
+"   ~~~~!!!!!!.                 .:!!!!!!!!!UWWW$$$
+"       :$$NWX!!:           .:!!!!!!XUWW$$$$$$$$$P
+"       $$$$$##WX!:      .<!!!!UW$$$$"  $$$$$$$$#
+"       $$$$$  $$$UX   :!!UW$$$$$$$$$   4$$$$$*
+"       ^$$$B  $$$$\     $$$$$$$$$$$$   d$$R"
+"         "*$bd$$$$      '*$$$$$$$$$$$o+#"
+"              """"          """""""
+
+let g:cowsay_cowfile = 'ghostbusters.cow'
+
+
+"
+" Miscellaneous
+" -------------
+"
+
+" set filetype to js for files with node shebang thing these files don't have
+" an extension. pretty sure there is a plugin for this, for a bunch of
+" filetype.
 function! s:NodeAndTheBang()
-  " set filtetype to js for files with node shebang thing
-  if getline(1) =~# '#!/usr/bin/env node'
+  let nodebang = matchstr(getline(1), "^#.*node")
+  if nodebang != ''
     set ft=javascript
   endif
 endfunction
 
+" call this shebang check on every bufread or newfile
 autocmd! BufRead,BufNewFile * call s:NodeAndTheBang()
 
-" remove any trailing whitespace on file save
+" remove any trailing whitespace on file save. Yup, I don't like whitespace,
+" with these line, I can stop worrying about them.
 au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-
-if has('gui_running')
-  set background=light
-else
-  set background=dark
-endif
 
 " colors
 colorscheme zenburn
 
 
-" Plugin settings
 
-let g:cowsay_cowfile = 'ghostbusters.cow'
+"
 
 

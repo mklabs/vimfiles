@@ -7,7 +7,7 @@
 # match the repository structure
 #
 # XXX turn this into a node script file, most likely packaged and npm
-# link-able.  this should add the necessary checks to update the config
+# link-able. This should add the necessary checks to update the config
 # filenames if run on win32.
 #
 set -e
@@ -33,8 +33,8 @@ backup () {
     echo 'skipping backup'
   else
     mkdir -p ./backup
-    mv ~/.vimrc ./backup/.vimrc
-    mv ~/.vim ./backup/.vim
+    [ -e ~/.vimrc ] && mv ~/.vimrc ./backup/.vimrc
+    [ -e ~/.vim ] && mv ~/.vim ./backup/.vim
   fi
 }
 

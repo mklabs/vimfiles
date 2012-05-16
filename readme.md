@@ -8,7 +8,9 @@ It started as a fork of [quick-vim][], but it's going to diverge quite a bit.
 vim/gvim config files based on [janus][] config. A good amount of vim goodies
 were also taken from Derek's [vim-config][]
 
-[vim-config][]: https://github.com/derekwyatt/vim-config/
+**Thanks**
+
+[vim-config]: https://github.com/derekwyatt/vim-config/
 [janus]: http://github.com/carlhuda/janus
 [quick-vim]: https://github.com/brianleroux/quick-vim/
 

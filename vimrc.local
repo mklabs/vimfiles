@@ -69,7 +69,87 @@ au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 colorscheme zenburn
 
 
-
 "
+" Experimental path manipulation
+" ------------------------------
+" (not runtime, see `:h path`, `:h path` and `:h suffixesadd`)
+"
+" It's all about getting the :find and `gf` mapping to work with relative
+" dependencies, such as in an AMD or node (commonjs style) project. It's not
+" strictly related to .js files though, any file extension is treated the
+" same. `.coffee` script files should work. As long as the file below the
+" cursor refers to a file relative to the current buffer, this should work.
+"
+" It's super handy as it allows you to put the cursor on one of your AMD
+" dependency for a given file, or a relative node modules, hitting `gf` and
+" the files below the cursor automagically opens. A really nice and quick way
+" to navigate through the source.
+"
+" With a bit more work, I might have the node modules dependency and why not
+" node's core modules resolved, so that we can jump in them in very much the
+" same way.
+"
+" Might be put in a custom/separate plugin, or ends up in node.snipmate (which
+" will need to be renamed to something else as more and more node related
+" stuff are added to it).
+"
+
+" This update the `path` option to include both the working directory (as :pwd
+" returns) and the relative to the current buffer working directory.
+function! s:updatePath()
+  " dirname of the current buffer
+  let bufpath = expand('%:h')
+  " remove last component in the path option
+  let &path = substitute(&path, ",\\=[^,]*$", '', '')
+  " two times
+  let &path = substitute(&path, ",\\=[^,]*$", '', '')
+
+  " and add the new one, the current relative dir for buffer
+  let &path = join([&path, bufpath . '/'], ',')
+  " and the actual current working directory
+  let &path = join([&path, getcwd() . '/'], ',')
+
+  " if &filetype == 'javascript'
+  "   " when on js files, assume node files and add the node_modules
+  "   " to the path. Ideally, we should hook a special behaviour on gf
+  "   " to call a node script that tries to require.resolve the file.
+  "   " For now, this is done this way. It won't hurts if no node_modules
+  "   " are defined.
+
+  "   " XXX doit!
+
+  " endif
+endfunction
+
+" udpate the suffixesadd option (:h 'suffixesadd') to include the current
+" buffer extension, whatever it is.
+function! s:updateSuffixAdd()
+  " get the current buffer extension
+  let ext = '.' . expand('%:e')
+
+  " when no extensions (case of scripts with shebang), try to guess
+  " extension from filetype
+  if ext == '.'
+    let ft = &filetype
+    " XXX figure out if we can pull in matching extension from a filetype
+    if ft == 'javascript'
+      let ext = '.js'
+    else
+      let ext = '.' . &filetype
+    endif
+  endif
+
+  " first make sure we don't add extensions twice
+  " remove the ext, from the path option, if it was added before
+  let &suffixesadd = substitute(&suffixesadd, "," . ext, '', '')
+  " and add the new one
+  let &suffixesadd = join([&suffixesadd, ext], ',')
+endfunction
+
+augroup updatepath
+  autocmd!
+  autocmd BufNewFile,BufEnter  * call s:updatePath()
+  autocmd BufNewFile,BufEnter  * call s:updateSuffixAdd()
+augroup END
 
 

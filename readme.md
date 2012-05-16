@@ -1,6 +1,15 @@
 ## vim config
 
-vim/gvim config files based on [janus](https://github.com/carlhuda/janus) config.
+> Yup... it's a vim configuration.
+
+This is my .vim folder.
+
+It started as a fork of [quick-vim][], but it's going to diverge quite a bit.
+
+vim/gvim config files based on [janus][] config.
+
+[janus]: http://github.com/carlhuda/janus
+[quick-vim]: https://github.com/brianleroux/quick-vim/
 
 ---
 
@@ -18,6 +27,9 @@ git://github.com/scrooloose/nerdtree.git
 git://github.com/scrooloose/syntastic.git
 git://github.com/tpope/vim-surround.git
 git://github.com/tpope/vim-markdown.git
+git://github.com/tpope/vim-fugitive.git
+git://github.com/tpope/vim-cucumber.git
+git://github.com/tpope/vim-rhubarb.git
 git://github.com/mattn/zencoding-vim.git
 git://github.com/mattn/gist-vim.git
 git://github.com/pangloss/vim-javascript.git
@@ -27,10 +39,8 @@ git://github.com/vim-scripts/Color-Sampler-Pack.git
 git://github.com/godlygeek/tabular.git
 git://github.com/tomtom/tcomment_vim.git
 git://github.com/msanders/snipmate.vim.git
-git://github.com/tpope/vim-cucumber.git
 git://github.com/nono/vim-handlebars.git
-git://github.com/tpope/vim-fugitive.git
-git://github.com/tpope/vim-eunuch.git
+
 ```
 
 ---
@@ -55,12 +65,20 @@ directly from there.
 
 ### Some notes
 
-* `plugins` may include growing custom made package. These are vim plugins that
-  have not their own github repo. If there is, they're symlinked to my
-  `~/src/vim/bundle/<pluginname>` directory.
+This repo includes a "`boilerplate/`" package. This is a simple nodejs script
+that can be `npm link`-ed to provide a little `vim-boilerplate` cli tool. It'll
+prompt for a few things, defaults some value and create a new basic plugin
+structure (autoload/ doc/ & plugin/, plus package.json and readme.md with some
+infos on how to create a new plugin, and some useful resource)
 
-* `vim/plugin` may include tiny vim script or plugin. These are just non
-  pathogen-bundled, vim scripts put there.
+The `bundle/` folder is where plugins get cloned, some are directly committed
+to the repo. These include growing custom made package. These are vim plugins
+that have not their own github repo.
+
+`vim/plugin` may include tiny vim script or plugin. These are just non
+pathogen-bundled, vim scripts put there.
+
+`vim/templates` is where I store skeleton / template files, see below.
 
 ---
 
@@ -78,9 +96,9 @@ https://github.com/tpope/tpope/blob/master/.vim/plugin/ztemplate.vim.
 " > https://github.com/tpope/tpope/blob/master/.vim/plugin/ztemplate.vim
 " > (amazsing tiny template plugin)
 "
-" When editing a new file (not created yet, eg. BufNewFile is triggered), the "
+" When editing a new file (not created yet, eg. BufNewFile is triggered), the
 " plugin will try to load a template from ~/vim/templates with the exact same
-" name, " or try to fallback to `skel.{ext}`
+" name, or try to fallback to `skel.{ext}`
 "
 ```
 
@@ -101,11 +119,4 @@ the unstriped version)
 
 Each template has some placeholder in it. `<C-P>` (ctrl+p) or `<D-Space>`
 (cmd+space, mac only) may be used to jump to next `{{ thing }}`.
-
----
-
-The `boilerplate` directory here includes a basic starting point for creating new plugin.
-
-I might add a bash or node script (maybe a grunt init task) to replace these
-`{{ mustache-like }}` things, and rename files appropriately.
 

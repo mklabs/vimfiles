@@ -1,0 +1,99 @@
+#!/bin/bash
+
+#
+# quick-vim install script
+#
+# borrowed to https://github.com/brianleroux/quick-vim and tweaked here
+# to match the repository structure
+#
+
+set -e
+
+help () {
+    cat<<EOF
+
+Usage: quick-vim [install|uninstall|upgrade|help]
+
+Commands:
+    
+    install    installs from the git repo
+    uninstall  restores original system vim config
+    upgrade    clobbers existing setup and installs fresh from git
+    help       print this msg
+
+EOF
+}
+
+# backs default home vim up
+backup () {
+    if [ -e ./backup ]
+    then 
+        echo 'skipping backup'
+    else
+        mkdir -p ./backup
+        mv ~/.vimrc ./backup/.vimrc
+        mv ~/.vim ./backup/.vim
+    fi
+}
+
+# copy in pathogen and then clone in bundles
+install () {
+    backup
+
+    # copy in vimrc and pathogen
+    cp ./vim/.vimrc ~/.vimrc
+    mkdir -p ~/.vim/ && cp -r ./vim/vim/* ~/.vim/
+
+    # and gvim config
+    cp ./vim/.gvimrc ~/.gvimrc
+    cp ./vim/.vimrc.local ~/.vimrc.local
+    cp ./vim/.gvimrc.local ~/.gvimrc.local
+
+    # add in bundles from bundle.txt
+    mkdir -p ~/.vim/bundle
+    bundles=$(cat ./bundles.txt)
+    cd ~/.vim/bundle
+    for repo in $bundles; do
+      last=${repo##*\/}
+      dir=$(echo $last | sed 's/.git$//')
+      [ -e $dir ] && echo skipping $dir instal
+      [ -e $dir ] || git clone $repo
+    done
+}
+
+# if backup exists clobbers home vim and copies in backup
+uninstall () {
+    if [ -e ./backup ]
+    then
+        rm ~/.vimrc
+        rm -rf ~/.vim
+        mv ./backup/.vimrc ~/.vimrc
+        mv ./backup/.vim ~/.vim
+        rm -rf ./backup
+    fi
+}
+
+# kills everything, pulls latest from git, installs it
+upgrade () {
+    uninstall
+    rm -rf node_modules
+    git pull origin master
+    npm i && npm run-script vim-install
+}
+
+# fucking cryptic bash, test for a valid arg and execute it if so; otherwise show the help
+if [ "$1" != "" ]; then
+    wl=(install uninstall upgrade help)
+    for i in "${wl[@]}"
+    do
+        if [ "$i" == "$1" ]
+        then
+            $1
+            exit 0
+        fi
+    done
+fi
+
+# show a flailer some help
+help
+exit 0

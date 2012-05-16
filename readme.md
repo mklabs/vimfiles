@@ -1,4 +1,3 @@
-## vim config
 
 > Yup... it's a vim configuration.
 
@@ -6,11 +5,45 @@ This is my .vim folder.
 
 It started as a fork of [quick-vim][], but it's going to diverge quite a bit.
 
-vim/gvim config files based on [janus][] config.
+vim/gvim config files based on [janus][] config. A good amount of vim goodies
+were also taken from Derek's [vim-config][]
 
+[vim-config][]: https://github.com/derekwyatt/vim-config/
 [janus]: http://github.com/carlhuda/janus
 [quick-vim]: https://github.com/brianleroux/quick-vim/
 
+Installation
+------------
+
+Clone the repo to `~/.vim` on osx / nix, to `~/vimfiles` on windows
+
+```sh
+# osx / nix
+$ git clone https://github.com/mklabs/vimfiles.git ~/.vim
+
+# windows
+$ git clone https://github.com/mklabs/vimfiles.git ~/vimfiles
+```
+
+Run `make` to install it.
+
+**Note**: On windows, cygwin is most likely required to run the install script.
+You'll then need to rename the ~/.vimrc and ~/.gvimrc to their windows
+equivalent ~/_vimrc & ~/_gvimrc (a `_` instead of `.`, that's just the way it
+on win32)
+
+The install script simply copy the `*rc` files, they may very well be symlinked but
+simple copy was ok for me. Bundles are cloned by reading in the `bundles.txt` file.
+
+Alternately, you may very well decide to source the vimrc files from your own
+~/vimrc:
+
+```vim
+source ~/.vim/vimrc
+
+# or on win32
+# source ~/vimfiles/vimrc
+```
 ---
 
 Plugins are managed via
@@ -75,10 +108,13 @@ The `bundle/` folder is where plugins get cloned, some are directly committed
 to the repo. These include growing custom made package. These are vim plugins
 that have not their own github repo.
 
-`vim/plugin` may include tiny vim script or plugin. These are just non
+`plugin/` may include tiny vim script or plugin. These are just non
 pathogen-bundled, vim scripts put there.
 
-`vim/templates` is where I store skeleton / template files, see below.
+`templates/` is where I store skeleton / template files, see below.
+
+Both `boilerplate/` and `templates/` are not part of vim's runtimepath (see `:h
+runtimepath`)
 
 ---
 

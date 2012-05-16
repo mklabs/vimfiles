@@ -10,6 +10,10 @@ were also taken from Derek's [vim-config][]
 
 **Thanks**
 
+* [quick-vim][]
+* [vim-config][]
+* [janus][]
+
 [vim-config]: https://github.com/derekwyatt/vim-config/
 [janus]: http://github.com/carlhuda/janus
 [quick-vim]: https://github.com/brianleroux/quick-vim/
@@ -27,7 +31,7 @@ $ git clone https://github.com/mklabs/vimfiles.git ~/.vim
 $ git clone https://github.com/mklabs/vimfiles.git ~/vimfiles
 ```
 
-Run `make` to install it.
+Run `./quick-vim install` to install it (from the root's repo)
 
 **Note**: On windows, cygwin is most likely required to run the install script.
 You'll then need to rename the ~/.vimrc and ~/.gvimrc to their windows
@@ -75,7 +79,6 @@ git://github.com/godlygeek/tabular.git
 git://github.com/tomtom/tcomment_vim.git
 git://github.com/msanders/snipmate.vim.git
 git://github.com/nono/vim-handlebars.git
-
 ```
 
 ---

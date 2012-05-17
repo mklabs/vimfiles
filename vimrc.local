@@ -5,7 +5,23 @@
 " one.
 "
 
+" colors
+colorscheme zenburn
+
 "
+" Mappings
+" ========
+"
+
+" Ctrl+left to switch to prev tab
+" Ctrl+right to switch to next
+nmap <C-left>   :tabprevious<CR>
+nmap <C-right>  :tabnext<CR>
+" Same for Cmd-*
+nmap <D-left>   :tabprevious<CR>
+nmap <D-right>  :tabnext<CR>
+
+
 " Plugin settings
 " ===============
 
@@ -34,10 +50,8 @@ noremap tt :TComment<CR>
 let g:cowsay_cowfile = 'ghostbusters.cow'
 
 
-"
 " Miscellaneous
 " -------------
-"
 
 " set filetype to js for files with node shebang thing these files don't have
 " an extension. pretty sure there is a plugin for this, for a bunch of
@@ -55,9 +69,6 @@ autocmd! BufRead,BufNewFile * call s:NodeAndTheBang()
 " remove any trailing whitespace on file save. Yup, I don't like whitespace,
 " with these line, I can stop worrying about them.
 au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-
-" colors
-colorscheme zenburn
 
 
 "
@@ -142,5 +153,7 @@ augroup updatepath
   autocmd BufNewFile,BufEnter  * call s:updatePath()
   autocmd BufNewFile,BufEnter  * call s:updateSuffixAdd()
 augroup END
+
+
 
 

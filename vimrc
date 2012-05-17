@@ -3,6 +3,8 @@
 
 set nocompatible                  " Must come first because it changes other options.
 
+let mapleader=','
+
 runtime! autoload/pathogen.vim
 silent! call pathogen#infect()
 silent! call pathogen#infect("~/src/vim/bundle")

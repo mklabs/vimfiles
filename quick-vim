@@ -46,8 +46,6 @@ install () {
   # copy in *rc files
   cp vimrc ~/.vimrc
   cp gvimrc ~/.gvimrc
-  cp vimrc.local ~/.vimrc.local
-  cp gvimrc.local ~/.gvimrc.local
 
   # add in bundles from bundle.txt
   mkdir -p ~/.vim/bundle

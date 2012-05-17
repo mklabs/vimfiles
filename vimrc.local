@@ -79,9 +79,9 @@ au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 " dirname. handy when using just one vim (via --remote-silent-tab).
 "
 
-augroup tabswicthes
+augroup swicthcwd
   autocmd!
-  autocmd TabEnter * :exe "cd " . fnameescape(expand('%:h'))
+  autocmd BufEnter * :exe "cd " . fnameescape(expand('%:h'))
 augroup END
 
 

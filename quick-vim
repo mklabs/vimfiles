@@ -29,12 +29,12 @@ EOF
 
 # backs default home vim up
 backup () {
-  if [ -e ./backup ]; then
+  if [ -e ~/backup-vim ]; then
     echo 'skipping backup'
   else
-    mkdir -p ./backup
-    [ -e ~/.vimrc ] && mv ~/.vimrc ./backup/.vimrc
-    [ -e ~/.vim ] && mv ~/.vim ./backup/.vim
+    mkdir -p ~/backup-vim
+    [ -e ~/.vimrc ] && mv ~/.vimrc ~/backup-vim/.vimrc
+    [ -e ~/.vim ] && cp -r ~/.vim ~/backup-vim/.vim
   fi
 }
 
@@ -63,13 +63,13 @@ install () {
 
 # if backup exists clobbers home vim and copies in backup
 uninstall () {
-  if [ -e ./backup ]
+  if [ -e ~/backup-vim ]
   then
     rm ~/.vimrc
     rm -rf ~/.vim
-    mv ./backup/.vimrc ~/.vimrc
-    mv ./backup/.vim ~/.vim
-    rm -rf ./backup
+    mv ~/backup-vim/.vimrc ~/.vimrc
+    mv ~/backup-vim/.vim ~/.vim
+    rm -rf ~/backup-vim
   fi
 }
 

@@ -97,7 +97,7 @@ function s:CdIfDirectory(directory)
 
   " Allows reading from stdin
   " ex: git diff | mvim -R -
-  if strlen(a:directory) == 0 
+  if strlen(a:directory) == 0
     return
   endif
 
@@ -197,16 +197,6 @@ function Edit(file)
   endif
 
   execute "e " . fnameescape(a:file)
-
-ruby << RUBY
-  destination = File.expand_path(VIM.evaluate(%{system("dirname " . shellescape(a:file, 1))}))
-  pwd         = File.expand_path(Dir.pwd)
-  home        = pwd == File.expand_path("~")
-
-  if home || Regexp.new("^" + Regexp.escape(pwd)) !~ destination
-    VIM.command(%{call ChangeDirectory(fnamemodify(a:file, ":h"), 0)})
-  end
-RUBY
 endfunction
 
 " Define the NERDTree-aware aliases
@@ -219,7 +209,8 @@ if exists("loaded_nerd_tree")
 endif
 
 " Include user's local vim config
-if filereadable(expand("~/.gvimrc.local"))
-  source ~/.gvimrc.local
+if filereadable(expand("~/.vim/gvimrc.local"))
+  source ~/.vim/gvimrc.local
+elseif filereadable(expand("~/vimfiles/gvimrc.local"))
+  source ~/vimfiles/gvimrc.local
 endif
-

@@ -147,7 +147,10 @@ runtime! macros/matchit.vim
 set showcmd
 
 " Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
+" Include user's local vim config
+if filereadable(expand("~/.vim/vimrc.local"))
+  source ~/.vim/vimrc.local
+elseif filereadable(expand("~/vimfiles/vimrc.local"))
+  source ~/vimfiles/vimrc.local
 endif
 

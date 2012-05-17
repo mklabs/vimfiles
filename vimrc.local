@@ -51,7 +51,7 @@ let g:cowsay_cowfile = 'ghostbusters.cow'
 
 
 " Miscellaneous
-" -------------
+" =============
 
 " set filetype to js for files with node shebang thing these files don't have
 " an extension. pretty sure there is a plugin for this, for a bunch of
@@ -69,6 +69,20 @@ autocmd! BufRead,BufNewFile * call s:NodeAndTheBang()
 " remove any trailing whitespace on file save. Yup, I don't like whitespace,
 " with these line, I can stop worrying about them.
 au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
+
+"
+" Change dir on tab switches
+" --------------------------
+"
+" This automatically set the current working directory to the buffer
+" dirname. handy when using just one vim (via --remote-silent-tab).
+"
+
+augroup tabswicthes
+  autocmd!
+  autocmd TabEnter * :exe "cd " . fnameescape(expand('%:h'))
+augroup END
 
 
 "
@@ -153,7 +167,3 @@ augroup updatepath
   autocmd BufNewFile,BufEnter  * call s:updatePath()
   autocmd BufNewFile,BufEnter  * call s:updateSuffixAdd()
 augroup END
-
-
-
-

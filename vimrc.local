@@ -13,13 +13,21 @@ colorscheme zenburn
 " ========
 "
 
-" Ctrl+left to switch to prev tab
-" Ctrl+right to switch to next
-nmap <C-left>   :tabprevious<CR>
-nmap <C-right>  :tabnext<CR>
-" Same for Cmd-*
-nmap <D-left>   :tabprevious<CR>
-nmap <D-right>  :tabnext<CR>
+" Shift+left to switch to prev tab
+" Shift+right to switch to next
+nmap <silent> <S-left>      :tabprevious<CR>
+nmap <silent> <S-right>     :tabnext<CR>
+
+" Ctrl+arrow keys to switch between window
+nmap <silent> <C-left>      :wincmd h<CR>
+nmap <silent> <C-right>     :wincmd l<CR>
+nmap <silent> <C-down>      :wincmd j<CR>
+nmap <silent> <C-up>        :wincmd k<CR>
+
+" bonus Shift+ up / down same as Ctrl + up / down
+nmap <silent> <S-down>      :wincmd j<CR>
+nmap <silent> <S-up>        :wincmd k<CR>
+
 
 
 " Plugin settings
@@ -76,12 +84,14 @@ au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 " --------------------------
 "
 " This automatically set the current working directory to the buffer
-" dirname. handy when using just one vim (via --remote-silent-tab).
+" dirname, and it does when we enter a new tab.
+"
+" handy when using just one vim (via --remote-silent-tab).
 "
 
 augroup swicthcwd
   autocmd!
-  autocmd BufEnter * :exe "cd " . fnameescape(expand('%:h'))
+  autocmd TabEnter * :exe "cd " . fnameescape(expand('%:h'))
 augroup END
 
 

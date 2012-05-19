@@ -126,9 +126,11 @@ function! s:updatePath()
   " dirname of the current buffer
   let bufpath = expand('%:h')
   " remove last component in the path option
-  let &path = substitute(&path, ",\\=[^,]*$", '', '')
-  " two times
-  let &path = substitute(&path, ",\\=[^,]*$", '', '')
+
+  let &path=','
+  " let &path = substitute(&path, ",\\=[^,]*$", '', '')
+  " " two times
+  " let &path = substitute(&path, ",\\=[^,]*$", '', '')
 
   " and add the new one, the current relative dir for buffer
   let &path = join([&path, bufpath . '/'], ',')

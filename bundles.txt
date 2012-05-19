@@ -15,3 +15,4 @@ git://github.com/godlygeek/tabular.git
 git://github.com/tomtom/tcomment_vim.git
 git://github.com/msanders/snipmate.vim.git
 git://github.com/nono/vim-handlebars.git
+git://github.com/mileszs/ack.vim.git

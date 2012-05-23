@@ -1,0 +1,8 @@
+{
+  "name": "chrome-drive",
+  "dependencies": {
+    "nopt": "~1.0.10",
+    "request": "~2.9.202",
+    "faye-websocket": "~0.4.2"
+  }
+}

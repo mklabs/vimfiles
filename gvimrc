@@ -1,14 +1,21 @@
+"
 " Example Vim graphical configuration.
 " borrowed to https://github.com/carlhuda/janus
-" Copy to ~/.gvimrc
+"
 
-set guifont=Inconsolata:h20       " Font family and font size.
-set antialias                     " MacVim: smooth fonts.
-set encoding=utf-8                " Use UTF-8 everywhere.
-set guioptions-=T                 " Hide toolbar.
-set background=light              " Background.
-set lines=25 columns=100          " Window dimensions.
-set guioptions=aAce               " Don't show scrollbar
+"
+" XXX for fonts, probably need to check if on osx
+"     - set guifont=Inconsolata:h20 (osx)
+"     - set guifont=Inconsolata\ 12 (nix VM + xmming for gvim from win)
+"
+
+set guifont=Inconsolata\ 12                         " Font family and font size.
+set antialias                                       " MacVim: smooth fonts.
+set encoding=utf-8                                  " Use UTF-8 everywhere.
+set guioptions-=T                                   " Hide toolbar.
+set background=light                                " Background.
+set lines=25 columns=100                            " Window dimensions.
+set guioptions=aAce                                 " Don't show scrollbar
 
 " default colorscheme
 colorscheme zenburn
@@ -97,7 +104,7 @@ function s:CdIfDirectory(directory)
 
   " Allows reading from stdin
   " ex: git diff | mvim -R -
-  if strlen(a:directory) == 0 
+  if strlen(a:directory) == 0
     return
   endif
 

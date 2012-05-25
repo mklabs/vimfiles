@@ -68,7 +68,6 @@ au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 " colors
 colorscheme zenburn
 
-
 "
 " Experimental path manipulation
 " ------------------------------
@@ -151,5 +150,4 @@ augroup updatepath
   autocmd BufNewFile,BufEnter  * call s:updatePath()
   autocmd BufNewFile,BufEnter  * call s:updateSuffixAdd()
 augroup END
-
 

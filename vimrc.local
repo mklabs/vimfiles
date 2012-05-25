@@ -5,7 +5,31 @@
 " one.
 "
 
+" colors
+colorscheme zenburn
+
 "
+" Mappings
+" ========
+"
+
+" Shift+left to switch to prev tab
+" Shift+right to switch to next
+nmap <silent> <S-left>      :tabprevious<CR>
+nmap <silent> <S-right>     :tabnext<CR>
+
+" Ctrl+arrow keys to switch between window
+nmap <silent> <C-left>      :wincmd h<CR>
+nmap <silent> <C-right>     :wincmd l<CR>
+nmap <silent> <C-down>      :wincmd j<CR>
+nmap <silent> <C-up>        :wincmd k<CR>
+
+" bonus Shift+ up / down same as Ctrl + up / down
+nmap <silent> <S-down>      :wincmd j<CR>
+nmap <silent> <S-up>        :wincmd k<CR>
+
+
+
 " Plugin settings
 " ===============
 
@@ -29,24 +53,13 @@ noremap tt :TComment<CR>
 " < Cowsay >
 "  --------
 "     \
-"      \
-"                                    .::!!!!!!!:.
-"   .!!!!!:.                        .:!!!!!!!!!!!!
-"   ~~~~!!!!!!.                 .:!!!!!!!!!UWWW$$$
-"       :$$NWX!!:           .:!!!!!!XUWW$$$$$$$$$P
-"       $$$$$##WX!:      .<!!!!UW$$$$"  $$$$$$$$#
-"       $$$$$  $$$UX   :!!UW$$$$$$$$$   4$$$$$*
-"       ^$$$B  $$$$\     $$$$$$$$$$$$   d$$R"
-"         "*$bd$$$$      '*$$$$$$$$$$$o+#"
-"              """"          """""""
+"
 
 let g:cowsay_cowfile = 'ghostbusters.cow'
 
 
-"
 " Miscellaneous
-" -------------
-"
+" =============
 
 " set filetype to js for files with node shebang thing these files don't have
 " an extension. pretty sure there is a plugin for this, for a bunch of
@@ -65,8 +78,21 @@ autocmd! BufRead,BufNewFile * call s:NodeAndTheBang()
 " with these line, I can stop worrying about them.
 au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
-" colors
-colorscheme zenburn
+
+"
+" Change dir on tab switches
+" --------------------------
+"
+" This automatically set the current working directory to the buffer
+" dirname, and it does when we enter a new tab.
+"
+" handy when using just one vim (via --remote-silent-tab).
+"
+
+augroup swicthcwd
+  autocmd!
+  autocmd TabEnter * :exe "cd " . fnameescape(expand('%:h'))
+augroup END
 
 "
 " Experimental path manipulation
@@ -99,9 +125,11 @@ function! s:updatePath()
   " dirname of the current buffer
   let bufpath = expand('%:h')
   " remove last component in the path option
-  let &path = substitute(&path, ",\\=[^,]*$", '', '')
-  " two times
-  let &path = substitute(&path, ",\\=[^,]*$", '', '')
+
+  let &path=','
+  " let &path = substitute(&path, ",\\=[^,]*$", '', '')
+  " " two times
+  " let &path = substitute(&path, ",\\=[^,]*$", '', '')
 
   " and add the new one, the current relative dir for buffer
   let &path = join([&path, bufpath . '/'], ',')
@@ -150,4 +178,3 @@ augroup updatepath
   autocmd BufNewFile,BufEnter  * call s:updatePath()
   autocmd BufNewFile,BufEnter  * call s:updateSuffixAdd()
 augroup END
-

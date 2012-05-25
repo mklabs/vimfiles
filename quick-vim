@@ -22,6 +22,8 @@ help () {
   install    installs from the git repo
   uninstall  restores original system vim config
   upgrade    clobbers existing setup and installs fresh from git
+  update     goes through all the pathogen bundles in bundles.txt and either
+             cloned them or pull latest from master
   help       print this msg
 
 EOF
@@ -46,9 +48,11 @@ install () {
   # copy in *rc files
   cp vimrc ~/.vimrc
   cp gvimrc ~/.gvimrc
-  cp vimrc.local ~/.vimrc.local
-  cp gvimrc.local ~/.gvimrc.local
+  update
+}
 
+# goes through all the bundle and either cloned them or pull
+update() {
   # add in bundles from bundle.txt
   mkdir -p ~/.vim/bundle
   bundles=$(cat ./bundles.txt)
@@ -56,7 +60,7 @@ install () {
   for repo in $bundles; do
     last=${repo##*\/}
     dir=$(echo $last | sed 's/.git$//')
-    [ -e $dir ] && echo skipping $dir instal
+    [ -e $dir ] && cd $dir && git pull origin master && cd ../
     [ -e $dir ] || git clone $repo
   done
 }
@@ -82,7 +86,7 @@ upgrade () {
 
 # fucking cryptic bash, test for a valid arg and execute it if so; otherwise show the help
 if [ "$1" != "" ]; then
-  wl=(install uninstall upgrade help)
+  wl=(install uninstall upgrade update help)
   for i in "${wl[@]}"
   do
     if [ "$i" == "$1" ]

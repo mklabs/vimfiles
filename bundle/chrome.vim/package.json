@@ -1,0 +1,15 @@
+{
+  "author": "mklabs",
+  "name": "chrome",
+  "description": "Vim meets Chrome",
+  "version": "0.1.0",
+  "repository": {
+    "url": "git://github.com/mklabs/vim-chrome.git"
+  },
+  "dependencies": {
+    "request": "~2.9.202",
+    "faye-websocket": "~0.4.2",
+    "nopt": "~1.0.10"
+  },
+  "devDependencies": {}
+}

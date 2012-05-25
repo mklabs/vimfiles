@@ -3,6 +3,8 @@
 
 set nocompatible                  " Must come first because it changes other options.
 
+let mapleader=','
+
 runtime! autoload/pathogen.vim
 silent! call pathogen#infect()
 silent! call pathogen#infect("~/src/vim/bundle")
@@ -149,5 +151,7 @@ set showcmd
 " Include user's local vim config
 if filereadable(expand("~/.vim/vimrc.local"))
   source ~/.vim/vimrc.local
+elseif filereadable(expand("~/vimfiles/vimrc.local"))
+  source ~/vimfiles/vimrc.local
 endif
 

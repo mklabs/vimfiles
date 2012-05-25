@@ -45,9 +45,25 @@ install () {
   # backup everything (.vimrc, .vim dir)
   backup
 
-  # copy in *rc files
-  cp vimrc ~/.vimrc
-  cp gvimrc ~/.gvimrc
+  # Setup in *rc files
+  echo """
+\" Include user's local vim config
+if filereadable(expand('~/.vim/vimrc'))
+  source ~/.vim/vimrc
+elseif filereadable(expand('~/vimfiles/vimrc'))
+  source ~/vimfiles/vimrc
+endif
+""" > ~/.vimrc
+
+  echo """
+\" Include user's local graphical vim config
+if filereadable(expand('~/.vim/gvimrc'))
+  source ~/.vim/gvimrc
+elseif filereadable(expand('~/vimfiles/gvimrc'))
+  source ~/vimfiles/gvimrc
+endif
+""" > ~/.gvimrc
+
   update
 }
 

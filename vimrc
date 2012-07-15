@@ -14,10 +14,13 @@ call pathogen#helptags()
 
 set number
 set ruler
-syntax on
+syntax enable
 
-" coloooooooooooors, your terminal should support 256 colors
+" coloooooooooooors, terminal should support 256 colors
 set t_Co=256
+
+" default colorscheme
+colorscheme zenburn
 
 " Use modeline overrides
 set modeline

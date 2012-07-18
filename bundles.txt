@@ -17,3 +17,4 @@ git://github.com/msanders/snipmate.vim.git
 git://github.com/nono/vim-handlebars.git
 git://github.com/mileszs/ack.vim.git
 git://github.com/sjl/clam.vim.git
+git://github.com/wookiehangover/jshint.vim.git

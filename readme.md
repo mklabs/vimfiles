@@ -2,21 +2,7 @@
 vim-mp.vim
 ==========
 
-****
-
-- http://stevelosh.com/blog/2011/09/writing-vim-plugins/
-- http://learnvimscriptthehardway.stevelosh.com/
-- Use your Github buddy, reading through other people source is a really
-  effective way to lear vim scripts (and pretty much any thing else)
-
-Also, probably your best source of documentation may very well remain
-the vim documentation itself. See:
-
-- `:h plugin`
-- `:h write-plugin`
-- `:h plugin-details`
-- `:h autoload`
-- `:h write-local-help`
+**Quick and Dirty "view my markdown" thing**
 
 Install
 -------
@@ -26,29 +12,30 @@ installing [pathogen.vim](https://github.com/tpope/vim-pathogen), and
 then simply copy and paste:
 
     cd ~/.vim/bundle
-    git clone git://github.com/mklabs/vim-vim-mp.git
+    git clone git://github.com/mklabs/vim-mp.git
 
 Once help tags have been generated, you can view the manual with
 `:help vim-mp`
 
-
 Commands
 --------
 
-If your plugin defines some command. Add a brief description here, for
-each of these.
+`:MarkdownPreview`
+
+buffer command only available when `ft=markdown`. Trigger this command
+to automatically compile down the current markdown file through
+[marked](https://github.com/chjj/marked), with GitHub readme like
+styling, and open the generated file into the default web browser.
 
 Configuration
 -------------
 
-If your plugin has some kind of configuration. Detail this here.
+> tbd
 
+- provide hooks for
+  - browser command (open on darwin, start on windows,
+  google-chrome everywhere else)
+  - template used
 
-License & Acknowledgement
--------------------------
-
-Add credits here
-
-License: Same as Vim. See `:help license`.
-
+- watch / reload thing
 

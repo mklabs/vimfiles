@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+
+var fs = require('fs'),
+  path = require('path'),
+  exec = require('child_process').exec,
+  hogan = require('hogan'),
+  marked = require('marked'),
+  exists = fs.existsSync || path.existsSync;
+
+var file = process.argv.slice(2)[0],
+  template = fs.readFileSync(path.join(__dirname, './templates/readme.html'), 'utf8');
+
+if(!file) throw new Error('Missing file');
+
+console.log('Converting', file, 'into markdown');
+
+if(!exists(file)) throw new Error('Invalid file: ' + file);
+
+file = fs.readFileSync(file, 'utf8');
+
+var tokens = marked.lexer(file);
+var out = hogan.compile(template).render({
+  body: marked.parser(tokens)
+});
+
+
+var outfile = path.join(__dirname, '../result.html');
+fs.writeFileSync(outfile, out);
+
+var cmd = process.platform === 'darwin' ? 'open' :
+    process.platform === 'win32' ? 'start ""' :
+    'google-chrome';
+
+console.log('Opening outfile...');
+exec(cmd + ' "' + outfile + '"');

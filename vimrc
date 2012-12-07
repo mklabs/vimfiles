@@ -16,7 +16,7 @@ set number
 set ruler
 syntax on
 
-" coloooooooooooors, your terminal should support 256 colors
+" terminal should support 256 colors
 set t_Co=256
 
 " Use modeline overrides

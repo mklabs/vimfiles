@@ -9,7 +9,15 @@
 "     - set guifont=Inconsolata\ 12 (nix VM + xmming for gvim from win)
 "
 
-set guifont=Inconsolata\ 12                         " Font family and font size.
+
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
+endif
+
 set antialias                                       " MacVim: smooth fonts.
 set encoding=utf-8                                  " Use UTF-8 everywhere.
 set guioptions-=T                                   " Hide toolbar.

@@ -26,7 +26,7 @@ set guioptions=aAce                                 " Don't show scrollbar
 
 " default colorscheme
 set background=dark
-colorscheme solarized
+colorscheme slate
 
 if has("gui_macvim")
   " Fullscreen takes up entire screen

@@ -16,7 +16,7 @@ set number
 set ruler
 syntax enable
 
-" coloooooooooooors, terminal should support 256 colors
+" terminal should support 256 colors
 set t_Co=256
 
 " default colorscheme

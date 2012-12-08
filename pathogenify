@@ -75,7 +75,7 @@ bundle () {
   local iterator=$1
   for f in $pluglist; do
     dir=bundle/$f
-    clone="$(grep $f $file | sed 's/.*`\(.*\)`.*$/\1/')"
+    clone="$(grep "\*$f\*" $file | sed 's/.*`\(.*\)`.*$/\1/')"
     $iterator "$dir" "$clone"
   done
 }
@@ -146,12 +146,11 @@ cleanone () {
 list () {
   echo ... Listing bundles from $file ...
   echo
-  for f in $pluglist; do
-    dir=bundle/$f
-    clone="$(grep $f $file | sed 's/.*`\(.*\)`.*$/\1/')"
-    clone="$clone $dir"
-    echo "  - $f:  $clone"
-  done
+  bundle listone
+}
+
+listone() {
+  echo "  - $1: $2"
 }
 
 # Installed

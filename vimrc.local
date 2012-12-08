@@ -1,10 +1,3 @@
-
-"
-" I'm more and more tempted to split the whole vim configuration into tiny
-" sourced scripts, organized per topic thing. Or just stick with the single big
-" one.
-"
-
 " remove any trailing whitespace on file save.
 au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
@@ -29,11 +22,25 @@ nmap <silent> <S-up>        :wincmd k<CR>
 " `tt` in normal mode to toggle comments
 noremap tt :TComment<CR>
 
+" openbrowser mapping
+nmap <Leader>o <Plug>(openbrowser-open)
+vmap <Leader>o <Plug>(openbrowser-open)
+
+nmap <Leader>s <Plug>(openbrowser-search)
+vmap <Leader>s <Plug>(openbrowser-search)
+
+" openbrowser
+" -----------
+" custom serch engine
+let g:openbrowser_search_engines = {
+  \ 'mdn': 'https://developer.mozilla.org/en-US/search?q={query}',
+  \ 'mdn-fr': 'https://developer.mozilla.org/fr-FR/search?q={query}'
+\}
+
+let g:openbrowser_default_search = 'mdn'
 
 " gist-vim
 " --------
-"
-
 " goes private by default
 let g:gist_private = 1
 

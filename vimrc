@@ -19,6 +19,9 @@ call pathogen#helptags()
 " <Leader> key set to ,
 let mapleader=','
 
+" theme
+colorscheme slate
+
 " show line numbers
 set number
 

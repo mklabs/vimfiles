@@ -1,17 +1,14 @@
-
 "
 " I'm more and more tempted to split the whole vim configuration into tiny
 " sourced scripts, organized per topic thing. Or just stick with the single big
 " one.
 "
 
-" colors
-colorscheme slate
+" remove any trailing whitespace on file save.
+au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
-"
 " Mappings
 " ========
-"
 
 " Shift+left to switch to prev tab
 " Shift+right to switch to next
@@ -28,12 +25,10 @@ nmap <silent> <C-up>        :wincmd k<CR>
 nmap <silent> <S-down>      :wincmd j<CR>
 nmap <silent> <S-up>        :wincmd k<CR>
 
+" `tt` in normal mode to toggle comments
+noremap tt :TComment<CR>
 
 
-" Plugin settings
-" ===============
-
-"
 " gist-vim
 " --------
 "
@@ -41,60 +36,24 @@ nmap <silent> <S-up>        :wincmd k<CR>
 " goes private by default
 let g:gist_private = 1
 
-"
-" TComment
-" --------
-"
 
-" `tt` in normal mode to toggle comments
-noremap tt :TComment<CR>
-
-"  ________
-" < Cowsay >
-"  --------
-"     \
-"
-
-let g:cowsay_cowfile = 'ghostbusters.cow'
-
-
-" Miscellaneous
-" =============
+" Misc
+" ====
 
 " set filetype to js for files with node shebang thing these files don't have
 " an extension. pretty sure there is a plugin for this, for a bunch of
 " filetype.
-function! s:NodeAndTheBang()
-  let nodebang = matchstr(getline(1), "^#.*node")
+function! s:NodeAndTheBang(name)
+  let nodebang = matchstr(getline(1), "^#.*". a:name)
   if nodebang != ''
     set ft=javascript
   endif
 endfunction
 
 " call this shebang check on every bufread or newfile
-autocmd! BufRead,BufNewFile * call s:NodeAndTheBang()
+autocmd! BufRead,BufNewFile * call s:NodeAndTheBang('node')
+autocmd! BufRead,BufNewFile * call s:NodeAndTheBang('phantomjs')
 
-" remove any trailing whitespace on file save. Yup, I don't like whitespace,
-" with these line, I can stop worrying about them.
-au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-
-
-"
-" Change dir on tab switches
-" --------------------------
-"
-" This automatically set the current working directory to the buffer
-" dirname, and it does when we enter a new tab.
-"
-" handy when using just one vim (via --remote-silent-tab).
-"
-
-" augroup swicthcwd
-"   autocmd!
-"   autocmd TabEnter * :exe "cd " . fnameescape(expand('%:h'))
-" augroup END
-
-"
 " Experimental path manipulation
 " ------------------------------
 " (not runtime, see `:h path`, `:h path` and `:h suffixesadd`)
@@ -104,20 +63,6 @@ au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 " strictly related to .js files though, any file extension is treated the
 " same. `.coffee` script files should work. As long as the file below the
 " cursor refers to a file relative to the current buffer, this should work.
-"
-" It's super handy as it allows you to put the cursor on one of your AMD
-" dependency for a given file, or a relative node modules, hitting `gf` and
-" the files below the cursor automagically opens. A really nice and quick way
-" to navigate through the source.
-"
-" With a bit more work, I might have the node modules dependency and why not
-" node's core modules resolved, so that we can jump in them in very much the
-" same way.
-"
-" Might be put in a custom/separate plugin, or ends up in node.snipmate (which
-" will need to be renamed to something else as more and more node related
-" stuff are added to it).
-"
 
 " This update the `path` option to include both the working directory (as :pwd
 " returns) and the relative to the current buffer working directory.
@@ -127,25 +72,11 @@ function! s:updatePath()
   " remove last component in the path option
 
   let &path=','
-  " let &path = substitute(&path, ",\\=[^,]*$", '', '')
-  " " two times
-  " let &path = substitute(&path, ",\\=[^,]*$", '', '')
-
-  " and add the new one, the current relative dir for buffer
+  " add the new one, the current relative dir for buffer
   let &path = join([&path, bufpath . '/'], ',')
   " and the actual current working directory
   let &path = join([&path, getcwd() . '/'], ',')
 
-  " if &filetype == 'javascript'
-  "   " when on js files, assume node files and add the node_modules
-  "   " to the path. Ideally, we should hook a special behaviour on gf
-  "   " to call a node script that tries to require.resolve the file.
-  "   " For now, this is done this way. It won't hurts if no node_modules
-  "   " are defined.
-
-  "   " XXX doit!
-
-  " endif
 endfunction
 
 " udpate the suffixesadd option (:h 'suffixesadd') to include the current
@@ -158,7 +89,6 @@ function! s:updateSuffixAdd()
   " extension from filetype
   if ext == '.'
     let ft = &filetype
-    " XXX figure out if we can pull in matching extension from a filetype
     if ft == 'javascript'
       let ext = '.js'
     else

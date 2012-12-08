@@ -68,7 +68,7 @@ looking for the following list of bundles to install.
 - **Fugitive**:          `git clone git://github.com/tpope/vim-fugitive.git`
 - **NerdTree**:          `git clone git://github.com/scrooloose/nerdtree.git`
 - **Syntastic**:         `git clone git://github.com/scrooloose/syntastic.git`
-- **Sparkup**:           `git clone git://github.com/rstacruz/sparkup.git`
+- **Zencoding**:         `git clone git://github.com/mattn/zencoding-vim.git`
 - **Snipmate**:          `git clone git://github.com/msanders/snipmate.vim.git`
 - **Ack**:               `git clone git://github.com/mileszs/ack.vim.git`
 - **Clam**:              `git clone git://github.com/sjl/clam.vim.git`

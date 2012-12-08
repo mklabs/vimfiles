@@ -85,7 +85,10 @@ looking for the following list of bundles to install.
 - **javascript**:        `git clone git://github.com/pangloss/vim-javascript.git`
 - **coffeescript**:      `git clone git://github.com/kchmck/vim-coffee-script.git`
 - **handlebars**:        `git clone git://github.com/nono/vim-handlebars.git`
-- **colors-solarized**:  `git clone git://github.com/altercation/vim-colors-solarized.git`
+
+Colors
+
+- **colors-solarized**:  `git clone git://github.com/altercation/vim-colours-solarized.git`
 
 ### API Bundles
 
@@ -94,5 +97,24 @@ consume.
 
 - **open-browser**:     `git clone git://github.com/tyru/open-browser.vim.git`
 - **webapi-vim**:       `git clone git://github.com/mattn/webapi-vim.git`
+
+### CtrlP extensions.
+
+http://kien.github.com/ctrlp.vim/
+:
+CtrlP is a really nice alternative to the well known Command-T plugin. It
+doesn't require ruby and has really interresting extending capability.
+
+The following bundles are CtrlP extensions, see `:h ctrlp-extensions`
+
+- **ctrlp-hackernews**: `git clone git://github.com/mattn/ctrlp-hackernews.git`
+- **ctrlp-**: `git clone `
+- **ctrlp-**: `git clone `
+- **ctrlp-**: `git clone `
+- **ctrlp-**: `git clone `
+
+
+###
+
 
 

@@ -3,18 +3,29 @@
 
 set nocompatible                  " Must come first because it changes other options.
 
-let mapleader=','
+" Pathogen
+" --------
 
 runtime! autoload/pathogen.vim
 silent! call pathogen#infect()
-silent! call pathogen#infect("custom-bundles")
+
+" additional pathogen paths
+silent! call pathogen#infect("custom-bundle")
 silent! call pathogen#infect("~/src/vim/bundle")
 
 " auto-generate doc for each plugin in pathogen runtime path
 call pathogen#helptags()
 
+" <Leader> key set to ,
+let mapleader=','
+
+" show line numbers
 set number
+
+" show line and column number
 set ruler
+
+" keep curent color settings
 syntax on
 
 " terminal should support 256 colors
@@ -55,12 +66,8 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 " Status bar
 set laststatus=2
 
-" manpage with vim
-let $PAGER=''
-
-" Without setting this, ZoomWin restores windows in a way that causes
-" equalalways behavior to be triggered the next time CommandT is used.
-" This is likely a bludgeon to solve some other issue, but it works
+" Splitting a window reduce the size of the current window and leave the other
+" windows the same
 set noequalalways
 
 " NERDTree configuration

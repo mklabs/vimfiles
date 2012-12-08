@@ -1,22 +1,26 @@
 " t - Tiny template plugin for vim
-" Maintainer: mklabs
+"
+" A minimalist vim template plugin thing. Heavily based on
+" https://github.com/tpope/tpope/blob/master/.vim/plugin/ztemplate.vim.
+"
+" > Custom templates: http://vim.runpaint.org/typing/using-templates/
+"
+" Mustache like template placeholdr: eg. {{ title }}
+"
+" When editing a new file (not created yet, eg. BufNewFile is triggered), the
+" plugin will try to load a template from ~/vim/templates with the exact same
+" name, or try to fallback to `skel.{ext}`
+"
+" Each template has some placeholder in it. `<C-P>` (ctrl+p) or
+" `<D-Space>` (cmd+space, mac only) may be used to jump to next `{{
+" thing }}`.
+"
+" Put your skeleton files in `~/.vim/templates`
 
 if exists("g:loaded_t") || v:version < 700 || &cp
   finish
 endif
 let g:loaded_t = 1
-
-
-" Custom templates
-" http://vim.runpaint.org/typing/using-templates/
-"
-" Mustache like template placeholdr: eg. {{ title }}
-"
-" Some functions borrowed to:
-"
-" > https://github.com/tpope/tpope/blob/master/.vim/plugin/ztemplate.vim
-" > (amazsing tiny template plugin)
-"
 
 " https://github.com/tpope/tpope/blob/master/.vim/plugin/ztemplate.vim#L28-37
 function! s:LoadFilename(filename)
@@ -67,4 +71,3 @@ inoremap <c-p> <ESC>/{{\s*\l.\{-1,}\s*}}<cr>c/{{\s*\l*\s*}}/e<cr>
 
 
 " vim:set sw=2 sts=2:
-

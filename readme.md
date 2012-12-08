@@ -110,3 +110,23 @@ doesn't require ruby and has really interresting extending capability.
 The following bundles are CtrlP extensions, see `:h ctrlp-extensions`
 
 - **ctrlp-hackernews**: `git clone git://github.com/mattn/ctrlp-hackernews.git`
+- **ctrlp-gist**:       `git clone git://github.com/mattn/ctrlp-gist.git`
+- **ctrlp-git**:        `git clone git://github.com/mattn/ctrlp-git.git`
+- **ctrlp-funky**:      `git clone git://github.com/tacahiroy/ctrlp-funky.git`
+
+### CtrlP Funky JS
+
+ctrlp-funky is a ctrlp extensions that offers abstractions to parse
+being edited file(s) without ctags.
+
+It supports various filetypes like markdown, ruby or vim.
+
+Custom adapters can be defined, they are autoload functions within the
+`ctrlp#funky` namespace, and must be named after the filetype they
+support: `ctrlp#funky#{ft}.vim`.
+
+In `custom-bundle/ctrlp-jsfunky` is defined a basic ctrlp-funky adapter
+for the javascript filetype, it parses out var and function statements.
+Which is a good start.
+
+To use, simply edit a JavaScript file and run `:CtrlPFunky`.

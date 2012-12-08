@@ -58,7 +58,7 @@ Plugins are managed through pathogen and installed typically in
 `~/.vim/bundle` directory. The pathogen config:
 
 **Note** Additionnaly, the vimrc file adds `~/src/vim/bundle` directory
-to pathogen runtime path. You can change it or leave it, it won't affet
+to pathogen runtime path. You can change it or leave it, it won't affect
 your setup. This is usually where I keep custom vim plugins.
 
 To update or install, simply run `pathogenify install` script (or `make
@@ -89,7 +89,7 @@ looking for the following list of bundles to install.
 
 ### API Bundles
 
-These are special vim plugins providing handy API for other plugin to
+These are special vim plugins providing handy API for others plugin to
 consume.
 
 - **open-browser**:     `git clone git://github.com/tyru/open-browser.vim.git`

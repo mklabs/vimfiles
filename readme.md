@@ -6,12 +6,7 @@ It started as a fork of [quick-vim][], but have diverged quite a bit.
 vim/gvim config files based on [janus][] config. A good amount of vim goodies
 were also taken from Derek's [vim-config][]
 
-**Thanks**
-
-* [quick-vim][]
-* [vim-config][]
-* [janus][]
-* [nvie's vimrc][]
+**Thanks**: [quick-vim][], [vim-config][], [janus][], [nvie's vimrc][]
 
 [vim-config]: https://github.com/derekwyatt/vim-config/
 [janus]: http://github.com/carlhuda/janus
@@ -113,6 +108,15 @@ The following bundles are CtrlP extensions, see `:h ctrlp-extensions`
 - **ctrlp-gist**:       `git clone git://github.com/mattn/ctrlp-gist.git`
 - **ctrlp-git**:        `git clone git://github.com/mattn/ctrlp-git.git`
 - **ctrlp-funky**:      `git clone git://github.com/tacahiroy/ctrlp-funky.git`
+
+### CtrlPNodeDoc
+
+ctrlp-node (in `custom-bundle/ctrlp-nodedoc`) is a ctrlp extensions to
+search through the nodejs documentation. It'll list the identifiers
+parsed from http://nodejs.org/api/all.html. On selection,
+`openbrowser#open()` is called with the matching URL for the selected entry.
+
+Both `open-browser` and `webapi-vim` are requred.
 
 ### CtrlP Funky JS
 

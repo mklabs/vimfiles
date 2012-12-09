@@ -39,8 +39,10 @@ function! ctrlp#nodedoc#init()
     let s:links = []
     for header in headers
       let link = header.find('a')
+      let txt = substitute(header.toString(), '<h2>', '', '')
+      let txt = substitute(txt, '<span>.*', '', '')
       if has_key(link, 'name')
-        call add(s:links, [link.attr.id, 'http://nodejs.org/api/all.html#' . link.attr.id])
+        call add(s:links, [txt, 'http://nodejs.org/api/all.html#' . link.attr.id])
       endif
     endfor
 

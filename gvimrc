@@ -16,6 +16,8 @@ set guioptions-=T                                   " Hide toolbar.
 set lines=25 columns=100                            " Window dimensions.
 set guioptions=aAce                                 " Don't show scrollbar
 
+set mousemodel=popup
+
 " default colorscheme
 set background=dark
 colorscheme solarized

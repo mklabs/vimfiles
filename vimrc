@@ -3,20 +3,35 @@
 
 set nocompatible                  " Must come first because it changes other options.
 
-let mapleader=','
+" Pathogen
+" --------
 
 runtime! autoload/pathogen.vim
 silent! call pathogen#infect()
+
+" additional pathogen paths
+silent! call pathogen#infect("custom-bundle")
 silent! call pathogen#infect("~/src/vim/bundle")
 
 " auto-generate doc for each plugin in pathogen runtime path
 call pathogen#helptags()
 
+" <Leader> key set to ,
+let mapleader=','
+
+" theme
+colorscheme slate
+
+" show line numbers
 set number
+
+" show line and column number
 set ruler
+
+" keep curent color settings
 syntax on
 
-" coloooooooooooors, your terminal should support 256 colors
+" terminal should support 256 colors
 set t_Co=256
 
 " Use modeline overrides
@@ -54,12 +69,8 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 " Status bar
 set laststatus=2
 
-" manpage with vim
-let $PAGER=''
-
-" Without setting this, ZoomWin restores windows in a way that causes
-" equalalways behavior to be triggered the next time CommandT is used.
-" This is likely a bludgeon to solve some other issue, but it works
+" Splitting a window reduce the size of the current window and leave the other
+" windows the same
 set noequalalways
 
 " NERDTree configuration
@@ -83,7 +94,7 @@ endfunction
 
 function! s:setupMarkup()
   call s:setupWrapping()
-  map <buffer> <Leader>p :Hammer<CR>
+  map <buffer> <Leader>p :MarkdownPreview<CR>
 endfunction
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
@@ -102,26 +113,6 @@ set backspace=indent,eol,start
 
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
-
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-" Inserts the path of the currently edited file into a command
-" Command mode: Ctrl+P
-cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-
-" Unimpaired configuration
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1

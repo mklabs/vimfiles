@@ -1,0 +1,14 @@
+{
+  "author": "mklabs",
+  "name": "vim-mp",
+  "description": "",
+  "version": "0.1.0",
+  "repository": {
+    "url": "git://github.com/mklabs/vim-vim-mp.git"
+  },
+  "dependencies": {
+    "marked": "~0.2.5",
+    "hogan": "~1.0.5-dev"
+  },
+  "devDependencies": {}
+}

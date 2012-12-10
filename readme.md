@@ -1,27 +1,30 @@
 
-> Yup... it's a vim configuration.
-
 This is my .vim folder.
 
-It started as a fork of [quick-vim][], but it's going to diverge quite a bit.
+It started as a fork of [quick-vim][], but have diverged quite a bit.
 
 vim/gvim config files based on [janus][] config. A good amount of vim goodies
 were also taken from Derek's [vim-config][]
 
-**Thanks**
-
-* [quick-vim][]
-* [vim-config][]
-* [janus][]
+**Thanks**: [quick-vim][], [vim-config][], [janus][], [nvie's vimrc][]
 
 [vim-config]: https://github.com/derekwyatt/vim-config/
 [janus]: http://github.com/carlhuda/janus
 [quick-vim]: https://github.com/brianleroux/quick-vim/
+[nvie's vimrc]: https://github.com/nvie/vimrc
 
 Installation
 ------------
 
-Clone the repo to `~/.vim` on osx / nix, to `~/vimfiles` on windows
+### one-liner
+
+```sh
+curl https://raw.github.com/mklabs/vimfiles/master/autoinstall.sh | sh
+```
+
+### manual install
+
+Clone to `~/vimfiles` on windows, clone to `~/.vim` everywhere else.
 
 ```sh
 # osx / nix
@@ -31,133 +34,103 @@ $ git clone https://github.com/mklabs/vimfiles.git ~/.vim
 $ git clone https://github.com/mklabs/vimfiles.git ~/vimfiles
 ```
 
-Run `./quick-vim install` to install it (from the root's repo)
+In your ~/.vimrc, add the following line:
 
-**Note**: On windows, cygwin is most likely required to run the install script.
-You'll then need to rename the ~/.vimrc and ~/.gvimrc to their windows
-equivalent ~/_vimrc & ~/_gvimrc (a `_` instead of `.`, that's just the way it
-on win32)
+    source ~/.vim/vimrc
 
-The install script simply copy the `*rc` files, they may very well be symlinked but
-simple copy was ok for me. Bundles are cloned by reading in the `bundles.txt` file.
+In your ~/.gvimrc:
 
-Alternately, you may very well decide to source the vimrc files from your own
-~/vimrc:
+    source ~/.vim/gvimrc
 
-```vim
-source ~/.vim/vimrc
+**Note**: On windows, you need to rename the ~/.vimrc and ~/.gvimrc to
+their windows equivalent ~/_vimrc & ~/_gvimrc (a `_` instead of `.`,
+that's just the way it is on win32)
 
-# or on win32
-# source ~/vimfiles/vimrc
-```
----
+Bundles
+-------
 
-Plugins are managed via
-[Pathogen](https://github.com/tpope/vim-pathogen). installation / update
-script is based on [@brianleroux's quick-vim](https://github.com/brianleroux/quick-vim).
+Plugins are managed through pathogen and installed typically in
+`~/.vim/bundle` directory. The pathogen config:
 
-The vim directory here is copied to `~/.vim/` when `./quick-vim install` or
-`./quick-vim upgrade` is run.
+**Note** Additionnaly, the vimrc file adds `~/src/vim/bundle` directory
+to pathogen runtime path. You can change it or leave it, it won't affect
+your setup. This is usually where I keep custom vim plugins.
 
-**bundle.txt**
+To update or install, simply run `pathogenify install` script (or `make
+install`). The script parses the content of the present readme file,
+looking for the following list of bundles to install.
 
-```
-git://github.com/scrooloose/nerdtree.git
-git://github.com/scrooloose/syntastic.git
-git://github.com/tpope/vim-surround.git
-git://github.com/tpope/vim-markdown.git
-git://github.com/tpope/vim-fugitive.git
-git://github.com/tpope/vim-cucumber.git
-git://github.com/tpope/vim-rhubarb.git
-git://github.com/mattn/zencoding-vim.git
-git://github.com/mattn/gist-vim.git
-git://github.com/pangloss/vim-javascript.git
-git://github.com/kchmck/vim-coffee-script.git
-git://github.com/altercation/vim-colors-solarized.git
-git://github.com/vim-scripts/Color-Sampler-Pack.git
-git://github.com/godlygeek/tabular.git
-git://github.com/tomtom/tcomment_vim.git
-git://github.com/msanders/snipmate.vim.git
-git://github.com/nono/vim-handlebars.git
-```
+- **Fugitive**:          `git clone git://github.com/tpope/vim-fugitive.git`
+- **NerdTree**:          `git clone git://github.com/scrooloose/nerdtree.git`
+- **Syntastic**:         `git clone git://github.com/scrooloose/syntastic.git`
+- **Zencoding**:         `git clone git://github.com/mattn/zencoding-vim.git`
+- **Snipmate**:          `git clone git://github.com/msanders/snipmate.vim.git`
+- **Ack**:               `git clone git://github.com/mileszs/ack.vim.git`
+- **Clam**:              `git clone git://github.com/sjl/clam.vim.git`
+- **CtrlP**:             `git clone git://github.com/kien/ctrlp.vim.git`
+- **haml**:              `git clone git://github.com/tpope/vim-haml.git`
+- **markdown**:          `git clone git://github.com/tpope/vim-markdown.git`
+- **cucumber**:          `git clone git://github.com/tpope/vim-cucumber.git`
+- **tabular**:           `git clone git://github.com/godlygeek/tabular.git`
+- **tcomment**:          `git clone git://github.com/tomtom/tcomment_vim.git`
+- **surround**:          `git clone git://github.com/tpope/vim-surround.git`
+- **repeat**:            `git clone git://github.com/tpope/vim-repeat.git`
+- **rhubarb**:           `git clone git://github.com/tpope/vim-rhubarb.git`
+- **gist**:              `git clone git://github.com/mattn/gist-vim.git`
+- **javascript**:        `git clone git://github.com/pangloss/vim-javascript.git`
+- **coffeescript**:      `git clone git://github.com/kchmck/vim-coffee-script.git`
+- **handlebars**:        `git clone git://github.com/nono/vim-handlebars.git`
+- **github**:            `git clone git://github.com/thinca/vim-github.git`
+- **powerline**:         `git clone git://github.com/Lokaltog/vim-powerline.git`
 
----
+Colors
 
-The pathogen config is as follows:
+- **colors-solarized**:  `git clone git://github.com/altercation/vim-colours-solarized.git`
 
-```vim
-runtime! autoload/pathogen.vim
-silent! call pathogen#infect()
-silent! call pathogen#infect("~/src/vim/bundle")
+### API Bundles
 
-" auto-generate doc for each plugin in pathogen runtime path
-call pathogen#helptags()
-```
+These are special vim plugins providing handy API for others plugin to
+consume.
 
-`'runtimepath'` include `~/src/vim/bundle` too. This is where I store
-custom-made plugins, eg. these are mine as I'm trying to learn how to build my
-own Vim plugins.
+- **open-browser**:     `git clone git://github.com/tyru/open-browser.vim.git`
+- **webapi-vim**:       `git clone git://github.com/mattn/webapi-vim.git`
 
-Also documentation for plugins is generated, `pathogen#helptags()` is called
-directly from there.
+### CtrlP extensions.
 
-### Some notes
+http://kien.github.com/ctrlp.vim/
+:
+CtrlP is a really nice alternative to the well known Command-T plugin. It
+doesn't require ruby and has really interresting extending capability.
 
-This repo includes a "`boilerplate/`" package. This is a simple nodejs script
-that can be `npm link`-ed to provide a little `vim-boilerplate` cli tool. It'll
-prompt for a few things, defaults some value and create a new basic plugin
-structure (autoload/ doc/ & plugin/, plus package.json and readme.md with some
-infos on how to create a new plugin, and some useful resource)
+The following bundles are CtrlP extensions, see `:h ctrlp-extensions`
 
-The `bundle/` folder is where plugins get cloned, some are directly committed
-to the repo. These include growing custom made package. These are vim plugins
-that have not their own github repo.
+- **ctrlp-hackernews**: `git clone git://github.com/mattn/ctrlp-hackernews.git`
+- **ctrlp-gist**:       `git clone git://github.com/mattn/ctrlp-gist.git`
+- **ctrlp-git**:        `git clone git://github.com/mattn/ctrlp-git.git`
+- **ctrlp-funky**:      `git clone git://github.com/tacahiroy/ctrlp-funky.git`
 
-`plugin/` may include tiny vim script or plugin. These are just non
-pathogen-bundled, vim scripts put there.
+### CtrlPNodeDoc
 
-`templates/` is where I store skeleton / template files, see below.
+ctrlp-node (in `custom-bundle/ctrlp-nodedoc`) is a ctrlp extensions to
+search through the nodejs documentation. It'll list the identifiers
+parsed from http://nodejs.org/api/all.html. On selection,
+`openbrowser#open()` is called with the matching URL for the selected entry.
 
-Both `boilerplate/` and `templates/` are not part of vim's runtimepath (see `:h
-runtimepath`)
+Both `open-browser` and `webapi-vim` are requred.
 
----
+### CtrlP Funky JS
 
-`plugin/t.vim` is a minimalist vim template plugin thing. Heavily based on
-https://github.com/tpope/tpope/blob/master/.vim/plugin/ztemplate.vim.
+ctrlp-funky is a ctrlp extensions that offers abstractions to parse
+being edited file(s) without ctags.
 
-```vim
-" Custom templates
-" http://vim.runpaint.org/typing/using-templates/
-"
-" Mustache like template placeholdr: eg. {{ title }}
-"
-" Some functions borrowed to:
-"
-" > https://github.com/tpope/tpope/blob/master/.vim/plugin/ztemplate.vim
-" > (amazsing tiny template plugin)
-"
-" When editing a new file (not created yet, eg. BufNewFile is triggered), the
-" plugin will try to load a template from ~/vim/templates with the exact same
-" name, or try to fallback to `skel.{ext}`
-"
-```
+It supports various filetypes like markdown, ruby or vim.
 
-Right now, there are templates for:
+Custom adapters can be defined, they are autoload functions within the
+`ctrlp#funky` namespace, and must be named after the filetype they
+support: `ctrlp#funky#{ft}.vim`.
 
-* package.json:
-a basic npm package.json file.
+In `custom-bundle/ctrlp-jsfunky` is defined a basic ctrlp-funky adapter
+for the javascript filetype, it parses out var and function statements.
+Which is a good start.
 
-* gherkin feature:
-same here, every time a new `*.feature` file is created,
-this template is loaded in the current buffer.
-
-* `*.html` files:
-always based on HTML5 Boilerplate index.html file (unstripped, might switch to
-the unstriped version)
-
-* `*.vim` files: a basic boilerplate for vim script files.
-
-Each template has some placeholder in it. `<C-P>` (ctrl+p) or `<D-Space>`
-(cmd+space, mac only) may be used to jump to next `{{ thing }}`.
-
+To use, simply edit a JavaScript file and run `:CtrlPFunky`.

@@ -83,10 +83,6 @@ looking for the following list of bundles to install.
 - **github**:            `git clone git://github.com/thinca/vim-github.git`
 - **powerline**:         `git clone git://github.com/Lokaltog/vim-powerline.git`
 
-Colors
-
-- **colors-solarized**:  `git clone git://github.com/altercation/vim-colours-solarized.git`
-
 ### API Bundles
 
 These are special vim plugins providing handy API for others plugin to
@@ -98,7 +94,7 @@ consume.
 ### CtrlP extensions.
 
 http://kien.github.com/ctrlp.vim/
-:
+
 CtrlP is a really nice alternative to the well known Command-T plugin. It
 doesn't require ruby and has really interresting extending capability.
 

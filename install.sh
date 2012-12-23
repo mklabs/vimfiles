@@ -21,10 +21,3 @@ git clone git://github.com/mklabs/vimfiles.git $PREFIX
 # Install plugin
 cd $PREFIX
 make install
-
-# Symlink ~/.vim and ~/.vimrc
-cd ~
-ln -s "$PREFIX/vimrc" .vimrc
-ln -s "$PREFIX/gvimrc" .gvimrc
-
-echo "Installed and configured .vim, have fun."

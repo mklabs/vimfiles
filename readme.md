@@ -16,14 +16,6 @@ were also taken from Derek's [vim-config][]
 Installation
 ------------
 
-### one-liner
-
-```sh
-curl https://raw.github.com/mklabs/vimfiles/master/autoinstall.sh | sh
-```
-
-### manual install
-
 Clone to `~/vimfiles` on windows, clone to `~/.vim` everywhere else.
 
 ```sh
@@ -34,13 +26,14 @@ $ git clone https://github.com/mklabs/vimfiles.git ~/.vim
 $ git clone https://github.com/mklabs/vimfiles.git ~/vimfiles
 ```
 
-In your ~/.vimrc, add the following line:
+Then use the make to invoke the `install` target:
 
-    source ~/.vim/vimrc
+```sh
+$ make install
 
-In your ~/.gvimrc:
-
-    source ~/.vim/gvimrc
+# clones the list of bundles as listed in bundle.sh
+# create $HOME/.vimrc and $HOME/.gvimrc if they don't exist already
+```
 
 **Note**: On windows, you need to rename the ~/.vimrc and ~/.gvimrc to
 their windows equivalent ~/_vimrc & ~/_gvimrc (a `_` instead of `.`,
@@ -105,14 +98,6 @@ The following bundles are CtrlP extensions, see `:h ctrlp-extensions`
 - **ctrlp-git**:        `git clone git://github.com/mattn/ctrlp-git.git`
 - **ctrlp-funky**:      `git clone git://github.com/tacahiroy/ctrlp-funky.git`
 
-### CtrlPNodeDoc
-
-ctrlp-node (in `custom-bundle/ctrlp-nodedoc`) is a ctrlp extensions to
-search through the nodejs documentation. It'll list the identifiers
-parsed from http://nodejs.org/api/all.html. On selection,
-`openbrowser#open()` is called with the matching URL for the selected entry.
-
-Both `open-browser` and `webapi-vim` are requred.
 
 ### CtrlP Funky JS
 

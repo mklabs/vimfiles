@@ -35,9 +35,6 @@ syntax on
 " terminal should support 256 colors
 set t_Co=256
 
-" default colorscheme
-colorscheme zenburn
-
 " Use modeline overrides
 set modeline
 set modelines=10

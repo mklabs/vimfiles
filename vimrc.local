@@ -60,7 +60,6 @@ endfunction
 
 " call this shebang check on every bufread or newfile
 autocmd! BufRead,BufNewFile * call s:NodeAndTheBang('node')
-autocmd! BufRead,BufNewFile * call s:NodeAndTheBang('phantomjs')
 
 " Experimental path manipulation
 " ------------------------------

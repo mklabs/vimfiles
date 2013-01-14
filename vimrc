@@ -28,6 +28,8 @@ set number
 " show line and column number
 set ruler
 
+syntax enable
+
 " keep curent color settings
 syntax on
 

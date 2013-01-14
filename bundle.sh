@@ -24,6 +24,7 @@ git clone git://github.com/kchmck/vim-coffee-script.git bundle/coffeescript
 git clone git://github.com/nono/vim-handlebars.git      bundle/handlebars
 git clone git://github.com/thinca/vim-github.git        bundle/github
 git clone git://github.com/Lokaltog/vim-powerline.git   bundle/powerline
+git clone git://github.com/embear/vim-localvimrc.git    bundle/localvimrc
 
 # API
 git clone git://github.com/tyru/open-browser.vim.git    bundle/openbrowser

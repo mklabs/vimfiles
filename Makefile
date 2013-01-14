@@ -24,6 +24,7 @@ BUNDLES = $(shell ls bundle)
 all: clean install
 
 bundle:
+	sh bundle.sh
 
 $(HOME)/.vimrc:
 	echo "$$VIMRC" >> $@

@@ -1,4 +1,3 @@
-
 var nopt = require('nopt'),
   events = require('events'),
   util = require('util'),
@@ -21,7 +20,10 @@ var opts = nopt({
   host: String,
 
   // command
-  command: String
+  command: String,
+  
+  // tab number
+  tab: Number
 });
 
 opts.port = opts.port || 9222;

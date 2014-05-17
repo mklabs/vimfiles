@@ -9,11 +9,23 @@ au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 nmap <silent> <S-left>      :tabprevious<CR>
 nmap <silent> <S-right>     :tabnext<CR>
 
+" Same for hjkl
+nmap <silent> <S-l>                        :tabnext<CR>
+nmap <silent> <S-k>                        :tabnext<CR>
+nmap <silent> <S-j>                        :tabprevious<CR>
+nmap <silent> <S-h>                        :tabprevious<CR>
+
 " Ctrl+arrow keys to switch between window
-nmap <silent> <C-left>      :wincmd h<CR>
-nmap <silent> <C-right>     :wincmd l<CR>
-nmap <silent> <C-down>      :wincmd j<CR>
-nmap <silent> <C-up>        :wincmd k<CR>
+nmap <silent> <C-left>                     :wincmd h<CR>
+nmap <silent> <C-right>                    :wincmd l<CR>
+nmap <silent> <C-down>                     :wincmd j<CR>
+nmap <silent> <C-up>                       :wincmd k<CR>
+
+" Same for hjkl
+nmap <silent> <C-h>                        :wincmd h<CR>
+nmap <silent> <C-l>                        :wincmd l<CR>
+nmap <silent> <C-j>                        :wincmd j<CR>
+nmap <silent> <C-k>                        :wincmd k<CR>
 
 " bonus Shift+ up / down same as Ctrl + up / down
 nmap <silent> <S-down>      :wincmd j<CR>
@@ -28,6 +40,9 @@ vmap <Leader>o <Plug>(openbrowser-open)
 
 nmap <Leader>s <Plug>(openbrowser-search)
 vmap <Leader>s <Plug>(openbrowser-search)
+
+" ctrlp
+nmap <silent> <C-b>                        :CtrlPBuffer<CR>
 
 " openbrowser
 " -----------

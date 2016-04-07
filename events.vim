@@ -27,3 +27,5 @@ endfunction
 
 " call this shebang check on every bufread or newfile
 autocmd! BufRead,BufNewFile * call s:NodeAndTheBang('node')
+
+

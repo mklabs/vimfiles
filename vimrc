@@ -1,10 +1,13 @@
 source main.vim
+source plugins.vim
 source config.vim
 source theme.vim
-source plugins.vim
 source mappings.vim
+source events.vim
 
 " Plugin specific configuration
-source nerdtree.vim
-source syntastic.vim
 source gist.vim
+source nerdtree.vim
+source fzf.vim
+source deoplete.vim
+source airline.vim

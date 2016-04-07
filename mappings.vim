@@ -5,8 +5,6 @@
 " <Leader> key set to ,
 let mapleader=','
 
-map <Leader>n :NERDTreeToggle<CR>
-
 " Shift+left to switch to prev tab
 " Shift+right to switch to next
 nmap <silent> <S-left>                      :tabprevious<CR>
@@ -36,10 +34,6 @@ nmap <silent> <S-up>        :wincmd k<CR>
 
 " ",," to switch to previous edited buffer
 nmap <Leader><Leader>       :b#<CR>
-
-" Use ctrlp to list buffers with Ctrl-b
-nmap <silent> <C-b>                        :CtrlPBuffer<CR>
-
 
 " `tt` in normal mode to toggle comments
 noremap tt :TComment<CR>

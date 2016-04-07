@@ -2,7 +2,8 @@
 " General configuration
 "
 
-set nocompatible
+" load the plugin and indent settings for the detected filetype
+filetype plugin indent on
 
 " show line numbers
 set number

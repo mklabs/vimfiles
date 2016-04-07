@@ -1,31 +1,39 @@
 
-call plug#begin('~/.vim/plugged')
-
+call plug#begin('~/.vim/bundles')
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-cucumber'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rhubarb'
-
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
 
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/emmet-vim'
 
-Plug 'msanders/snipmate.vim'
+Plug 'mhartington/oceanic-next'
+
+Plug 'Shougo/deoplete.nvim'
+
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/unite-outline'
+Plug 'Shougo/neco-vim'
+Plug 'Shougo/neoinclude.vim'
+
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'mhinz/vim-signify'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 Plug 'mileszs/ack.vim'
-Plug 'kien/ctrlp.vim'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
 Plug 'pangloss/vim-javascript'
-Plug 'kchmck/vim-coffee-script'
 Plug 'nono/vim-handlebars'
-Plug 'thinca/vim-github'
-Plug 'powerline/powerline'
+Plug 'vim-airline/vim-airline'
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Add plugins to &runtimepath
 call plug#end()

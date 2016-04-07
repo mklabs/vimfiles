@@ -18,28 +18,24 @@ were also taken from Derek's [vim-config][]
 Installation
 ------------
 
-Clone to `~/vimfiles` on windows, clone to `~/.vim` everywhere else.
+Using Neovim: Clone to `~/.config/nvim`.
+```sh
+# osx / nix
+$ git clone https://github.com/mklabs/vimfiles.git ~/.config/nvim
+```
+
+Using vim: Clone to `~/vimfiles` on windows, clone to `~/.vim` everywhere else.
 
 ```sh
 # osx / nix
 $ git clone https://github.com/mklabs/vimfiles.git ~/.vim
 
-# windows
-$ git clone https://github.com/mklabs/vimfiles.git ~/vimfiles
+# then symlink vimrc file to `~/.vimrc`
+$ cd ~/.vim && ln -s $PWD/vimrc ~/.vimrc
 ```
 
-Then use the make to invoke the `install` target:
-
-```sh
-$ make install
-
-# clones the list of bundles as listed in bundle.sh
-# create $HOME/.vimrc and $HOME/.gvimrc if they don't exist already
-```
-
-**Note**: On windows, you need to rename the ~/.vimrc and ~/.gvimrc to
-their windows equivalent ~/_vimrc & ~/_gvimrc (a `_` instead of `.`,
-that's just the way it is on win32)
+**Note**: On windows, you need to rename the ~/.vimrc to its windows equivalent
+~/_vimrc & ~/_gvimrc (a `_` instead of `.`, that's just the way it is on win32)
 
 ## Plugins
 

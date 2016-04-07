@@ -1,7 +1,3 @@
-
-" Misc
-" ====
-
 " Experimental path manipulation
 " ------------------------------
 " (not runtime, see `:h path`, `:h path` and `:h suffixesadd`)

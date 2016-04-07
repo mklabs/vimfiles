@@ -1,6 +1,8 @@
 
 This is my `.vim` folder, and now uses Neovim.
 
+![viim](./vim.png)
+
 It started as a fork of [quick-vim][], but have diverged quite a bit.
 
 vim/gvim config files based on [janus][] config. A good amount of vim goodies

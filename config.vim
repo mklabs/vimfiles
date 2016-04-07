@@ -54,3 +54,8 @@ set laststatus=2
 " windows the same
 set noequalalways
 
+" Show (partial) command in the status line
+set showcmd
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start

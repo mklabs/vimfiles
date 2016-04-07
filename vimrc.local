@@ -1,80 +1,6 @@
-" remove any trailing whitespace on file save.
-au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-
-" Mappings
-" ========
-
-" Shift+left to switch to prev tab
-" Shift+right to switch to next
-nmap <silent> <S-left>      :tabprevious<CR>
-nmap <silent> <S-right>     :tabnext<CR>
-
-" Same for hjkl
-nmap <silent> <S-l>                        :tabnext<CR>
-nmap <silent> <S-k>                        :tabnext<CR>
-nmap <silent> <S-j>                        :tabprevious<CR>
-nmap <silent> <S-h>                        :tabprevious<CR>
-
-" Ctrl+arrow keys to switch between window
-nmap <silent> <C-left>                     :wincmd h<CR>
-nmap <silent> <C-right>                    :wincmd l<CR>
-nmap <silent> <C-down>                     :wincmd j<CR>
-nmap <silent> <C-up>                       :wincmd k<CR>
-
-" Same for hjkl
-nmap <silent> <C-h>                        :wincmd h<CR>
-nmap <silent> <C-l>                        :wincmd l<CR>
-nmap <silent> <C-j>                        :wincmd j<CR>
-nmap <silent> <C-k>                        :wincmd k<CR>
-
-" bonus Shift+ up / down same as Ctrl + up / down
-nmap <silent> <S-down>      :wincmd j<CR>
-nmap <silent> <S-up>        :wincmd k<CR>
-
-" `tt` in normal mode to toggle comments
-noremap tt :TComment<CR>
-
-" openbrowser mapping
-nmap <Leader>o <Plug>(openbrowser-open)
-vmap <Leader>o <Plug>(openbrowser-open)
-
-nmap <Leader>s <Plug>(openbrowser-search)
-vmap <Leader>s <Plug>(openbrowser-search)
-
-" ctrlp
-nmap <silent> <C-b>                        :CtrlPBuffer<CR>
-
-" openbrowser
-" -----------
-" custom serch engine
-let g:openbrowser_search_engines = {
-  \ 'mdn': 'https://developer.mozilla.org/en-US/search?q={query}',
-  \ 'mdn-fr': 'https://developer.mozilla.org/fr-FR/search?q={query}'
-\}
-
-let g:openbrowser_default_search = 'mdn'
-
-" gist-vim
-" --------
-" goes private by default
-let g:gist_private = 1
-
 
 " Misc
 " ====
-
-" set filetype to js for files with node shebang thing these files don't have
-" an extension. pretty sure there is a plugin for this, for a bunch of
-" filetype.
-function! s:NodeAndTheBang(name)
-  let nodebang = matchstr(getline(1), "^#.*". a:name)
-  if nodebang != ''
-    set ft=javascript
-  endif
-endfunction
-
-" call this shebang check on every bufread or newfile
-autocmd! BufRead,BufNewFile * call s:NodeAndTheBang('node')
 
 " Experimental path manipulation
 " ------------------------------
@@ -91,14 +17,12 @@ autocmd! BufRead,BufNewFile * call s:NodeAndTheBang('node')
 function! s:updatePath()
   " dirname of the current buffer
   let bufpath = expand('%:h')
-  " remove last component in the path option
 
-  let &path=','
-  " add the new one, the current relative dir for buffer
+  " add the current buffer dirname
   let &path = join([&path, bufpath . '/'], ',')
+  
   " and the actual current working directory
   let &path = join([&path, getcwd() . '/'], ',')
-
 endfunction
 
 " udpate the suffixesadd option (:h 'suffixesadd') to include the current

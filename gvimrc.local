@@ -1,9 +1,0 @@
-
-
-" Configure template mapping, in gvim <D-Space> triggers the <c-p>
-
-" Jump between {{ var }} placeholders in Normal mode with <Ctrl-p>
-nnoremap <D-Space> /{{\s*\l.\{-1,}\s*}}<cr>c/{{\s*\l*\s*}}/e<cr>
-
-"Jump between {{ var }} placeholders in Insert mode with <Ctrl-p>
-inoremap <D-Space> <ESC>/{{\s*\l.\{-1,}\s*}}<cr>c/{{\s*\l*\s*}}/e<cr>

@@ -1,8 +1,0 @@
-
-Usage: vim-boilerplate [options]
-
-  -h, --help      Show this help text
-  -v, --version   Display package version
-
-And follow the prompts
-

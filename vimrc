@@ -11,3 +11,4 @@ source nerdtree.vim
 source fzf.vim
 source deoplete.vim
 source airline.vim
+source ultisnips.vim

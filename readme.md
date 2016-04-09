@@ -48,7 +48,7 @@ Run `:PlugUpdate` to update or install, run `:PlugClean` for occasional clean.
 
 - Filer: [NERDTree][] (might switch to vimfiler, or use both)
 - Finder: [fzf][], switched from ctrl-p to fzf for the support of neovim's async features.
-- Status bar: [airline][], switched from powerline
+- Status bar: [vim-airline][], switched from powerline
 - Theme: [Oceanic Next][] theme used by default, but configuration includes
   alternative themes such as [base16-vim][], [oceandeep][] and [tomorrow
   theme][].
@@ -59,7 +59,7 @@ Run `:PlugUpdate` to update or install, run `:PlugClean` for occasional clean.
 - And some other plugins like Unite, ack.vim, tcomment, vim-devicons, emmet (zencoding) ...
 
 [NERDTree]: https://github.com/scrooloose/nerdtree
-[airline]: https://github.com/airline/airline
+[vim-airline]: https://github.com/vim-airline/vim-airline
 [fzf]: https://github.com/junegunn/fzf.vim
 [Oceanic Next]: https://github.com/mhartington/oceanic-next
 [base16-vim]: https://github.com/chriskempson/base16-vim

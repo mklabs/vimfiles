@@ -11,6 +11,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+Plug 'benekastah/neomake'
+
 " Themes
 Plug 'chriskempson/base16-vim'
 Plug 'vim-scripts/oceandeep'

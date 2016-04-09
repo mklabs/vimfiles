@@ -7,7 +7,7 @@ source $HOME/.vim/events.vim
 
 " Plugin specific configuration
 source $HOME/.vim/gist.vim
-source $HOME/.vim/nerdtree.vim
+source $HOME/.vim/filer.vim
 source $HOME/.vim/fzf.vim
 source $HOME/.vim/deoplete.vim
 source $HOME/.vim/airline.vim

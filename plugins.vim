@@ -2,7 +2,9 @@
 call plug#begin('~/.vim/bundles')
 
 " Filer
-Plug 'scrooloose/nerdtree'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/unite-outline'
+Plug 'Shougo/vimfiler.vim'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
@@ -41,10 +43,6 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 " Snippets
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
-
-" Unite
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/unite-outline'
 
 " Misc
 Plug 'mileszs/ack.vim'

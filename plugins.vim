@@ -5,6 +5,7 @@ call plug#begin('~/.vim/bundles')
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/vimfiler.vim'
+Plug 'scrooloose/nerdtree'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
@@ -14,6 +15,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'benekastah/neomake'
+Plug 'neovim/node-host', { 'do': 'npm install' }
+
+Plug 'moll/vim-node'
 
 " Themes
 Plug 'chriskempson/base16-vim'
@@ -51,6 +55,10 @@ Plug 'tomtom/tcomment_vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/emmet-vim'
+
+" WIP plugins
+Plug '~/src/vim/mdn'
+Plug '~/src/vim/jscs.vim'
 
 " Add plugins to &runtimepath
 call plug#end()

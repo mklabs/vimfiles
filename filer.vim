@@ -9,8 +9,8 @@ let g:vimfiler_file_icon = '-'
 map <Leader>n :VimFilerExplorer<CR>
 map <Leader>b :VimFiler<CR>
 
-" Explorer window on startup
-autocmd VimEnter * VimFilerExplorer
+" Explorer window on startup (unless we're git committing)
+autocmd VimEnter * if (&filetype !=# 'gitcommit') | VimFilerExplorer | endif
 
 " Override Enter, right & left to navigate through dirs
 autocmd VimEnter * if (&filetype ==# 'vimfiler') | nmap <buffer> <Enter> l | endif

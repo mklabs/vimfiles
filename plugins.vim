@@ -1,22 +1,24 @@
 
 call plug#begin('~/.vim/bundles')
 
-" Filer
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
+
+" Filer
 Plug 'Shougo/vimfiler.vim'
 Plug 'scrooloose/nerdtree'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
 
-" Finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
+"Linter
 Plug 'benekastah/neomake'
+
+" For node remote plugins
 Plug 'neovim/node-host', { 'do': 'npm install' }
 
+" Node development
 Plug 'moll/vim-node'
 
 " Themes

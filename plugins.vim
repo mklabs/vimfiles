@@ -57,6 +57,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-eunuch'
 
 " WIP plugins
 Plug '~/src/vim/mdn'

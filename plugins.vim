@@ -1,5 +1,5 @@
-
-call plug#begin('~/.vim/bundles')
+" TODO
+" - add magit
 
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite.vim'
@@ -45,6 +45,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neco-vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 
 " Snippets
 Plug 'sirver/ultisnips'
@@ -60,8 +61,9 @@ Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-eunuch'
 
 " WIP plugins
-Plug '~/src/vim/mdn'
-Plug '~/src/vim/jscs.vim'
-
-" Add plugins to &runtimepath
-call plug#end()
+Plug '~/src/mklabs/mdn'
+Plug '~/src/mklabs/jscs.vim'
+Plug '~/src/mklabs/split-term.vim'
+Plug '~/src/mklabs/mdown.vim'
+Plug 'ryanss/vim-hackernews'
+Plug 'junegunn/vim-github-dashboard'

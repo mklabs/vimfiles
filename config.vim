@@ -5,6 +5,9 @@
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
 
+let loaded_matchparen = 1
+set splitright
+
 " show line numbers
 set number
 

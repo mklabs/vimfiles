@@ -4,6 +4,7 @@
 
 " <Leader> key set to ,
 let mapleader=','
+let maplocalleader=' '
 
 " Shift+left to switch to prev tab
 " Shift+right to switch to next

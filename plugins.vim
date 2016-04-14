@@ -12,15 +12,6 @@ Plug 'scrooloose/nerdtree'
 " Status bar
 Plug 'vim-airline/vim-airline'
 
-"Linter
-Plug 'benekastah/neomake'
-
-" For node remote plugins
-Plug 'neovim/node-host', { 'do': 'npm install' }
-
-" Node development
-Plug 'moll/vim-node'
-
 " Themes
 Plug 'chriskempson/base16-vim'
 Plug 'vim-scripts/oceandeep'
@@ -36,20 +27,11 @@ Plug 'mattn/gist-vim'
 " Syntax
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-cucumber'
-Plug 'othree/yajs.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'nono/vim-handlebars'
 
 " Completion
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neco-vim'
 Plug 'Shougo/neoinclude.vim'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-
-" Snippets
-Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
 
 " Misc
 Plug 'mileszs/ack.vim'
@@ -59,11 +41,13 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-eunuch'
-
-" WIP plugins
-Plug '~/src/mklabs/mdn'
-Plug '~/src/mklabs/jscs.vim'
-Plug '~/src/mklabs/split-term.vim'
-Plug '~/src/mklabs/mdown.vim'
 Plug 'ryanss/vim-hackernews'
 Plug 'junegunn/vim-github-dashboard'
+Plug 'mklabs/vim-json'
+
+" WIP plugins
+Plug '~/src/mklabs/mdown.vim'
+Plug '~/src/mklabs/vim-post'
+Plug '~/src/mklabs/neojs'
+
+Plug 'jreybert/vimagit'

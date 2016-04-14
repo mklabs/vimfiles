@@ -7,4 +7,4 @@ function! s:edit(file)
   exe 'edit ' . a:file
 endf
 
-command! -nargs=1 Edit call s:edit(<q-args>)
+command! -complete=file -nargs=1 Edit call s:edit(<q-args>)

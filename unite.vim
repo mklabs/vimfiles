@@ -10,4 +10,7 @@ call unite#custom#profile('source/grep', 'context', {
 " Ctrl-{key} to fuzzy find stuff
 map <C-p> :Unite -start-insert -direction=botright -winheight=10 file/async file_rec/async<CR>
 map <C-b> :Unite -start-insert -direction=botright -winheight=10 buffer<CR>
-map <C-c> :Unite -start-insert -direction=botright -winheight=10 file_rec/git<CR>
+map <C-g> :Unite -start-insert -direction=botright -winheight=10 file_rec/git<CR>
+map <C-o> :Unite -start-insert -direction=topleft -winwidth=40 -vertical outline<CR>
+
+

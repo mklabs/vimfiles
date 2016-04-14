@@ -1,3 +1,4 @@
 bundles/
 tags
 .init.vim-rplugin*
+.netrwhist

@@ -1,16 +1,18 @@
 " TODO
 " - add magit
 
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" Filer
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
-
-" Filer
 Plug 'Shougo/vimfiler.vim'
 Plug 'scrooloose/nerdtree'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
+
+" Finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Themes
 Plug 'chriskempson/base16-vim'

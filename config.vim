@@ -50,6 +50,8 @@ set smartcase
 " Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+" disable preview window in completions
+set completeopt=menu
 
 " Status bar
 set laststatus=2

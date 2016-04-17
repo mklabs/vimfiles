@@ -1,0 +1,10 @@
+
+snippet p "Promise ES6 style"
+new Promise((r, errback) => {
+	$1
+});
+endsnippet
+
+snippet ps "Promise ES6 single line style"
+new Promise((r, errback) => r(); $1)
+endsnippet

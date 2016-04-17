@@ -6,16 +6,13 @@
 let mapleader=','
 let maplocalleader=' '
 
-" Shift+left to switch to prev tab
-" Shift+right to switch to next
-nmap <silent> <S-left>                      :tabprevious<CR>
-nmap <silent> <S-right>                     :tabnext<CR>
+" Tab switch
+nmap <silent> <S-Up>                        :tabprevious<CR>
+nmap <silent> <S-Down>                      :tabnext<CR>
 
-" Same for hjkl
-nmap <silent> <S-l>                        :tabnext<CR>
-nmap <silent> <S-k>                        :tabnext<CR>
-nmap <silent> <S-j>                        :tabprevious<CR>
-nmap <silent> <S-h>                        :tabprevious<CR>
+" Buffer switch
+nmap <silent> <S-left>                      :bprev<CR>
+nmap <silent> <S-right>                     :bnext<CR>
 
 " Ctrl+arrow keys to switch between window
 nmap <silent> <C-left>                     :wincmd h<CR>

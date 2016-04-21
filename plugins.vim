@@ -5,7 +5,6 @@
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/vimfiler.vim'
-Plug 'scrooloose/nerdtree'
 
 " Status bar
 Plug 'vim-airline/vim-airline'

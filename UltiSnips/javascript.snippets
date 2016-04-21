@@ -1,10 +1,28 @@
 
 snippet p "Promise ES6 style"
 new Promise((r, errback) => {
-	$1
+  $1
 });
 endsnippet
 
 snippet ps "Promise ES6 single line style"
 new Promise((r, errback) => r(); $1)
+endsnippet
+
+snippet (err) "Arrow function with Error object"
+(err) => {
+  if (err) return done(err);
+}
+endsnippet
+
+snippet (arg) "Arrow function with arguments"
+($1) => {
+  $2
+}
+endsnippet
+
+snippet () "Arrow function"
+($1) => {
+  $2
+}
 endsnippet

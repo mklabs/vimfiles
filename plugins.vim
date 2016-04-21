@@ -44,6 +44,7 @@ Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-eunuch'
 Plug 'ryanss/vim-hackernews'
 Plug 'junegunn/vim-github-dashboard'
+Plug 'nono/vim-handlebars'
 " Plug 'mklabs/vim-json'
 
 " WIP plugins

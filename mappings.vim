@@ -26,12 +26,12 @@ nmap <silent> <C-l>                        :wincmd l<CR>
 nmap <silent> <C-j>                        :wincmd j<CR>
 nmap <silent> <C-k>                        :wincmd k<CR>
 
-" bonus Shift+ up / down same as Ctrl + up / down
-nmap <silent> <S-down>      :wincmd j<CR>
-nmap <silent> <S-up>        :wincmd k<CR>
+" Browser like Ctrl-W to close current bufffer and remove it from the list
+nmap <C-W>                                :bd<CR>
 
 " ",," to switch to previous edited buffer
 nmap <Leader><Leader>       :b#<CR>
 
 " `tt` in normal mode to toggle comments
 noremap tt :TComment<CR>
+

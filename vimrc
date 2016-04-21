@@ -19,3 +19,9 @@ source $HOME/.vim/deoplete.vim
 source $HOME/.vim/airline.vim
 source $HOME/.vim/ultisnips.vim
 source $HOME/.vim/plug.vim
+source $HOME/.vim/unite.vim
+source $HOME/.vim/tern.vim
+
+
+let g:user_emmet_install_global = 0
+autocmd FileType html nmap <tab> <plug>(emmet-expand-abbr)

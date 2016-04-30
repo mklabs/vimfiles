@@ -45,13 +45,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'ryanss/vim-hackernews'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'nono/vim-handlebars'
-" Plug 'mklabs/vim-json'
 
-" WIP plugins
-Plug '~/src/mklabs/mdown.vim'
-Plug '~/src/mklabs/vim-post'
-Plug '~/src/mklabs/neojs'
-Plug '~/src/mklabs/vim-json'
-Plug '~/src/mklabs/vim-nodecompl'
-
-Plug 'jreybert/vimagit'
+" JS package
+Plug 'vimlab/neojs'

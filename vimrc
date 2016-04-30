@@ -1,27 +1,21 @@
-let g:neojs_pluginfile = '~/src/mklabs/neojs/docs/plugins.md'
+source $HOME/.config/nvim/main.vim
 
-source $HOME/.vim/main.vim
-
-call plug#begin('~/.vim/bundles')
-source $HOME/.vim/plugins.vim
+call plug#begin('~/.config/nvim/bundles')
+source $HOME/.config/nvim/plugins.vim
 call plug#end()
 
-source $HOME/.vim/config.vim
-source $HOME/.vim/theme.vim
-source $HOME/.vim/mappings.vim
-source $HOME/.vim/events.vim
+source $HOME/.config/nvim/config.vim
+source $HOME/.config/nvim/theme.vim
+source $HOME/.config/nvim/mappings.vim
+source $HOME/.config/nvim/events.vim
 
 " Plugin specific configuration
-source $HOME/.vim/gist.vim
-source $HOME/.vim/filer.vim
-source $HOME/.vim/fzf.vim
-source $HOME/.vim/deoplete.vim
-source $HOME/.vim/airline.vim
-source $HOME/.vim/ultisnips.vim
-source $HOME/.vim/plug.vim
-source $HOME/.vim/unite.vim
-source $HOME/.vim/tern.vim
-
-
-let g:user_emmet_install_global = 0
-autocmd FileType html nmap <tab> <plug>(emmet-expand-abbr)
+source $HOME/.config/nvim/gist.vim
+source $HOME/.config/nvim/filer.vim
+source $HOME/.config/nvim/fzf.vim
+source $HOME/.config/nvim/deoplete.vim
+source $HOME/.config/nvim/airline.vim
+source $HOME/.config/nvim/ultisnips.vim
+source $HOME/.config/nvim/plug.vim
+source $HOME/.config/nvim/unite.vim
+source $HOME/.config/nvim/tern.vim

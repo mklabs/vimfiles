@@ -45,6 +45,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'ryanss/vim-hackernews'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'nono/vim-handlebars'
+Plug 'vimlab/split-term.vim'
 
 " JS package
 Plug 'vimlab/neojs'

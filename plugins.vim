@@ -1,6 +1,3 @@
-" TODO
-" - add magit
-
 " Filer
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
@@ -46,6 +43,7 @@ Plug 'ryanss/vim-hackernews'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'nono/vim-handlebars'
 Plug 'vimlab/split-term.vim'
+Plug 'neovim/node-host'
 
-" JS package
+" JS
 Plug 'vimlab/neojs'

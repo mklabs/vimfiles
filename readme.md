@@ -99,20 +99,10 @@ The vim configuration is split up in different files:
 - events - Autocommand stuff to hook certain action on particular Vim events
 - {pluginName}.vim - contains plugin specific configuration and mappings
 
-## plugin/relpath.vim
+## JS package
 
-A little plugin that ease the process of navigating through a codebase using
-that uses relative requires (eg. `require('./app')`). It just adds the ability
-to `gf` onto a require statement to automatically open the required file.
+I extracted every bit of JS related configuration and plugins to a separate
+repository: https://github.com/vimlab/neojs
 
-Might end up in a separate repo.
-
-## ftplugin/javascript.vim
-
-A little thing to add a `:Require` command to easily add node like require statements.
-
-Running `:Require fs path child_process` will generate:
-
-    var fs = require('fs');
-    var path = require('path');
-    var child_process = require('child_process');
+Check [neojs readme](https://github.com/vimlab/neojs#readme) for further
+information on what's included and how to use it.

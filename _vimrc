@@ -1,7 +1,7 @@
-source $HOME\vimfiles\main.vim
+source $HOME\vimfiles\config\main.vim
 
-call plug#begin('$HOME\vimfiles\bundles')
-source $HOME\vimfiles\plugins.vim
+call plug#begin('$HOME\vimfiles\config\bundles')
+source $HOME\vimfiles\config\plugins.vim
 
 " win specific plugins
 
@@ -10,19 +10,19 @@ source $HOME\vimfiles\plugins.vim
 Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
-source $HOME\vimfiles\config.vim
-source $HOME\vimfiles\theme.vim
-source $HOME\vimfiles\mappings.vim
-source $HOME\vimfiles\events.vim
+source $HOME\vimfiles\config\config.vim
+source $HOME\vimfiles\config\theme.vim
+source $HOME\vimfiles\config\mappings.vim
+source $HOME\vimfiles\config\events.vim
 
 " Plugin specific configuration
-source $HOME\vimfiles\gist.vim
-source $HOME\vimfiles\filer.vim
-source $HOME\vimfiles\deoplete.vim
-source $HOME\vimfiles\airline.vim
-source $HOME\vimfiles\ultisnips.vim
-source $HOME\vimfiles\plug.vim
-source $HOME\vimfiles\unite.vim
-source $HOME\vimfiles\tern.vim
+source $HOME\vimfiles\config\gist.vim
+source $HOME\vimfiles\config\filer.vim
+source $HOME\vimfiles\config\deoplete.vim
+source $HOME\vimfiles\config\airline.vim
+source $HOME\vimfiles\config\ultisnips.vim
+source $HOME\vimfiles\config\plug.vim
+source $HOME\vimfiles\config\unite.vim
+source $HOME\vimfiles\config\tern.vim
 
 colorscheme default

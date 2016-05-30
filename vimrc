@@ -1,24 +1,24 @@
-source $HOME/.vim/main.vim
+source $HOME/.vim/config/main.vim
 
 call plug#begin('$HOME/.vim/bundles')
-source $HOME/.vim/plugins.vim
+source $HOME/.vim/config/plugins.vim
 call plug#end()
 
-source $HOME/.vim/config.vim
-source $HOME/.vim/theme.vim
-source $HOME/.vim/mappings.vim
-source $HOME/.vim/events.vim
+source $HOME/.vim/config/config.vim
+source $HOME/.vim/config/theme.vim
+source $HOME/.vim/config/mappings.vim
+source $HOME/.vim/config/events.vim
 
 " Plugin specific configuration
-source $HOME/.vim/gist.vim
-source $HOME/.vim/filer.vim
-source $HOME/.vim/fzf.vim
-source $HOME/.vim/deoplete.vim
-source $HOME/.vim/airline.vim
-source $HOME/.vim/ultisnips.vim
-source $HOME/.vim/plug.vim
-source $HOME/.vim/unite.vim
-source $HOME/.vim/tern.vim
+source $HOME/.vim/config/gist.vim
+source $HOME/.vim/config/filer.vim
+source $HOME/.vim/config/fzf.vim
+source $HOME/.vim/config/deoplete.vim
+source $HOME/.vim/config/airline.vim
+source $HOME/.vim/config/ultisnips.vim
+source $HOME/.vim/config/plug.vim
+source $HOME/.vim/config/unite.vim
+source $HOME/.vim/config/tern.vim
 
 " Theme / Colorsheme configuration
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1

@@ -19,3 +19,8 @@ source $HOME/.vim/ultisnips.vim
 source $HOME/.vim/plug.vim
 source $HOME/.vim/unite.vim
 source $HOME/.vim/tern.vim
+
+" Theme / Colorsheme configuration
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colorscheme OceanicNext
+set background=dark

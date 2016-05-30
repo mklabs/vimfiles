@@ -1,6 +1,6 @@
 source $HOME\vimfiles\config\main.vim
 
-call plug#begin('$HOME\vimfiles\config\bundles')
+call plug#begin('$HOME\vimfiles\bundles')
 source $HOME\vimfiles\config\plugins.vim
 
 " win specific plugins

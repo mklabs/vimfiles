@@ -32,13 +32,16 @@ Using vim: Clone to `~/vimfiles` on windows, clone to `~/.vim` everywhere else.
 ```sh
 # osx / nix
 $ git clone https://github.com/mklabs/vimfiles.git ~/.vim
+$ ln -s ~/.vim/vimrc ~:/.vimrc
 
 # windows
 $ git clone https://github.com/mklabs/vimfiles.git $HOME/vimfiles
+$ cp $HOME\vimfiles\_vimrc $HOME\_vimrc
 ```
 
-**Note**: On windows, you need to rename the ~/.vimrc to its windows equivalent
-~/_vimrc & ~/_gvimrc (a `_` instead of `.`)
+**Windows Note**: You need to rename the ~/.vimrc to its windows equivalent
+~/_vimrc & ~/_gvimrc (a `_` instead of `.`). The colorscheme is left to
+default and can be configured in _vimrc file.
 
 ## Plugins
 
@@ -50,7 +53,7 @@ Run `:PlugUpdate` to update or install, run `:PlugClean` for occasional clean.
 
 
 - Filer: [NERDTree][] (might switch to vimfiler, or use both)
-- Finder: [fzf][], switched from ctrl-p to fzf for the support of neovim's async features.
+- Finder: [fzf][], fallback to ctrl-p for windows where fzf is not available
 - Status bar: [vim-airline][], switched from powerline
 - Theme: [Oceanic Next][] theme used by default, but configuration includes
   alternative themes such as [base16-vim][], [oceandeep][] and tomorrow

@@ -1,6 +1,6 @@
 source $HOME/.vim/main.vim
 
-call plug#begin('~/.vim/bundles')
+call plug#begin('$HOME/.vim/bundles')
 source $HOME/.vim/plugins.vim
 call plug#end()
 

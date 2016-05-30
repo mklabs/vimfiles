@@ -1,7 +1,6 @@
+# vimfiles
 
 This is my `.vim` folder, and now uses Neovim.
-
-![viim](./vim.png)
 
 It started as a fork of [quick-vim][], but have diverged quite a bit.
 
@@ -14,6 +13,10 @@ were also taken from Derek's [vim-config][]
 [janus]: http://github.com/carlhuda/janus
 [quick-vim]: https://github.com/brianleroux/quick-vim/
 [nvie's vimrc]: https://github.com/nvie/vimrc
+
+---
+![viim](./vim.png)
+---
 
 Installation
 ------------
@@ -30,12 +33,12 @@ Using vim: Clone to `~/vimfiles` on windows, clone to `~/.vim` everywhere else.
 # osx / nix
 $ git clone https://github.com/mklabs/vimfiles.git ~/.vim
 
-# then symlink vimrc file to `~/.vimrc`
-$ cd ~/.vim && ln -s $PWD/vimrc ~/.vimrc
+# windows
+$ git clone https://github.com/mklabs/vimfiles.git $HOME/vimfiles
 ```
 
 **Note**: On windows, you need to rename the ~/.vimrc to its windows equivalent
-~/_vimrc & ~/_gvimrc (a `_` instead of `.`, that's just the way it is on win32)
+~/_vimrc & ~/_gvimrc (a `_` instead of `.`)
 
 ## Plugins
 
@@ -50,12 +53,12 @@ Run `:PlugUpdate` to update or install, run `:PlugClean` for occasional clean.
 - Finder: [fzf][], switched from ctrl-p to fzf for the support of neovim's async features.
 - Status bar: [vim-airline][], switched from powerline
 - Theme: [Oceanic Next][] theme used by default, but configuration includes
-  alternative themes such as [base16-vim][], [oceandeep][] and [tomorrow
-  theme][].
+  alternative themes such as [base16-vim][], [oceandeep][] and tomorrow
+  theme.
 - Git: [Fugitive][], [nerdtree-git-plugin][] and [vim-signify][] for better Git integration.
 - Syntax: Syntax definitions for javascript, handlebars, markdown, cucumber
 - Completion: [deoplete][] for its support of neovim's async features.
-- Snippets: [ultisnips][]
+- Snippets: ultisnips
 - And some other plugins like Unite, ack.vim, tcomment, vim-devicons, emmet (zencoding) ...
 
 [NERDTree]: https://github.com/scrooloose/nerdtree
@@ -69,6 +72,16 @@ Run `:PlugUpdate` to update or install, run `:PlugClean` for occasional clean.
 [vim-signify]: https://github.com/mhinz/vim-signify
 [deoplete]: https://github.com/Shougo/deoplete.nvim
 [ultisnips]: https://github.com/sirver/ultisnips
+
+### JS
+
+I extracted every bit of JS related configuration and plugins to a separate
+repository: https://github.com/vimlab/neojs
+
+Check [neojs readme](https://github.com/vimlab/neojs#readme) for further
+information on what's included and how to use it.
+
+If you don't want these additional plugins (neovim specific), just remove `Plug 'vimlab/neojs'` from the plugins.vim file.
 
 ## vimrc / init.vim
 
@@ -98,11 +111,3 @@ The vim configuration is split up in different files:
 - mappings.vim - contains most of the general keybindings (not plugin specific)
 - events - Autocommand stuff to hook certain action on particular Vim events
 - {pluginName}.vim - contains plugin specific configuration and mappings
-
-## JS package
-
-I extracted every bit of JS related configuration and plugins to a separate
-repository: https://github.com/vimlab/neojs
-
-Check [neojs readme](https://github.com/vimlab/neojs#readme) for further
-information on what's included and how to use it.

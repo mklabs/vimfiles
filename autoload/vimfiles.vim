@@ -1,5 +1,5 @@
-" vimfiles: fancy vim distrib
-" ============================
+" vimfiles: higher lvl api / commands to vim-plug
+" ===============================================
 
 if exists('g:loaded_vimfiles')
   " finish
@@ -9,7 +9,6 @@ let g:loaded_vimfiles = 1
 let g:VIMFILES_SEP = has('win32') ? '\' : '/'
 let g:VIMFILES_DIR = join([$HOME, has('win32') ? 'vimfiles' : '.vim'], g:VIMFILES_SEP)
 let g:VIMFILES_HIGROUP = 'Comment'
-let g:VIMFILES_SILENT = 0
 let s:begin = 0
 
 function! vimfiles#join(...)
@@ -75,10 +74,6 @@ function! s:Messages()
   endfor
 endfunction
 
-command! -nargs=+ Vimfiles 		call s:Vimfiles(<args>)
-command! -nargs=+ Vimfile  		call s:Vimfile(<args>)
-command! VimfilesMessages  	call s:Messages()
-
-if exists(':Debug') == 0
-  command! -nargs=+ Debug call vimfiles#debug(<q-args>)
-endif
+command! -nargs=+ Vimfiles call s:Vimfiles(<args>)
+command! -nargs=+ Vimfile  call s:Vimfile(<args>)
+command! VimfilesMessages  call s:Messages()

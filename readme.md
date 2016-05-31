@@ -18,11 +18,16 @@ is left as default (I still need to find the correct setup with Powerline)
 
 ---
 
-- Windows care on joining path correctly
-- nvim / vim specific plugin configuration and plugins
+## Description
+
+- Works well on unix, and pretty fine on Windows
 - Small set of [plugins](#plugins) for general development
-- Every bit of JS related configurations and plugins has been reworked into a
-  separate repository: [vimlab/neojs](https://github.com/vimlab/neojs)
+- Modular nvim / vim and common configuration. Plugins are loaded from their
+  respective folders.
+- [vimlab/neojs](https://github.com/vimlab/neojs) JavaScript related
+  configurations and plugins have been reworked into a separate repository. If
+  you wish to disable it, simply remove the `Vimfile 'vimlab/neojs'` line in
+  `config/nvim/plugins.vim` (only for nvim)
 - Includes [autoload/vimfiles.vim](./autoload/vimfiles.vim)
   - higher lvl API and commands to work with vim-plug, in use in vimrc to load
     plugins based on a glob pattern.
@@ -55,28 +60,31 @@ $ cp $HOME\vimfiles\_vimrc $HOME\_vimrc
 ```
 
 **Windows Note**: You need to rename the ~/.vimrc to its windows equivalent
-~/_vimrc & ~/_gvimrc (a `_` instead of `.`). The colorscheme is left to
-default and can be configured in _vimrc file.
+`~/_vimrc` & `~/_gvimrc` (a `_` instead of `.`). The colorscheme is left to
+default and can be configured in `_vimrc` file.
 
 ## Plugins
 
 Plugins are managed via the excellent
 [vim-plug](https://github.com/junegunn/vim-plug), and all defined in
-`plugins.vim` file.
+[config/common/plugins.vim] file.
 
 Run `:PlugUpdate` to update or install, run `:PlugClean` for occasional clean.
 
+On first install, vim-plug will take care of running a few `npm install`
+command required by some plugins (like installing eslint for Neomake /
+Syntastic, or ternjs for completion with deoplete)
 
-- Filer: [NERDTree][] (might switch to vimfiler, or use both)
-- Finder: [fzf][], fallback to ctrl-p for windows where fzf is not available
-- Status bar: [vim-airline][], switched from powerline
+- Filer: [NERDTree][]
+- Finder: [fzf][], fallback to [ctrlp][] for windows where fzf is not available
+- Status bar: [vim-airline][]
 - Theme: [Oceanic Next][] theme used by default, but configuration includes
   alternative themes such as [base16-vim][], [oceandeep][] and tomorrow
   theme.
 - Git: [Fugitive][], [nerdtree-git-plugin][] and [vim-signify][] for better Git integration.
+- Completion: [deoplete][] for its support of neovim's async features. Not loaded for vim config.
+- Snippets: [UltiSnips][]
 - Syntax: Syntax definitions for javascript, handlebars, markdown, cucumber
-- Completion: [deoplete][] for its support of neovim's async features.
-- Snippets: ultisnips
 - And some other plugins like Unite, ack.vim, tcomment, vim-devicons, emmet (zencoding) ...
 
 [NERDTree]: https://github.com/scrooloose/nerdtree
@@ -89,14 +97,82 @@ Run `:PlugUpdate` to update or install, run `:PlugClean` for occasional clean.
 [Fugitive]: https://github.com/tpope/vim-fugitive
 [vim-signify]: https://github.com/mhinz/vim-signify
 [deoplete]: https://github.com/Shougo/deoplete.nvim
-[ultisnips]: https://github.com/sirver/ultisnips
+[UltiSnips]: https://github.com/sirver/ultisnips
+[ctrlp]: https://github.com/ctrlpvim/ctrlp.vim
 
-## vimrc / init.vim
+## Configuration
+
+### vimrc
 
 `init.vim` is just a symlink to `vimrc`. The first is used by neovim while the
 latter is used by regular vim.
 
-The vim configuration is split up in different files:
+The vim configuration is split up in different files, using `Vimfiles` command
+(defined in [autoload/vimfiles.vim](./autoload/vimfiles.vim)).
+
+```vim
+let g:VIMFILES_BUNDLES = vimfiles#join(g:VIMFILES_DIR, '.bundles')
+
+" Load Common plugin configuration
+Vimfiles 'config/common/*.vim'
+
+" nvim / vim specific plugins
+let dist = has('nvim') ? 'nvim' : 'vim'
+Vimfiles 'config/' . dist . '/*.vim'
+
+" Include GUI specific config
+if has('gui')
+  Vimfiles 'config/gui/*.vim'
+endif
+
+" can't find a corect colorscheme for powerline, giving up and leaving it up to the user to set
+colorscheme default
+
+if has('win32') === 0
+  colorscheme OceanicNext
+  set background=dark
+endif
+
+call vimfiles#end()
+```
+
+1. Common plugin and configurations are loaded with `Vimfiles
+   'config/common/*.vim'`, namely [config/common/plugins.vim][]
+2. nvim or vim specific plugins are loaded from their respective dir.
+3. If running in a GUI environment (such as gvim or mvim), load GUI specific
+   settings with `Vimfiles 'config/gui/*.vim'`
+4. Default themse set to [Oceanic Next][] only for unix terminal or GUI environment.
+
+### config/
+
+```
+config/
+├── common
+│   ├── airline.vim
+│   ├── config.vim
+│   ├── events.vim
+│   ├── filer.vim
+│   ├── gist.vim
+│   ├── init.vim
+│   ├── main.vim
+│   ├── mappings.vim
+│   ├── plugins.vim
+│   ├── plug.vim
+│   ├── syntastic.vim
+│   ├── theme.vim
+│   ├── ultisnips.vim
+│   └── unite.vim
+├── nix
+│   └── fzf.vim
+├── nvim
+│   ├── deoplete.vim
+│   ├── plugins.vim
+│   └── tern.vim
+└── win32
+    └── ctrlp.vim
+```
+
+#### config/common
 
 - main.vim - includes almost nothing and can bootstrap early config
 - plugins.vim - vim-plug initialization and definitions of plugins used
@@ -105,7 +181,23 @@ The vim configuration is split up in different files:
 - events - Autocommand stuff to hook certain action on particular Vim events
 - {pluginName}.vim - contains plugin specific configuration and mappings
 
-# Credits
+#### config/win32
+
+Windows specific config and plugins (ctrlp).
+
+#### config/nix
+
+Unix specific config and plugins (fzf).
+
+#### config/nvim
+
+Neovim specific config and plugins (deoplete, tern)
+
+### UltiSnips/
+
+List of [UltiSnips][] snippet for javascript, handlebars, html and vim.
+
+## Credits
 
 It started as a fork of [quick-vim][], but have diverged quite a bit.
 
@@ -118,3 +210,4 @@ were also taken from Derek's [vim-config][]
 [janus]: http://github.com/carlhuda/janus
 [quick-vim]: https://github.com/brianleroux/quick-vim/
 [nvie's vimrc]: https://github.com/nvie/vimrc
+[config/common/plugins.vim]: ./config/common/plugins.vim

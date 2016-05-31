@@ -1,25 +1,39 @@
 # vimfiles
 
-This is my `.vim` folder, and now uses Neovim.
+This is my cross-platform, cross-editor `~/.vim` folder.
 
-It started as a fork of [quick-vim][], but have diverged quite a bit.
+Plugins are managed via the excellent
+[vim-plug](https://github.com/junegunn/vim-plug), and all specifically defined
+and loaded based on the platform (win32 or unix) and editor (vim or neovim).
 
-vim/gvim config files based on [janus][] config. A good amount of vim goodies
-were also taken from Derek's [vim-config][]
-
-**Thanks**: [quick-vim][], [vim-config][], [janus][], [nvie's vimrc][]
-
-[vim-config]: https://github.com/derekwyatt/vim-config/
-[janus]: http://github.com/carlhuda/janus
-[quick-vim]: https://github.com/brianleroux/quick-vim/
-[nvie's vimrc]: https://github.com/nvie/vimrc
+The default theme for unix terminals and GUI is using [Oceanic Next][]. Windows
+is left as default (I still need to find the correct setup with Powerline)
 
 ---
-![viim](./vim.png)
+
+<div align="center">
+  ![viim](./vim.png)
+</div>
+
 ---
 
-Installation
-------------
+- Windows care on joining path correctly
+- nvim / vim specific plugin configuration and plugins
+- Small set of [plugins](#plugins) for general development
+- Every bit of JS related configurations and plugins has been reworked into a
+  separate repository: [vimlab/neojs](https://github.com/vimlab/neojs)
+- Includes [autoload/vimfiles.vim](./autoload/vimfiles.vim)
+  - higher lvl API and commands to work with vim-plug, in use in vimrc to load
+    plugins based on a glob pattern.
+  - `vimfiles#{join,glob,source,log,debug,end}` functions
+  - `:Vimfiles` Source a list of files using glob patterns
+  - `:Vimfile` Calls Plug internally, taking care of calling plug#being / plug#end
+  - `:VimfilesMessage` Logs are generated during the loading / install
+    process, but not displayed to the screeen to avoid the infamous
+    "Enter prompt to continue" message. This commands lets you see these
+    logs.
+
+## Installation
 
 Using Neovim: Clone to `~/.config/nvim`.
 ```sh
@@ -76,35 +90,10 @@ Run `:PlugUpdate` to update or install, run `:PlugClean` for occasional clean.
 [deoplete]: https://github.com/Shougo/deoplete.nvim
 [ultisnips]: https://github.com/sirver/ultisnips
 
-### JS
-
-I extracted every bit of JS related configuration and plugins to a separate
-repository: https://github.com/vimlab/neojs
-
-Check [neojs readme](https://github.com/vimlab/neojs#readme) for further
-information on what's included and how to use it.
-
-If you don't want these additional plugins (neovim specific), just remove `Plug 'vimlab/neojs'` from the plugins.vim file.
-
 ## vimrc / init.vim
 
 `init.vim` is just a symlink to `vimrc`. The first is used by neovim while the
 latter is used by regular vim.
-
-    source main.vim
-    source plugins.vim
-    source config.vim
-    source theme.vim
-    source mappings.vim
-    source events.vim
-
-    " Plugin specific configuration
-    source gist.vim
-    source nerdtree.vim
-    source fzf.vim
-    source deoplete.vim
-    source airline.vim
-    source ultisnips.vim
 
 The vim configuration is split up in different files:
 
@@ -114,3 +103,17 @@ The vim configuration is split up in different files:
 - mappings.vim - contains most of the general keybindings (not plugin specific)
 - events - Autocommand stuff to hook certain action on particular Vim events
 - {pluginName}.vim - contains plugin specific configuration and mappings
+
+# Credits
+
+It started as a fork of [quick-vim][], but have diverged quite a bit.
+
+vim/gvim config files based on [janus][] config. A good amount of vim goodies
+were also taken from Derek's [vim-config][]
+
+**Thanks**: [quick-vim][], [vim-config][], [janus][], [nvie's vimrc][]
+
+[vim-config]: https://github.com/derekwyatt/vim-config/
+[janus]: http://github.com/carlhuda/janus
+[quick-vim]: https://github.com/brianleroux/quick-vim/
+[nvie's vimrc]: https://github.com/nvie/vimrc

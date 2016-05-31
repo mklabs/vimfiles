@@ -65,3 +65,10 @@ set showcmd
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
+if &termencoding == ""
+  let &termencoding = &encoding
+endif
+set encoding=utf-8
+setglobal fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,latin1

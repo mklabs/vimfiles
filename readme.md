@@ -50,7 +50,7 @@ default and can be configured in `_vimrc` file.
   configurations and plugins have been reworked into a separate repository. If
   you wish to disable it, simply remove the `Vimfile 'vimlab/neojs'` line in
   `config/nvim/plugins.vim` (only for nvim)
-- Includes [autoload/vimfiles.vim](./autoload/vimfiles.vim)
+- Includes [autoload/vmf.vim](./autoload/vmf.vim)
   - higher lvl API and commands to work with vim-plug, in use in vimrc to load
     plugins based on a glob pattern.
   - `vmf#{join,glob,source,log,debug,end}` functions
@@ -106,7 +106,7 @@ Syntastic, or ternjs for completion with deoplete)
 latter is used by regular vim.
 
 The vim configuration is split up in different files, using `Vimfiles` command
-(defined in [autoload/vimfiles.vim](./autoload/vimfiles.vim)).
+(defined in [autoload/vmf.vim](./autoload/vmf.vim)).
 
 ```vim
 let g:VIMFILES_BUNDLES = vmf#join(g:VIMFILES_DIR, '.bundles')

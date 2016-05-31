@@ -53,7 +53,7 @@ default and can be configured in `_vimrc` file.
 - Includes [autoload/vimfiles.vim](./autoload/vimfiles.vim)
   - higher lvl API and commands to work with vim-plug, in use in vimrc to load
     plugins based on a glob pattern.
-  - `vimfiles#{join,glob,source,log,debug,end}` functions
+  - `vmf#{join,glob,source,log,debug,end}` functions
   - `:Vimfiles` Source a list of files using glob patterns
   - `:Vimfile` Calls Plug internally, taking care of calling plug#being / plug#end
   - `:VimfilesMessage` Logs are generated during the loading / install
@@ -109,7 +109,7 @@ The vim configuration is split up in different files, using `Vimfiles` command
 (defined in [autoload/vimfiles.vim](./autoload/vimfiles.vim)).
 
 ```vim
-let g:VIMFILES_BUNDLES = vimfiles#join(g:VIMFILES_DIR, '.bundles')
+let g:VIMFILES_BUNDLES = vmf#join(g:VIMFILES_DIR, '.bundles')
 
 " Load Common plugin configuration
 Vimfiles 'config/common/*.vim'
@@ -131,7 +131,7 @@ if has('win32') === 0
   set background=dark
 endif
 
-call vimfiles#end()
+call vmf#end()
 ```
 
 1. Common plugin and configurations are loaded with `Vimfiles

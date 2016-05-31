@@ -1,4 +1,4 @@
-let g:VIMFILES_BUNDLES = vimfiles#join(g:VIMFILES_DIR, '.bundles')
+let g:VIMFILES_BUNDLES = vmf#join(g:VIMFILES_DIR, '.bundles')
 
 " Load Common plugin configuration
 Vimfiles 'config/common/*.vim'
@@ -13,11 +13,11 @@ if has('gui')
 endif
 
 function! s:Glob(pattern)
-  let path = vimfiles#join(a:pattern)
-  call vimfiles#log('Comment', 'Glob pattern', a:pattern)
-  call vimfiles#log('Comment', 'Glob path', path)
-  for file in vimfiles#glob(path)
-    call vimfiles#log('Comment', 'Source', file)
+  let path = vmf#join(a:pattern)
+  call vmf#log('Comment', 'Glob pattern', a:pattern)
+  call vmf#log('Comment', 'Glob path', path)
+  for file in vmf#glob(path)
+    call vmf#log('Comment', 'Source', file)
     exe "source " . file
   endfor
 endfunction
@@ -32,4 +32,4 @@ if has('win32') == 0
   set background=dark
 endif
 
-call vimfiles#end()
+call vmf#end()

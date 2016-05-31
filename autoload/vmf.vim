@@ -11,7 +11,7 @@ let g:VIMFILES_DIR = join([$HOME, has('win32') ? 'vimfiles' : '.vim'], g:VIMFILE
 let g:VIMFILES_HIGROUP = 'Comment'
 let s:begin = 0
 
-function! vimfiles#join(...)
+function! vmf#join(...)
   let list = a:000
   let value = join(list, '/')
 
@@ -25,61 +25,61 @@ function! vimfiles#join(...)
   return substitute(value, '/', has('win32') ? '\' : '/', 'g')
 endfunction
 
-function! vimfiles#glob(pattern)
+function! vmf#glob(pattern)
   return split(glob(a:pattern), '\n')
 endfunction
 
-function! vimfiles#source(pattern)
-  let path = vimfiles#join(g:VIMFILES_DIR, a:pattern)
-  for file in vimfiles#glob(path)
-    call vimfiles#log('Comment', 'Source', file)
+function! vmf#source(pattern)
+  let path = vmf#join(g:VIMFILES_DIR, a:pattern)
+  for file in vmf#glob(path)
+    call vmf#log('Comment', 'Source', file)
     exe "source " . file
   endfor
 endfunction
 
 let s:logs = []
-function! vimfiles#log(group, ...)
+function! vmf#log(group, ...)
   let msg = join(a:000, ' ')
   call add(s:logs, { 'group': a:group, 'msg': 'Vimfiles: ' . msg })
 endfunction
 
-function! vimfiles#logs()
+function! vmf#logs()
   return s:logs
 endfunction
 
-function! vimfiles#clear()
+function! vmf#clear()
   let s:logs = []
   return s:logs
 endfunction
 
-function! vimfiles#debug(group, ...)
+function! vmf#debug(group, ...)
   let msg = join(a:000, ' ')
   echohl a:group | echomsg msg | echohl None
 endfunction
 
-function! vimfiles#end()
-  call vimfiles#log('Todo', 'Calling plug#end')
+function! vmf#end()
+  call vmf#log('Todo', 'Calling plug#end')
   call plug#end()
 endfunction
 
 function! s:Vimfiles(pattern)
-  call vimfiles#source(a:pattern)
+  call vmf#source(a:pattern)
 endfunction
 
 function! s:Vimfile(repo)
   if s:begin == 0
-    call vimfiles#log('Todo', 'Calling plug#begin() with ' . g:VIMFILES_BUNDLES)
+    call vmf#log('Todo', 'Calling plug#begin() with ' . g:VIMFILES_BUNDLES)
     call plug#begin(g:VIMFILES_BUNDLES)
     let s:begin = 1
   endif
 
-  call vimfiles#log('String', 'Plug ' . a:repo)
+  call vmf#log('String', 'Plug ' . a:repo)
   Plug a:repo
 endfunction
 
 function! s:Messages()
   for log in s:logs
-    call vimfiles#debug(log.group, log.msg)
+    call vmf#debug(log.group, log.msg)
   endfor
 endfunction
 

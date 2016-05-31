@@ -12,7 +12,8 @@ is left as default (I still need to find the correct setup with Powerline)
 ---
 
 <div align="center">
-  ![viim](./vim.png)
+  <img src="https://cdn.rawgit.com/mklabs/vimfiles/master/vim.png" alt="vimfiles"
+    style="max-width:100%; height: 500px;" />
 </div>
 
 ---

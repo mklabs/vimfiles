@@ -1,1 +1,7 @@
-/* eslint */
+/* {{ license }} */
+
+// {{ name }} - {{ filename }}
+//
+// {{ description }}
+//
+// {{ mail }}

@@ -56,7 +56,7 @@ default and can be configured in `_vimrc` file.
   - `vmf#{join,glob,source,log,debug,end}` functions
   - `:Vimfiles` Source a list of files using glob patterns
   - `:Vimfile` Calls Plug internally, taking care of calling plug#being / plug#end
-  - `:VimfilesMessage` Logs are generated during the loading / install
+  - `:VmfMessage` Logs are generated during the loading / install
     process, but not displayed to the screeen to avoid the infamous
     "Enter prompt to continue" message. This commands lets you see these
     logs.

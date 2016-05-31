@@ -1,0 +1,23 @@
+{
+  "name": "vimfiles",
+  "version": "1.0.0",
+  "description": "This is my cross-platform, cross-editor `~/.vim` folder.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mklabs/vimfiles.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mklabs/vimfiles/issues"
+  },
+  "homepage": "https://github.com/mklabs/vimfiles#readme",
+  "dependencies": {
+    "read-pkg-up": "^1.0.1"
+  }
+}

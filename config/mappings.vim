@@ -1,6 +1,5 @@
 "
 " Mappings
-"
 
 " <Leader> key set to ,
 let mapleader=','
@@ -35,3 +34,17 @@ nmap <Leader><Leader>       :b#<CR>
 " `tt` in normal mode to toggle comments
 noremap tt :TComment<CR>
 
+
+" Unite outline
+nmap <C-o> :Unite -start-insert -direction=topleft -winwidth=40 -vertical outline<CR>
+
+" Filer
+if exists(':VimFiler')
+  nmap <Leader>n :VimFilerExplorer -parent -no-focus -status -winwidth=30<CR>
+  nmap <Leader>b :VimFiler<CR>
+endif
+
+" Fuzzy finders
+if exists(':CtrlP')
+  map <C-b> :CtrlPBuffer<CR>
+endif

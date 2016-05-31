@@ -12,24 +12,35 @@ if has('gui')
   Vimfiles 'config/gui/*.vim'
 endif
 
-function! s:Glob(pattern)
-  let path = vmf#join(a:pattern)
-  call vmf#log('Comment', 'Glob pattern', a:pattern)
-  call vmf#log('Comment', 'Glob path', path)
-  for file in vmf#glob(path)
-    call vmf#log('Comment', 'Source', file)
-    exe "source " . file
-  endfor
-endfunction
-
-call s:Glob('~/src/mklabs/t.vim/plugin/*.vim')
-
-" can't find a corect colorscheme for powerline, giving up and leaving it up to the user to set
-colorscheme default
-
 if has('win32') == 0
   colorscheme OceanicNext
   set background=dark
 endif
+
+let g:startify_list_order = [
+  \ ['  >> Most recently used files in cwd (mru)'], 'dir',
+  \ ['  >> Most recently used files (mru)'], 'files',
+  \ ['  >> Sessions'], 'sessions',
+  \ ['  >> Bookmarks'], 'bookmarks'
+  \ ]
+
+let node = split('node ' . system('node -v'), '\n')
+let npm = split('npm ' . system('npm -v'), '\n')
+let g:startify_custom_header = map(node + npm, '"   ". v:val')
+
+hi StartifyBracket ctermfg=240
+hi StartifyFile    ctermfg=147
+hi StartifyFooter  ctermfg=240
+hi StartifyHeader  ctermfg=114
+hi StartifyNumber  ctermfg=215
+hi StartifyPath    ctermfg=245
+hi StartifySlash   ctermfg=240
+hi StartifySpecial ctermfg=240
+
+" Define mappings
+Vimfiles 'config/mappings.vim'
+
+" Custom stuff
+Plug '~/src/mklabs/t.vim'
 
 call vmf#end()

@@ -1,0 +1,1 @@
+Vimfile 'mhinz/vim-startify'

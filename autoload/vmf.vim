@@ -77,6 +77,10 @@ function! s:Vimfile(repo)
   Plug a:repo
 endfunction
 
+function! s:Vmfrc()
+  exe "edit " . vmf#join('~', has('win32') ? 'vimfiles' : '.vim', 'vimrc')
+endfunction
+
 function! s:Messages()
   for log in s:logs
     call vmf#debug(log.group, log.msg)
@@ -85,4 +89,7 @@ endfunction
 
 command! -nargs=+ Vimfiles call s:Vimfiles(<args>)
 command! -nargs=+ Vimfile  call s:Vimfile(<args>)
-command! VimfilesMessages  call s:Messages()
+
+command! Vmfrc  call s:Vmfrc(<args>)
+command! VmfMsg call s:Messages()
+command! VmfMessages call s:Messages()

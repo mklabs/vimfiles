@@ -43,6 +43,15 @@ function! vimfiles#log(group, ...)
   call add(s:logs, { 'group': a:group, 'msg': 'Vimfiles: ' . msg })
 endfunction
 
+function! vimfiles#logs()
+  return s:logs
+endfunction
+
+function! vimfiles#clear()
+  let s:logs = []
+  return s:logs
+endfunction
+
 function! vimfiles#debug(group, ...)
   let msg = join(a:000, ' ')
   echohl a:group | echomsg msg | echohl None

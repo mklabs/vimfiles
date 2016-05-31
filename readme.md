@@ -16,14 +16,36 @@ is left as default (I still need to find the correct setup with Powerline)
     style="max-width:100%; height: 500px;" />
 </div>
 
----
+## Installation
+
+Using Neovim: Clone to `~/.config/nvim`.
+```sh
+# osx / nix
+$ git clone https://github.com/mklabs/vimfiles.git ~/.config/nvim
+```
+
+Using vim: Clone to `~/vimfiles` on windows, clone to `~/.vim` everywhere else.
+
+```sh
+# osx / nix
+$ git clone https://github.com/mklabs/vimfiles.git ~/.vim
+$ ln -s ~/.vim/vimrc ~/.vimrc
+
+# windows
+$ git clone https://github.com/mklabs/vimfiles.git $HOME/vimfiles
+$ cp $HOME\vimfiles\_vimrc $HOME\_vimrc
+```
+
+**Windows Note**: You need to rename the ~/.vimrc to its windows equivalent
+`~/_vimrc` & `~/_gvimrc` (a `_` instead of `.`). The colorscheme is left to
+default and can be configured in `_vimrc` file.
 
 ## Description
 
 - Works well on unix, and pretty fine on Windows
 - Small set of [plugins](#plugins) for general development
-- Modular nvim / vim and common configuration. Plugins are loaded from their
-  respective folders.
+- Modular nvim / vim and common [configuration](#configuration). Plugins are
+  loaded from their respective folders, using glob patterns.
 - [vimlab/neojs](https://github.com/vimlab/neojs) JavaScript related
   configurations and plugins have been reworked into a separate repository. If
   you wish to disable it, simply remove the `Vimfile 'vimlab/neojs'` line in
@@ -38,30 +60,6 @@ is left as default (I still need to find the correct setup with Powerline)
     process, but not displayed to the screeen to avoid the infamous
     "Enter prompt to continue" message. This commands lets you see these
     logs.
-
-## Installation
-
-Using Neovim: Clone to `~/.config/nvim`.
-```sh
-# osx / nix
-$ git clone https://github.com/mklabs/vimfiles.git ~/.config/nvim
-```
-
-Using vim: Clone to `~/vimfiles` on windows, clone to `~/.vim` everywhere else.
-
-```sh
-# osx / nix
-$ git clone https://github.com/mklabs/vimfiles.git ~/.vim
-$ ln -s ~/.vim/vimrc ~:/.vimrc
-
-# windows
-$ git clone https://github.com/mklabs/vimfiles.git $HOME/vimfiles
-$ cp $HOME\vimfiles\_vimrc $HOME\_vimrc
-```
-
-**Windows Note**: You need to rename the ~/.vimrc to its windows equivalent
-`~/_vimrc` & `~/_gvimrc` (a `_` instead of `.`). The colorscheme is left to
-default and can be configured in `_vimrc` file.
 
 ## Plugins
 

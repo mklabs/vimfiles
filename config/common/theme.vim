@@ -1,6 +1,5 @@
 " Theme / Colorsheme configuration
 
-
 " scheme
 " colorscheme slate
 

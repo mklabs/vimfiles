@@ -40,7 +40,4 @@ hi StartifySpecial ctermfg=240
 " Define mappings
 Vimfiles 'config/mappings.vim'
 
-" Custom stuff
-Plug '~/src/mklabs/t.vim'
-
-call vmf#end()
+" call vmf#end()

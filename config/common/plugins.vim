@@ -1,34 +1,45 @@
 
+call plug#begin("~/.vim/.bundles")
+
 " Filer
-Vimfile 'Shougo/unite.vim'
-Vimfile 'Shougo/unite-outline'
-Vimfile 'Shougo/vimfiler.vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/unite-outline'
+Plug 'Shougo/vimfiler.vim'
 
 " Status bar
-Vimfile 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 
 " Themes
-Vimfile 'chriskempson/base16-vim'
-Vimfile 'vim-scripts/oceandeep'
-Vimfile 'chriskempson/vim-tomorrow-theme'
-Vimfile 'mhartington/oceanic-next'
+Plug 'chriskempson/base16-vim'
+Plug 'vim-scripts/oceandeep'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'mhartington/oceanic-next'
 
 " Git
-Vimfile 'tpope/vim-fugitive'
-Vimfile 'Xuyuanp/nerdtree-git-plugin'
-Vimfile 'mhinz/vim-signify'
-Vimfile 'mattn/gist-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'mhinz/vim-signify'
+Plug 'mattn/gist-vim'
 
 " Syntax
-Vimfile 'tpope/vim-markdown'
-Vimfile 'tpope/vim-cucumber'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-cucumber'
+
+" Theme
+Plug 'mhartington/oceanic-next'
 
 " Misc
-Vimfile 'mileszs/ack.vim'
-Vimfile 'godlygeek/tabular'
-Vimfile 'tomtom/tcomment_vim'
-Vimfile 'ryanoasis/vim-devicons'
-Vimfile 'mattn/webapi-vim'
-Vimfile 'mattn/emmet-vim'
-Vimfile 'nono/vim-handlebars'
-Vimfile 'tpope/vim-eunuch'
+Plug 'mileszs/ack.vim'
+Plug 'godlygeek/tabular'
+Plug 'tomtom/tcomment_vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/emmet-vim'
+Plug 'nono/vim-handlebars'
+Plug 'tpope/vim-eunuch'
+Plug 'mhinz/vim-startify'
+
+" Custom stuff
+Plug 'vimlab/t.vim', { 'do': 'npm install --cache-min Infinity' }
+
+call plug#end()

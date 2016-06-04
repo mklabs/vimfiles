@@ -9,5 +9,8 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " remove any trailing whitespace on file save.
 au BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
+" always set fileformat=unix
+au BufWrite * set fileformat=unix
+
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby

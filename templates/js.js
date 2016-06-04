@@ -1,7 +1,2 @@
-/* {{ license }} */
-
-// {{ name }} - {{ filename }}
-//
-// {{ description }}
-//
-// {{ mail }}
+// Foo {{ name }}
+// Foo {{ description }}

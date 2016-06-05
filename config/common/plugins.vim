@@ -40,6 +40,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'mhinz/vim-startify'
 
 " Custom stuff
-Plug 'vimlab/t.vim', { 'do': 'npm install --cache-min Infinity' }
+Plug '~/src/mklabs/t.vim', { 'do': 'npm link --cache-min Infinity' }
+" Plug 'vimlab/t.vim', { 'do': 'npm i --prod -g --cache-min Infinity' }
 
 call plug#end()

@@ -39,10 +39,8 @@ noremap tt :TComment<CR>
 nmap <C-o> :Unite -start-insert -direction=topleft -winwidth=40 -vertical outline<CR>
 
 " Filer
-if exists(':VimFiler')
-  nmap <Leader>n :VimFilerExplorer -parent -no-focus -status -winwidth=30<CR>
-  nmap <Leader>b :VimFiler<CR>
-endif
+nmap <Leader>n :VimFilerExplorer -parent -no-focus -status -winwidth=30<CR>
+nmap <Leader>b :VimFiler<CR>
 
 " Fuzzy finders
 if exists(':CtrlP')

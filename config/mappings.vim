@@ -43,6 +43,4 @@ nmap <Leader>n :VimFilerExplorer -parent -no-focus -status -winwidth=30<CR>
 nmap <Leader>b :VimFiler<CR>
 
 " Fuzzy finders
-if exists(':CtrlP')
-  map <C-b> :CtrlPBuffer<CR>
-endif
+map <C-b> :CtrlPBuffer<CR>

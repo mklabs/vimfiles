@@ -5,6 +5,7 @@ call plug#begin("~/.vim/.bundles")
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/vimfiler.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
@@ -28,6 +29,9 @@ Plug 'tpope/vim-cucumber'
 " Theme
 Plug 'mhartington/oceanic-next'
 
+" Lint
+Plug 'scrooloose/syntastic'
+
 " Misc
 Plug 'mileszs/ack.vim'
 Plug 'godlygeek/tabular'
@@ -40,7 +44,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'mhinz/vim-startify'
 
 " Custom stuff
-Plug '~/src/mklabs/t.vim', { 'do': 'npm link --cache-min Infinity' }
-" Plug 'vimlab/t.vim', { 'do': 'npm i --prod -g --cache-min Infinity' }
+" Plug '~/src/mklabs/t.vim', { 'do': 'npm link --cache-min Infinity' }
 
 call plug#end()

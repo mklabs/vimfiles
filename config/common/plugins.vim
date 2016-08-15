@@ -30,7 +30,7 @@ Plug 'tpope/vim-cucumber'
 Plug 'mhartington/oceanic-next'
 
 " Lint
-Plug 'benekastah/neomake', { 'do': 'npm install --loglevel http -g eslint jsonlint' }
+Plug 'neomake/neomake', { 'do': 'npm install --loglevel http -g eslint jsonlint' }
 
 " Misc
 Plug 'mileszs/ack.vim'

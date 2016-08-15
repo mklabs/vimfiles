@@ -26,6 +26,8 @@ Plug 'mattn/gist-vim'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-cucumber'
 Plug 'nono/vim-handlebars'
+Plug 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript'
 
 " Theme
 Plug 'mhartington/oceanic-next'

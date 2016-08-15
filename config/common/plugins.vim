@@ -25,6 +25,7 @@ Plug 'mattn/gist-vim'
 " Syntax
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-cucumber'
+Plug 'nono/vim-handlebars'
 
 " Theme
 Plug 'mhartington/oceanic-next'
@@ -39,11 +40,24 @@ Plug 'tomtom/tcomment_vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/emmet-vim'
-Plug 'nono/vim-handlebars'
 Plug 'tpope/vim-eunuch'
 Plug 'mhinz/vim-startify'
 
-" Custom stuff
-" Plug '~/src/mklabs/t.vim', { 'do': 'npm link --cache-min Infinity' }
+" Snippet
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+
+" node
+Plug 'moll/vim-node'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install --loglevel http' }
+
+if has('nvim')
+  " Plug 'vimlab/neojs'
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'vimlab/split-term.vim'
+
+  Plug 'carlitux/deoplete-ternjs',  { 'do': 'npm install --loglevel http -g tern' }
+  Plug 'neovim/node-host',          { 'do': 'npm install --loglevel http' }
+endif
 
 call plug#end()

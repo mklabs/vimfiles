@@ -51,8 +51,7 @@ font](https://github.com/ryanoasis/nerd-fonts#font-installation) and run `sudo f
 - Modular nvim / vim and common [configuration](#configuration). Plugins are
   loaded from their respective folders, using glob patterns.
 - Includes [autoload/vmf.vim](./autoload/vmf.vim)
-  - higher lvl API and commands to work with vim-plug, in use in vimrc to load
-    plugins based on a glob pattern.
+  - in use in vimrc to load plugins based on a glob pattern.
   - `vmf#{join,glob,source,log,debug,end}` functions
   - `:Vimfiles` Source a list of files using glob patterns
   - `:Vimfile` Calls Plug internally, taking care of calling plug#being / plug#end
@@ -73,8 +72,8 @@ On first install, vim-plug will take care of running a few `npm install`
 command required by some plugins (like installing eslint for Neomake /
 Syntastic, or ternjs for completion with deoplete)
 
-- Filer: [NERDTree][]
-- Finder: [fzf][], fallback to [ctrlp][] for windows where fzf is not available
+- Filer: [Vimfiler][]
+- Finder: [ctrlp][] for windows where fzf is not available
 - Status bar: [vim-airline][]
 - Theme: [Oceanic Next][] theme used by default, but configuration includes
   alternative themes such as [base16-vim][], [oceandeep][] and tomorrow
@@ -85,9 +84,8 @@ Syntastic, or ternjs for completion with deoplete)
 - Syntax: Syntax definitions for javascript, handlebars, markdown, cucumber
 - And some other plugins like Unite, ack.vim, tcomment, vim-devicons, emmet (zencoding) ...
 
-[NERDTree]: https://github.com/scrooloose/nerdtree
+[Vimfiler]: https://github.com/Shougo/vimfiler.vim
 [vim-airline]: https://github.com/vim-airline/vim-airline
-[fzf]: https://github.com/junegunn/fzf.vim
 [Oceanic Next]: https://github.com/mhartington/oceanic-next
 [base16-vim]: https://github.com/chriskempson/base16-vim
 [oceandeep]: https://github.com/vim-scripts/oceandeep
@@ -148,26 +146,24 @@ config/
 ├── common
 │   ├── airline.vim
 │   ├── config.vim
+│   ├── ctrlp.vim
 │   ├── events.vim
 │   ├── filer.vim
 │   ├── gist.vim
-│   ├── init.vim
 │   ├── main.vim
-│   ├── mappings.vim
+│   ├── neomake.vim
 │   ├── plugins.vim
 │   ├── plug.vim
-│   ├── syntastic.vim
+│   ├── startify.vim
 │   ├── theme.vim
-│   ├── ultisnips.vim
-│   └── unite.vim
-├── nix
-│   └── fzf.vim
-├── nvim
-│   ├── deoplete.vim
-│   ├── plugins.vim
-│   └── tern.vim
-└── win32
-    └── ctrlp.vim
+│   └── ultisnips.vim
+├── mappings.vim
+└── nvim
+    ├── colors.vim
+    ├── deoplete.vim
+    └── tern.vim
+
+2 directories, 17 files
 ```
 
 #### config/common
@@ -178,14 +174,6 @@ config/
 - mappings.vim - contains most of the general keybindings (not plugin specific)
 - events - Autocommand stuff to hook certain action on particular Vim events
 - {pluginName}.vim - contains plugin specific configuration and mappings
-
-#### config/win32
-
-Windows specific config and plugins (ctrlp).
-
-#### config/nix
-
-Unix specific config and plugins (fzf).
 
 #### config/nvim
 

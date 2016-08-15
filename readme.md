@@ -40,16 +40,16 @@ $ cp $HOME\vimfiles\_vimrc $HOME\_vimrc
 `~/_vimrc` & `~/_gvimrc` (a `_` instead of `.`). The colorscheme is left to
 default and can be configured in `_vimrc` file.
 
+**Fonts note**: In order for vim-devicons to work, you'll need to install
+[Droid sans Mono nerd
+font](https://github.com/ryanoasis/nerd-fonts#font-installation) and run `sudo fc-cache -f -v` (tested on Ubuntu)
+
 ## Description
 
 - Works well on unix, and pretty fine on Windows
 - Small set of [plugins](#plugins) for general development
 - Modular nvim / vim and common [configuration](#configuration). Plugins are
   loaded from their respective folders, using glob patterns.
-- [vimlab/neojs](https://github.com/vimlab/neojs) JavaScript related
-  configurations and plugins have been reworked into a separate repository. If
-  you wish to disable it, simply remove the `Vimfile 'vimlab/neojs'` line in
-  `config/nvim/plugins.vim` (only for nvim)
 - Includes [autoload/vmf.vim](./autoload/vmf.vim)
   - higher lvl API and commands to work with vim-plug, in use in vimrc to load
     plugins based on a glob pattern.

@@ -1,4 +1,14 @@
+# general
+snippet cl "console.log"
+console.log('$1');
+endsnippet
 
+snippet ce "console.error"
+console.error('$1');
+endsnippet
+
+
+# es6
 snippet p "Promise ES6 style"
 new Promise((r, errback) => {
   $1
@@ -15,18 +25,44 @@ snippet (err) "Arrow function with Error object"
 }
 endsnippet
 
-snippet (arg) "Arrow function with arguments"
-($1) => {
-  $2
-}
-endsnippet
-
 snippet () "Arrow function"
 ($1) => {
   $2
 }
 endsnippet
 
-snippet import ""
-import $1 from "$2";
+snippet import "Import"
+import $1 from '$2';
 endsnippet
+
+snippet class
+class ${1:name} {
+  constructor(${2:arg}) {
+    ${3:// init}
+  }
+  ${4}
+}
+endsnippet
+
+# node
+snippet #! "shebang"
+#!/usr/bin/env node
+endsnippet
+
+snippet ex "module.exports"
+module.exports = ${1};
+endsnippet
+
+
+snippet stdout "stdout"
+process.stdout
+endsnippet
+
+snippet stdin "stdin"
+process.stdin
+endsnippet
+
+snippet stderr "stderr"
+process.stderr
+endsnippet
+

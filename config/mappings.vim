@@ -34,7 +34,6 @@ nmap <Leader><Leader>       :b#<CR>
 " `tt` in normal mode to toggle comments
 noremap tt :TComment<CR>
 
-
 " Unite outline
 nmap <C-o> :Unite -start-insert -direction=topleft -winwidth=40 -vertical outline<CR>
 

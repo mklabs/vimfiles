@@ -46,7 +46,7 @@ Plug 'mhinz/vim-startify'
 
 " Snippet
 Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 
 " node
 Plug 'moll/vim-node'

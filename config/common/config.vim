@@ -72,3 +72,6 @@ endif
 set encoding=utf-8
 setglobal fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,latin1
+
+" use the clipboard for ALL operations (as opposed to interacting with the '+' and/or '*' registers explicitly), set the
+set clipboard+=unnamedplus

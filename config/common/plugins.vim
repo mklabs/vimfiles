@@ -5,7 +5,6 @@ call plug#begin("~/.vim/.bundles")
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/vimfiler.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
@@ -53,8 +52,14 @@ Plug 'honza/vim-snippets'
 Plug 'moll/vim-node'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install --loglevel http' }
 
+if has('unix')
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+elseif has('win32')
+  Plug 'ctrlpvim/ctrlp.vim'
+endif
+
 if has('nvim')
-  " Plug 'vimlab/neojs'
   Plug 'Shougo/deoplete.nvim'
   Plug 'vimlab/split-term.vim'
 

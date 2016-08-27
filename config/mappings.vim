@@ -42,5 +42,21 @@ nmap <C-o> :Unite -start-insert -direction=topleft -winwidth=40 -vertical outlin
 nmap <Leader>n :VimFilerExplorer -parent -no-focus -status -winwidth=30<CR>
 nmap <Leader>b :VimFiler<CR>
 
-" Fuzzy finders
-map <C-b> :CtrlPBuffer<CR>
+" Fuzzy finders (fzf on unix / ctrlp on win32)
+if exists(':Files')
+  map <C-b> :Buffers<CR>
+  map <C-p> :Files<CR>
+elseif exists(':CtrlPBuffer')
+  map <C-b> :CtrlPBuffer
+endif
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)<CR>
+xmap <leader><tab> <plug>(fzf-maps-x)<CR>
+omap <leader><tab> <plug>(fzf-maps-o)<CR>
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)<CR>
+imap <c-x><c-f> <plug>(fzf-complete-path)<CR>
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)<CR>
+imap <c-x><c-l> <plug>(fzf-complete-line)<CR>

@@ -8,16 +8,22 @@ let maplocalleader=' '
 " Tab switch
 nmap <silent> <S-Up>                        :tabprevious<CR>
 nmap <silent> <S-Down>                      :tabnext<CR>
+nmap <silent> <D-Up>                        :tabprevious<CR>
+nmap <silent> <D-Down>                      :tabnext<CR>
 
 " Buffer switch
 nmap <silent> <S-left>                      :bprev<CR>
 nmap <silent> <S-right>                     :bnext<CR>
+nmap <silent> <S-h>                         :bprev<CR>
+nmap <silent> <S-l>                         :bnext<CR>
+nmap <silent> <D-left>                      :bprev<CR>
+nmap <silent> <D-right>                     :bnext<CR>
 
 " Ctrl+arrow keys to switch between window
 nmap <silent> <C-left>                     :wincmd h<CR>
 nmap <silent> <C-right>                    :wincmd l<CR>
-nmap <silent> <C-down>                     :wincmd j<CR>
-nmap <silent> <C-up>                       :wincmd k<CR>
+nmap <silent> <C-Down>                     :wincmd j<CR>
+nmap <silent> <C-Up>                       :wincmd k<CR>
 
 " Same for hjkl
 nmap <silent> <C-h>                        :wincmd h<CR>

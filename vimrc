@@ -7,11 +7,6 @@ Vimfiles 'config/common/*.vim'
 let dist = has('nvim') ? 'nvim' : 'vim'
 Vimfiles 'config/' . dist . '/*.vim'
 
-" Include GUI specific config
-if has('gui')
-  Vimfiles 'config/gui/*.vim'
-endif
-
 if has('win32') == 0
   colorscheme OceanicNext
   set background=dark

@@ -1,4 +1,9 @@
-let g:VIMFILES_BUNDLES = vmf#join(g:VIMFILES_DIR, '.bundles')
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+end
 
 " Load Common plugin configuration
 Vimfiles 'config/common/*.vim'
@@ -15,4 +20,3 @@ endif
 " Define mappings
 Vimfiles 'config/mappings.vim'
 
-" call vmf#end()

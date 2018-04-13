@@ -2,7 +2,9 @@
 " https://raw.github.com/carlhuda/janus/master/vimrc
 
 set nocompatible                  " Must come first because it changes other options.
-"
+
+so plugins.vim
+
 " General configuration
 "
 
@@ -208,5 +210,14 @@ hi StartifyPath    ctermfg=245
 hi StartifySlash   ctermfg=240
 hi StartifySpecial ctermfg=240
 
-
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+
+colorscheme oceandeep
+
+" terminal should support 256 colors
+set t_Co=256
+
+
+let g:airline_powerline_fonts = 1
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12

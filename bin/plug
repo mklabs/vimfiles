@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+
+const dir = `${require('user-home')}/.config/nvim/site/pack`;
+const [ repo ] = process.argv.slice(2);
+const { exec, spawn } = require('child_process');
+const exists = require('fs').existsSync;
+
+const giturl = `https://github.com/${repo}.git`;
+const destination = `${dir}/${repo.split('/').slice(-1)[0]}`;
+exists(destination) || console.log(`${giturl}=> ${destination}`);
+exists(destination) || spawn(`git`, `clone ${giturl} ${destination}`.split(' '), { stdio: 'inherit'});

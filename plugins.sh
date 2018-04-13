@@ -33,7 +33,7 @@ Plug 'nono/vim-handlebars'
 Plug 'mhartington/oceanic-next'
 
 # Lint
-Plug 'neomake/neomake', { 'do': 'npm install --loglevel http -g eslint jsonlint' }
+Plug 'neomake/neomake'
 
 # Misc
 Plug 'mileszs/ack.vim'
@@ -43,5 +43,5 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-startify'
 Plug 'moll/vim-node'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install --loglevel http' }
+Plug 'ternjs/tern_for_vim'
 Plug 'vimlab/split-term.vim'

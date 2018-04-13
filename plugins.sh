@@ -45,4 +45,3 @@ Plug 'mhinz/vim-startify'
 Plug 'moll/vim-node'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install --loglevel http' }
 Plug 'vimlab/split-term.vim'
-Plug 'carlitux/deoplete-ternjs',  { 'do': 'npm install --loglevel http -g tern' }

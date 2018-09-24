@@ -7,16 +7,12 @@ let maplocalleader=' '
 " Tab switch
 nmap <silent> <S-Up>                        :tabprevious<CR>
 nmap <silent> <S-Down>                      :tabnext<CR>
-nmap <silent> <D-Up>                        :tabprevious<CR>
-nmap <silent> <D-Down>                      :tabnext<CR>
 
 " Buffer switch
 nmap <silent> <S-left>                      :tabprevious<CR>
 nmap <silent> <S-right>                     :tabnext<CR>
 nmap <silent> <S-h>                         :bprev<CR>
 nmap <silent> <S-l>                         :bnext<CR>
-nmap <silent> <D-left>                      :bprev<CR>
-nmap <silent> <D-right>                     :bnext<CR>
 
 " Ctrl+arrow keys to switch between window
 nmap <silent> <C-left>                     :wincmd h<CR>

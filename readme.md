@@ -2,6 +2,15 @@
 
 This is my cross-platform, cross-editor `~/.vim` folder.
 
+That being said, this repo is now tailored to work best with [Onivim](https://www.onivim.io).
+
+## Description
+
+- Works well on unix, and pretty fine on Windows
+- Small set of [plugins](#plugins) for general development
+- Modular nvim / vim and common [configuration](#configuration). Plugins'
+  configurations are loaded from their respective files.
+
 ## Installation
 
 Using Neovim: Clone to `~/.config/nvim`.
@@ -12,6 +21,8 @@ $ git clone https://github.com/mklabs/vimfiles.git ~/.config/nvim
 
 Using vim: Clone to `~/vimfiles` on windows, clone to `~/.vim` everywhere else.
 
+Using onivim: Clone to `~/AppData/Local/nvim` on windows, and ignore the following Windows note.
+
 **Windows Note**: You need to rename the ~/.vimrc to its windows equivalent
 `~/_vimrc` & `~/_gvimrc` (a `_` instead of `.`). The colorscheme is left to
 default and can be configured in `_vimrc` file.
@@ -20,58 +31,13 @@ default and can be configured in `_vimrc` file.
 [Droid sans Mono nerd
 font](https://github.com/ryanoasis/nerd-fonts#font-installation) and run `sudo fc-cache -f -v` (tested on Ubuntu)
 
-## Description
+### Plugin install
 
-- Works well on unix, and pretty fine on Windows
-- Small set of [plugins](#plugins) for general development
-- Modular nvim / vim and common [configuration](#configuration). Plugins are
-  loaded from their respective folders, using glob patterns.
-- Includes [autoload/vmf.vim](./autoload/vmf.vim)
-  - in use in vimrc to load plugins based on a glob pattern.
-  - `vmf#{join,glob,source,log,debug,end}` functions
-  - `:Vimfiles` Source a list of files using glob patterns
-  - `:Vimfile` Calls Plug internally, taking care of calling plug#being / plug#end
-  - `:VmfMessage` Logs are generated during the loading / install
-    process, but not displayed to the screeen to avoid the infamous
-    "Enter prompt to continue" message. This commands lets you see these
-    logs.
+Once vim is started, run `:PlugInstall` or `:PlugUpdate`.
 
 ## Plugins
 
-See `./plugins.sh` to configure the list of plugins to install.
-
-```bash
-# Filer
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/unite-outline'
-Plug 'Shougo/vimfiler.vim'
-
-# Themes
-Plug 'mhartington/oceanic-next'
-
-# Syntax
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-cucumber'
-Plug 'nono/vim-handlebars'
-
-# Languages
-Plug 'isruslan/vim-es6'
-Plug 'bentayloruk/vim-react-es6-snippets'
-
-# Lint
-Plug 'neomake/neomake', { 'do': 'npm install --loglevel http -g eslint jsonlint' }
-
-# Misc
-Plug 'mileszs/ack.vim'
-Plug 'godlygeek/tabular'
-Plug 'tomtom/tcomment_vim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'mattn/emmet-vim'
-Plug 'mhinz/vim-startify'
-Plug 'moll/vim-node'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install --loglevel http' }
-Plug 'vimlab/split-term.vim'
-```
+See [`config/plugins.vim`](./config/plugins.vim) to configure the list of plugins to install.
 
 ## Configuration
 
@@ -80,85 +46,45 @@ Plug 'vimlab/split-term.vim'
 `init.vim` is just a symlink to `vimrc`. The first is used by neovim while the
 latter is used by regular vim.
 
-The vim configuration is split up in different files, using `Vimfiles` command
-(defined in [autoload/vmf.vim](./autoload/vmf.vim)).
+Common plugin and configurations are loaded with from within
+[`./config`](./config) folder.
 
-```vim
-let g:VIMFILES_BUNDLES = vmf#join(g:VIMFILES_DIR, '.bundles')
+Default themse set to [Oceanic Next][] only for unix terminal or GUI environment.
 
-" Load Common plugin configuration
-Vimfiles 'config/common/*.vim'
+#### ./config
 
-" nvim / vim specific plugins
-let dist = has('nvim') ? 'nvim' : 'vim'
-Vimfiles 'config/' . dist . '/*.vim'
-
-" Include GUI specific config
-if has('gui')
-  Vimfiles 'config/gui/*.vim'
-endif
-
-" can't find a corect colorscheme for powerline, giving up and leaving it up to the user to set
-colorscheme default
-
-if has('win32') === 0
-  colorscheme OceanicNext
-  set background=dark
-endif
-
-call vmf#end()
-```
-
-1. Common plugin and configurations are loaded with `Vimfiles
-   'config/common/*.vim'`, namely [config/common/plugins.vim][]
-2. nvim or vim specific plugins are loaded from their respective dir.
-3. If running in a GUI environment (such as gvim or mvim), load GUI specific
-   settings with `Vimfiles 'config/gui/*.vim'`
-4. Default themse set to [Oceanic Next][] only for unix terminal or GUI environment.
-
-### config/
-
-```
-config/
-├── common
-│   ├── airline.vim
-│   ├── config.vim
-│   ├── ctrlp.vim
-│   ├── events.vim
-│   ├── filer.vim
-│   ├── gist.vim
-│   ├── main.vim
-│   ├── neomake.vim
-│   ├── plugins.vim
-│   ├── plug.vim
-│   ├── startify.vim
-│   ├── theme.vim
-│   └── ultisnips.vim
-├── mappings.vim
-└── nvim
-    ├── colors.vim
-    ├── deoplete.vim
-    └── tern.vim
-
-2 directories, 17 files
-```
-
-#### config/common
-
-- main.vim - includes almost nothing and can bootstrap early config
 - plugins.vim - vim-plug initialization and definitions of plugins used
-- config.vim - where most of the standard vim configuration takes place
 - mappings.vim - contains most of the general keybindings (not plugin specific)
-- events - Autocommand stuff to hook certain action on particular Vim events
+- autocmd.vim - Autocommand stuff to hook certain action on particular Vim events
+
+#### ./plugins
+
 - {pluginName}.vim - contains plugin specific configuration and mappings
 
-#### config/nvim
+#### Mappings
 
-Neovim specific config and plugins (deoplete, tern)
+These mappings have been thought to work alongside Onivim's default one.
 
-### UltiSnips/
-
-List of [UltiSnips][] snippet for javascript, handlebars, html and vim.
+| Mapping              | Description                              |
+| ---------            | -------------                            |
+| ,                    | Map Leader                               |
+| Shift Up             | Previous tab                             |
+| Shift Down           | Next Tab                                 |
+| Shift Left           | Previous Tab                             |
+| Shift Right          | Next Tab                                 |
+| Shift h              | Previous buffer                          |
+| Shift l              | Next buffer                              |
+| Ctrl Left, Ctrl h    | Navigate to left window                  |
+| Ctrl Right, Ctrl l   | Navigate to right window                 |
+| Ctrl Down, Ctrl j    | Navigate to bottom window                |
+| Ctrl Up, Ctrl k      | Navigate to upper window                 |
+| Ctrl o               | New tab                                  |
+| ,,                   | Previous edited buffer                   |
+| tt                   | Toggle comments                          |
+| ,n                   | Opens VimFiler Explorer mode             |
+| ,b                   | Opens VimFiler in current buffer         |
+| Ctrl b               | Opens CtrlPBuffer                        |
+| Tab (in insert mode) | Triggers emmet expand (when appropriate) |
 
 ## Credits
 
@@ -173,4 +99,3 @@ were also taken from Derek's [vim-config][]
 [janus]: http://github.com/carlhuda/janus
 [quick-vim]: https://github.com/brianleroux/quick-vim/
 [nvie's vimrc]: https://github.com/nvie/vimrc
-[config/common/plugins.vim]: ./config/common/plugins.vim

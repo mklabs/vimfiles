@@ -33,7 +33,8 @@ Plug 'mhartington/oceanic-next'
 " Plug 'mhartington/oceanic-next'
 
 " Lint
-Plug 'neomake/neomake', { 'do': 'npm install --loglevel http -g eslint jsonlint' }
+" Plug 'neomake/neomake', { 'do': 'npm install --loglevel notice -g eslint jsonlint' }
+Plug 'w0rp/ale', { 'do': 'npm install --loglevel notice -g eslint jsonlint' }
 
 " Misc
 Plug 'mileszs/ack.vim'

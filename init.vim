@@ -11,8 +11,8 @@ if has('win32')
   so ~/AppData/Local/nvim/plugins/ack.vim
   so ~/AppData/Local/nvim/config/mappings.vim
 else
-  so ~/.config/nivm/config/vimrc.vim
-  so ~/.config/nivm/config/plugins.vim
+  so ~/.config/nvim/vimrc.vim
+  so ~/.config/nvim/config/plugins.vim
   so ~/.config/nvim/config/autocmd.vim
   so ~/.config/nvim/plugins/emmet.vim
   so ~/.config/nvim/plugins/vimfiler.vim

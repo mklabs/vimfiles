@@ -34,7 +34,7 @@ Plug 'mhartington/oceanic-next'
 
 " Lint
 " Plug 'neomake/neomake', { 'do': 'npm install --loglevel notice -g eslint jsonlint' }
-Plug 'w0rp/ale', { 'do': 'npm install --loglevel notice -g eslint jsonlint' }
+Plug 'w0rp/ale', { 'do': 'npm install --loglevel error -g eslint jsonlint prettier prettier-eslint-cli' }
 
 " Misc
 Plug 'mileszs/ack.vim'

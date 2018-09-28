@@ -85,6 +85,8 @@ These mappings have been thought to work alongside Onivim's default one.
 | ,b                   | Opens VimFiler in current buffer         |
 | Ctrl b               | Opens CtrlPBuffer                        |
 | Tab (in insert mode) | Triggers emmet expand (when appropriate) |
+| Ctrl k               | Previous ALE error                       |
+| Ctrl j               | Next ALE error                           |
 
 ## Credits
 

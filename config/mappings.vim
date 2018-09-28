@@ -41,3 +41,7 @@ noremap tt :TComment<CR>
 " Filer
 nmap <Leader>n :VimFilerExplorer -parent -no-focus -status -winwidth=30<CR>
 nmap <Leader>b :VimFiler<CR>
+
+" ALE
+nmap <silent> <leader>f <Plug>(ale_fix)
+

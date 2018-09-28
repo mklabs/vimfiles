@@ -65,28 +65,27 @@ Default themse set to [Oceanic Next][] only for unix terminal or GUI environment
 
 These mappings have been thought to work alongside Onivim's default one.
 
-| Mapping              | Description                              |
-| ---------            | -------------                            |
-| ,                    | Map Leader                               |
-| Shift Up             | Previous tab                             |
-| Shift Down           | Next Tab                                 |
-| Shift Left           | Previous Tab                             |
-| Shift Right          | Next Tab                                 |
-| Shift h              | Previous buffer                          |
-| Shift l              | Next buffer                              |
-| Ctrl Left, Ctrl h    | Navigate to left window                  |
-| Ctrl Right, Ctrl l   | Navigate to right window                 |
-| Ctrl Down, Ctrl j    | Navigate to bottom window                |
-| Ctrl Up, Ctrl k      | Navigate to upper window                 |
-| Ctrl o               | New tab                                  |
-| ,,                   | Previous edited buffer                   |
-| tt                   | Toggle comments                          |
-| ,n                   | Opens VimFiler Explorer mode             |
-| ,b                   | Opens VimFiler in current buffer         |
-| Ctrl b               | Opens CtrlPBuffer                        |
-| Tab (in insert mode) | Triggers emmet expand (when appropriate) |
-| Ctrl k               | Previous ALE error                       |
-| Ctrl j               | Next ALE error                           |
+| Mapping              | Description                                 |
+| ---------            | -------------                               |
+| ,                    | Map Leader                                  |
+| Shift Up             | Previous tab                                |
+| Shift Down           | Next Tab                                    |
+| Shift Left           | Previous Tab                                |
+| Shift Right          | Next Tab                                    |
+| Shift h              | Previous buffer                             |
+| Shift l              | Next buffer                                 |
+| Ctrl Left, Ctrl h    | Navigate to left window                     |
+| Ctrl Right, Ctrl l   | Navigate to right window                    |
+| Ctrl Down, Ctrl j    | Navigate to bottom window                   |
+| Ctrl Up, Ctrl k      | Navigate to upper window                    |
+| Ctrl o               | New tab                                     |
+| ,,                   | Previous edited buffer                      |
+| tt                   | Toggle comments                             |
+| ,n                   | Opens VimFiler Explorer mode                |
+| ,b                   | Opens VimFiler in current buffer            |
+| Ctrl b               | Opens CtrlPBuffer                           |
+| Tab (in insert mode) | Triggers emmet expand (when appropriate)    |
+| ,f                   | Apply ALEFix with prettier (through eslint) |
 
 ## Credits
 

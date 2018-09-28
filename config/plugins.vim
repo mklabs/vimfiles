@@ -35,15 +35,19 @@ Plug '~/dev/split-term.vim'
 " FileSystem
 Plug 'tpope/vim-eunuch'
 
+" Session
+Plug 'tpope/vim-obsession'
+
 " Misc
 Plug 'mileszs/ack.vim'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
-Plug 'mhinz/vim-startify'
 Plug 'moll/vim-node'
 Plug 'tpope/vim-dispatch'
 Plug 'xabikos/vscode-javascript'
+
+Plug 'mhinz/vim-startify'
 
 call plug#end()

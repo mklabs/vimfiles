@@ -75,6 +75,9 @@ set fileencodings=ucs-bom,utf-8,latin1
 " and/or '*' registers explicitly)
 set clipboard+=unnamedplus
 
+" Always splitbelow
+set splitbelow
+
 " let g:vimfiler_tree_closed_icon = 'aa'
 
 " Theme / Colorsheme configuration

@@ -7,11 +7,12 @@ export const configuration = {
   'oni.loadInitVim': true,
   'oni.useDefaultConfig': false,
   'editor.fontSize': '14px',
-  //"editor.fontFamily": "Monaco",
 
   // UI customizations
   'ui.animations.enabled': true,
   'ui.fontSmoothing': 'auto',
+
+  'snippets.enabled': false,
 
   'oni.plugins.prettier': {
     settings: {

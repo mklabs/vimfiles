@@ -10,9 +10,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Languages
 Plug 'isruslan/vim-es6'
 
-" Snippets
-Plug 'drmingdrmer/xptemplate'
-
 " Status bar
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
@@ -34,6 +31,12 @@ Plug 'w0rp/ale', { 'do': 'npm install --loglevel notice -g eslint jsonlint prett
 " Terminal
 Plug '~/dev/split-term.vim'
 " Plug 'vimlab/split-term.vim'
+
+" Snippets
+Plug 'drmingdrmer/xptemplate'
+
+" Templates
+Plug 'aperezdc/vim-template'
 
 " FileSystem
 Plug 'tpope/vim-eunuch'

@@ -1,2 +1,0 @@
-// Foo {{ name }}
-// Foo {{ description }}

@@ -12,6 +12,7 @@ if has('win32')
   so ~/AppData/Local/nvim/plugins/lightline.vim
   so ~/AppData/Local/nvim/plugins/split-term.vim
   so ~/AppData/Local/nvim/plugins/xptemplate.vim
+  so ~/AppData/Local/nvim/plugins/template.vim
   so ~/AppData/Local/nvim/config/mappings.vim
 else
   so ~/.config/nvim/vimrc.vim
@@ -25,5 +26,6 @@ else
   so ~/.config/nvim/plugins/lightline.vim
   so ~/.config/nvim/plugins/split-term.vim
   so ~/.config/nvim/plugins/xptemplate.vim
+  so ~/.config/nvim/plugins/template.vim
   so ~/.config/nvim/config/mappings.vim
 end

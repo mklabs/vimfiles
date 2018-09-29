@@ -1,0 +1,7 @@
+# %CLASS%
+
+%HERE%
+
+---
+
+> %LICENSE%

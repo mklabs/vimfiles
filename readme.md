@@ -116,6 +116,20 @@ Also, huhe thanks to [torgeir/vim](https://github.com/torgeir/vim) for the
 module. In addition to that, quite a few snippet (namely for mocha) have been
 borrowed from his repository.
 
+## Templates
+
+Templates are enabled and provided by [vim-template](https://github.com/aperezdc/vim-template).
+
+> This is a simple plug-in for Vim (and NeoVim) allowing to have template
+files per file type, which will be used as starting point when creating
+new buffers. Template files may contain variables (|template-variables|),
+which are expanded at the time of buffer creation (see |template-usage|).
+The main purpose of the templates is to add boilerplate code to new
+files, like C/C++ header guards, or license disclaimers.
+
+Few templates are defined in this repository, in the [./templates](./templates)
+directory.
+
 ## Credits
 
 It started as a fork of [quick-vim][], but have diverged quite a bit.

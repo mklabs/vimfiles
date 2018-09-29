@@ -6,8 +6,7 @@ const `name^ = () => {
 };
 
 XPT setTimeout " setTimeout\(\() => { .. }, ..)
-XSET job=$VOID_LINE
-setTimeout(() => { `job^ }, `milliseconds^);
+setTimeout(() => `do what^, `milliseconds^);
 `cursor^
 
 XPT () " es6 arrow function
@@ -39,4 +38,9 @@ import `what^ from `where^;
 
 XPT ex "es6 export
 export `default^ `what^
+
+XPT p " es6 promise
+new Promise((resolve, reject) => {
+  `cursor^
+});
 

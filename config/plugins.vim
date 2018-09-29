@@ -29,7 +29,7 @@ Plug 'nono/vim-handlebars'
 Plug 'mhartington/oceanic-next'
 
 " Lint
-Plug 'w0rp/ale', { 'do': 'npm install --loglevel notice -g eslint jsonlint prettier prettier-eslint-cli eslint-plugin-prettier eslint-config-prettier prettier' }
+Plug 'w0rp/ale', { 'do': 'npm install --loglevel notice -g eslint jsonlint prettier' }
 
 " Terminal
 Plug '~/dev/split-term.vim'

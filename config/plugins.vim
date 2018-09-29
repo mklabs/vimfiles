@@ -16,6 +16,7 @@ Plug 'maximbaz/lightline-ale'
 
 " Git
 Plug 'mhinz/vim-signify'
+Plug 'jreybert/vimagit'
 
 " Syntax
 Plug 'tpope/vim-markdown'

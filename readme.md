@@ -87,6 +87,20 @@ These mappings have been thought to work alongside Onivim's default one.
 | Tab (in insert mode) | Triggers emmet expand (when appropriate)    |
 | ,f                   | Apply ALEFix with prettier (through eslint) |
 
+## Snippets
+
+Snippets are enabled and provided by [xptemplate](https://github.com/drmingdrmer/xptemplate).
+
+The `ftplugin/*/*.xpt.vim` files are actually snippet definition files for
+xptemplate. Feel free to browse them or edit them in your own fork.
+
+In this repository, they're written using two-spaces indent. Though it can be
+easily fixed after being placed with tools like
+[prettier](https://github.com/prettier/prettier)
+
+Right now, there's quite a few snippets tailored for JavaScript development
+using es6 syntax and mocha definitions.
+
 ## Credits
 
 It started as a fork of [quick-vim][], but have diverged quite a bit.

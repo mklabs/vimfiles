@@ -75,14 +75,6 @@ set fileencodings=ucs-bom,utf-8,latin1
 " and/or '*' registers explicitly)
 set clipboard+=unnamedplus
 
-" Fuzzy finders (fzf on unix / ctrlp on win32)
-if has('win32')
-  nmap <C-b> :CtrlPBuffer<CR>
-else
-  nmap <C-b> :Buffers<CR>
-  nmap <C-p> :Files<CR>
-endif
-
 " let g:vimfiler_tree_closed_icon = 'aa'
 
 " Theme / Colorsheme configuration

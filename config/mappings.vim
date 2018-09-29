@@ -45,3 +45,9 @@ nmap <Leader>b :VimFiler<CR>
 " ALE
 nmap <silent> <leader>f <Plug>(ale_fix)
 
+" CtrlP
+nmap <C-b> :CtrlPBuffer<CR>
+if !exists('g:gui_oni')
+  nmap <C-p> :CtrlP<CR>
+endif
+

@@ -22,7 +22,7 @@ else
   so ~/.config/nvim/plugins/startify.vim
   so ~/.config/nvim/plugins/ack.vim
   so ~/.config/nvim/plugins/ale.vim
-  so ~/.config/nvim/plugins/lighline.vim
+  so ~/.config/nvim/plugins/lightline.vim
   so ~/.config/nvim/plugins/split-term.vim
   so ~/.config/nvim/plugins/xptemplate.vim
   so ~/.config/nvim/config/mappings.vim

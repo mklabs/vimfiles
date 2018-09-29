@@ -4,11 +4,14 @@ call plug#begin()
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/vimfiler.vim'
+
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Languages
 Plug 'isruslan/vim-es6'
-Plug 'bentayloruk/vim-react-es6-snippets'
+
+" Snippets
+Plug 'drmingdrmer/xptemplate'
 
 " Status bar
 Plug 'itchyny/lightline.vim'
@@ -38,6 +41,12 @@ Plug 'tpope/vim-eunuch'
 " Session
 Plug 'tpope/vim-obsession'
 
+" Layout / Windows Managemenr
+Plug 'wesQ3/vim-windowswap'
+
+" API Blueprint
+Plug 'kylef/apiblueprint.vim'
+
 " Misc
 Plug 'mileszs/ack.vim'
 Plug 'godlygeek/tabular'
@@ -47,6 +56,7 @@ Plug 'mattn/emmet-vim'
 Plug 'moll/vim-node'
 Plug 'tpope/vim-dispatch'
 Plug 'xabikos/vscode-javascript'
+Plug 'terryma/vim-multiple-cursors'
 
 Plug 'mhinz/vim-startify'
 

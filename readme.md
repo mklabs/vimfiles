@@ -15,7 +15,7 @@ Here is how it looks with [Onivim](https://www.onivim.io) on Windows 10 and
 [Windows Subsystem for
 Linux](https://docs.microsoft.com/fr-fr/windows/wsl/about).
 
-![onivim setup](./onivim.png)
+![onivim](https://user-images.githubusercontent.com/113832/46247500-926bf380-c40c-11e8-882b-8769a523a532.png)
 
 ## Installation
 

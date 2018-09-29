@@ -11,6 +11,12 @@ That being said, this repo is now tailored to work best with [Onivim](https://ww
 - Modular nvim / vim and common [configuration](#configuration). Plugins'
   configurations are loaded from their respective files.
 
+Here is how it looks with [Onivim](https://www.onivim.io) on Windows 10 and
+[Windows Subsystem for
+Linux](https://docs.microsoft.com/fr-fr/windows/wsl/about).
+
+![onivim setup](./onivim.png)
+
 ## Installation
 
 Using Neovim: Clone to `~/.config/nvim`.
@@ -94,12 +100,21 @@ Snippets are enabled and provided by [xptemplate](https://github.com/drmingdrmer
 The `ftplugin/*/*.xpt.vim` files are actually snippet definition files for
 xptemplate. Feel free to browse them or edit them in your own fork.
 
-In this repository, they're written using two-spaces indent. Though it can be
-easily fixed after being placed with tools like
+In this repository, they're written using two-spaces indent with semi-colon.
+Though it can be easily fixed after being replaced with tools like
 [prettier](https://github.com/prettier/prettier)
+
+Some snippets don't have semi colons as they are designed to be use, in some
+place, where semi-colons are not desired. Such as `()` which expands to
+anonymous arrow functions.
 
 Right now, there's quite a few snippets tailored for JavaScript development
 using es6 syntax and mocha definitions.
+
+Also, huhe thanks to [torgeir/vim](https://github.com/torgeir/vim) for the
+`req` snippet, which replace and strip down the basename part of the required
+module. In addition to that, quite a few snippet (namely for mocha) have been
+borrowed from his repository.
 
 ## Credits
 

@@ -1,5 +1,42 @@
 XPTemplate priority=lang-1
 
-XPT asdse " assertObjectEquals
-assert.deepStrictEqual(`actual^, `expected^, `message^);
+XPT fun " es6 function
+const `name^ = () => {
+  `cursor^
+};
+
+XPT setTimeout " setTimeout\(\() => { .. }, ..)
+XSET job=$VOID_LINE
+setTimeout(() => { `job^ }, `milliseconds^);
 `cursor^
+
+XPT () " es6 arrow function
+() => {
+  `cursor^
+}
+
+XPT new " const .. = new ..\(..)
+XSET arg*|post=ExpandIfNotEmpty(', ', 'arg*')
+const `name^ = new `Constructor^(`arg*^)
+`cursor^
+
+XPT class " class es6 skeleton
+XSET arg*|post=ExpandIfNotEmpty(', ', 'arg*')
+class `name^ {
+  constructor(`arg*^) {
+    `cursor^
+  }
+}
+
+XPT cm " class es6 method
+`methodName^() {
+  `cursor^
+}
+
+XPT im "es6 import
+import `what^ from `where^;
+`cursor^
+
+XPT ex "es6 export
+export `default^ `what^
+

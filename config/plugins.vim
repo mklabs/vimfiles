@@ -24,7 +24,7 @@ Plug 'tpope/vim-cucumber'
 Plug 'nono/vim-handlebars'
 
 " Theme
-Plug 'mhartington/oceanic-next'
+Plug 'arcticicestudio/nord-vim'
 
 " Lint
 Plug 'w0rp/ale', { 'do': 'npm install --loglevel notice -g eslint jsonlint prettier' }

@@ -30,3 +30,11 @@ console.error(`cursor^);
 
 XPT ex " js bdd expect
 expect(`obj^).to`Equal^(`^);
+
+XPT jsdoc " js doc comment
+/**
+ * `Block description^
+ *
+ * @param {`type^} `name^ - `parameter description^`...^
+* @param {`type^} `name^ - `parameter description^`...^
+ */

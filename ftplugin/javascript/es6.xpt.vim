@@ -44,3 +44,7 @@ new Promise((resolve, reject) => {
   `cursor^
 });
 
+XPT forof " es6 for of
+for (const `item^ of `items^) {
+  `cursor^
+}

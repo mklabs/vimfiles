@@ -7,8 +7,8 @@ Plug 'Shougo/vimfiler.vim'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
-" Languages
-Plug 'isruslan/vim-es6'
+" Syntax
+Plug 'pangloss/vim-javascript'
 
 " Status bar
 Plug 'itchyny/lightline.vim'
@@ -59,7 +59,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
 Plug 'moll/vim-node'
 Plug 'tpope/vim-dispatch'
-Plug 'xabikos/vscode-javascript'
 Plug 'terryma/vim-multiple-cursors'
 
 Plug 'mhinz/vim-startify'

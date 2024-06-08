@@ -1,5 +1,7 @@
 # kickstart.nvim
 
+> Note: This branch is a fork of the most excellent [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
+
 ## Introduction
 
 A starting point for Neovim that is:

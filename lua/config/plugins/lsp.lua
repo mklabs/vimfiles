@@ -7,12 +7,17 @@ return {
     },
 
     config = function()
-      local capabilities = require('blink.cmp').get_lsp_capabilities();
+      local lsp = require("lspconfig");
+      local blink_capabilities = require('blink.cmp').get_lsp_capabilities();
 
-      require("lspconfig").lua_ls.setup({
-        globals = { "vim" },
-        capabilities = capabilities
-      });
+      -- Lua
+      lsp.lua_ls.setup({ capabilities = blink_capabilities });
+
+      -- Html
+      --Enable (broadcasting) snippet capability for completion
+      local capabilities = vim.lsp.protocol.make_client_capabilities();
+      capabilities.textDocument.completion.completionItem.snippetSupport = true;
+      lsp.html.setup({ capabilities = capabilities });
 
       vim.keymap.set({ "n", "v", "i" }, "<C-A-cr>", vim.lsp.buf.format, { desc = "vim.lsp.buf.format()" })
       vim.keymap.set({ "n", "v" }, "<C-A-j>", vim.lsp.buf.format, { desc = "vim.lsp.buf.format()" })

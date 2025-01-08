@@ -14,6 +14,7 @@ Requirements:
 - node (https://nodejs.org)
 - git (https://git-scm.com/)
 - llvm (for clang: https://github.com/llvm/llvm-project - `choco install llvm`)
+- html lsp (`npm i -g vscode-langservers-extracted`)
 
 Few additions compared to TJ videos:
 

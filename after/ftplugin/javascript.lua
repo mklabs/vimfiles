@@ -1,7 +1,8 @@
 local set = vim.opt_local;
 
-set.softtabstop = 2;
 set.shiftwidth = 2;
+set.tabstop = 2;
+-- set.expandtab = true;
+set.softtabstop = -1;
 
---
 -- set.relativenumber = true;

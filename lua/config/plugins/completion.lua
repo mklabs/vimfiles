@@ -12,8 +12,52 @@ return {
       -- "super-tab" for mappings similar to vscode (tab to accept, arrow keys to navigate)
       -- "enter" for mappings similar to "super-tab" but with "enter" to accept
       -- See the full "keymap" documentation for information on defining your own keymap.
-      keymap = { preset = "super-tab" },
-      --
+      -- keymap = { preset = "super-tab" },
+      -- keymap = { preset = "enter" },
+
+      cmdline = {
+        keymap = {
+          preset = 'default',
+        }
+      },
+
+      keymap = {
+        -- set to 'none' to disable the 'default' preset
+
+        -- ['<Up>'] = { 'select_prev', 'fallback' },
+        -- ['<Down>'] = { 'select_next', 'fallback' },
+        --
+        -- -- disable a keymap from the preset
+        -- ['<C-e>'] = {},
+        --
+        -- -- show with a list of providers
+        -- ['<C-space>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
+        --
+        -- -- control whether the next command will be run when using a function
+        -- ['<C-n>'] = {
+        --   function(cmp)
+        --     if some_condition then return end -- runs the next command
+        --     return true                 -- doesn't run the next command
+        --   end,
+        --   'select_next'
+        -- },
+
+        preset = 'super-tab',
+
+        ['<CR>'] = { 'accept', 'fallback' },
+        ['<Tab>'] = {
+          function(cmp)
+            if cmp.snippet_active() then
+              return cmp.accept()
+            else
+              return cmp.select_and_accept()
+            end
+          end,
+          'snippet_forward',
+          'fallback'
+        }
+      },
+
       -- Insert completion item on selection, don't select by default
       -- list = { selection = 'auto_insert' },
 
@@ -36,7 +80,11 @@ return {
 
         -- Insert completion item on selection, don't select by default
         list = {
-          selection = { preselect = true, auto_insert = true }
+          -- selection = { preselect = true, auto_insert = true }
+          -- selection = {
+          --   preselect = function(ctx) return ctx.mode ~= 'cmdline' end,
+          --   auto_insert = function(ctx) return ctx.mode ~= 'cmdline' end
+          -- }
         },
 
         menu = {
@@ -46,7 +94,8 @@ return {
               { "label",     "label_description", gap = 1 },
               { "kind_icon", "kind" }
             },
-          }
+          },
+          -- auto_show = function(ctx) return ctx.mode ~= 'cmdline' end
         },
 
         -- menu = { auto_show = function(ctx) return ctx.mode ~= 'cmdline' end },

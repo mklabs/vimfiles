@@ -5,7 +5,11 @@ return {
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require 'nvim-treesitter.configs'.setup {
+
+        -- See :help
+        -- or https://github.com/nvim-treesitter/nvim-treesitter/tree/master/queries
         ensure_installed = {
+          "embedded_template",
           "bash",
           "c",
           "cpp",
@@ -25,13 +29,15 @@ return {
           "powershell",
           "query",
           "rust",
+          "ruby",
           "typescript",
           "vim",
           "vimdoc",
           "yaml",
           "zig",
         },
-        auto_install = false,
+        -- auto_install = false,
+        auto_install = true,
         highlight = {
           enable = true,
           ---@diagnostic disable-next-line: unused-local

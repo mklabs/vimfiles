@@ -5,6 +5,7 @@ return {
   tag = "0.1.8",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "andrewberty/telescope-themes",
 
     -- Additional `cmake --install build --prefix build` command needed on windows (https://github.com/nvim-telescope/telescope-fzf-native.nvim/issues/118#issuecomment-1844818915)
     { "nvim-telescope/telescope-fzf-native.nvim", build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build" },
@@ -32,6 +33,7 @@ return {
 
     -- vim.keymap.set("n", "<leader>fh", builtin.help_tags);
     vim.keymap.set("n", "<leader>fh", ivy(builtin.help_tags), { desc = "telescope find help_tags" });
+    vim.keymap.set("n", "<leader>ff", ivy(builtin.find_files), { desc = "telescope find files" });
     vim.keymap.set("n", "<leader>fd", ivy(builtin.find_files), { desc = "telescope find files" });
     vim.keymap.set("n", "<leader>fb", ivy(builtin.buffers), { desc = "telescope find buffers" });
 

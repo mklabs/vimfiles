@@ -19,6 +19,12 @@ return {
       capabilities.textDocument.completion.completionItem.snippetSupport = true;
       lsp.html.setup({ capabilities = capabilities });
 
+      -- Astro
+      lsp.astro.setup {}
+
+      -- typescript
+      lsp.ts_ls.setup {}
+
       vim.keymap.set({ "n", "v", "i" }, "<C-A-cr>", vim.lsp.buf.format, { desc = "vim.lsp.buf.format()" })
       vim.keymap.set({ "n", "v" }, "<C-A-j>", vim.lsp.buf.format, { desc = "vim.lsp.buf.format()" })
       vim.keymap.set("n", "grn", vim.lsp.buf.rename, { desc = "vim.lsp.buf.rename()" })

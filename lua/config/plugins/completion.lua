@@ -22,26 +22,6 @@ return {
       },
 
       keymap = {
-        -- set to 'none' to disable the 'default' preset
-
-        -- ['<Up>'] = { 'select_prev', 'fallback' },
-        -- ['<Down>'] = { 'select_next', 'fallback' },
-        --
-        -- -- disable a keymap from the preset
-        -- ['<C-e>'] = {},
-        --
-        -- -- show with a list of providers
-        -- ['<C-space>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
-        --
-        -- -- control whether the next command will be run when using a function
-        -- ['<C-n>'] = {
-        --   function(cmp)
-        --     if some_condition then return end -- runs the next command
-        --     return true                 -- doesn't run the next command
-        --   end,
-        --   'select_next'
-        -- },
-
         preset = 'super-tab',
 
         ['<CR>'] = { 'accept', 'fallback' },
@@ -69,7 +49,16 @@ return {
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
+        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            -- make lazydev completions top priority (see `:h blink.cmp`)
+            score_offset = 100,
+          },
+        },
       },
 
       signature = { enabled = true },

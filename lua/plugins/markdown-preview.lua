@@ -12,7 +12,6 @@ return {
     enabled = true,
     name = "selimacerbas-markdown-preview.nvim",
     config = function()
-      print("hey")
       require("markdown_preview").setup({
         -- all optional; sane defaults shown
         port = 8421,

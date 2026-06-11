@@ -20,3 +20,10 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     vim.bo.filetype = "json"
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "markdown.mdx" },
+  callback = function(ev)
+    vim.diagnostic.enable(false)
+  end,
+})

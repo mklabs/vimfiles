@@ -3,6 +3,10 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
+      highlight = {
+        enable = true,
+        disable = { "markdown", "mdx" },
+      },
       ensure_installed = {
         "make",
         "ruby",
